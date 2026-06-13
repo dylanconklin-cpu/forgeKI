@@ -11,8 +11,8 @@ Description: Provides a reproducible, staged knock-in design workflow for
     domestication, HDR and MMEJ order-form generation, stable report-model
     exports, target-biology review, and Stage 10 cell-line context integration.
 License: MIT + file LICENSE
-URL: https://github.com/dubleeteam/forgeKI, https://dubleeteam.github.io/forgeKI/
-BugReports: https://github.com/dubleeteam/forgeKI/issues
+URL: https://github.com/dylanconklin-cpu/forgeKI, https://dylanconklin-cpu.github.io/forgeKI/
+BugReports: https://github.com/dylanconklin-cpu/forgeKI/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3

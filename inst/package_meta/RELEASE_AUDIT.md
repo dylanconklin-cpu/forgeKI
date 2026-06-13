@@ -19,6 +19,7 @@ This audit records the Codex release-prep pass for the package at `D:/Bioinforma
 - Excluded `CITATION.cff` and the project `.Rprofile` from the built R package while keeping them available in the source repository.
 - Updated stale Rd usage/signature files for the current donor, Golden Gate, pipeline, and Type IIS helper arguments. These should still be regenerated from roxygen in RStudio before publication.
 - Made the heavyweight user-output lint opt in during `R CMD check`; set `FORGEKI_RUN_USER_OUTPUT_LINT=true` to run it as an explicit release/acceptance gate.
+- Updated GitHub Actions to use current r-lib action inputs, install hard package dependencies plus explicit check/test helpers, and leave optional Bioconductor/crisprVerse resources out of the default public CI job.
 
 ## Local toolchain observations
 

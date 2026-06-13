@@ -9,6 +9,7 @@
 ^\.git$
 ^\.github$
 ^CITATION\.cff$
+^\.gitattributes$
 ^\.Rhistory$
 ^\.Rprofile$
 ^\.RData$

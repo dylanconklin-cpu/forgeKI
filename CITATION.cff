@@ -9,6 +9,6 @@ authors:
 version: 0.1.0
 date-released: "2026-06-12"
 license: MIT
-repository-code: "https://github.com/dubleeteam/forgeKI"
-url: "https://dubleeteam.github.io/forgeKI/"
+repository-code: "https://github.com/dylanconklin-cpu/forgeKI"
+url: "https://dylanconklin-cpu.github.io/forgeKI/"
 abstract: "forgeKI provides a staged R workflow for HDR and MMEJ/PITCh knock-in design, target-biology review, donor/order construction, Stage 10 cell-line context integration, and user-facing report exports."

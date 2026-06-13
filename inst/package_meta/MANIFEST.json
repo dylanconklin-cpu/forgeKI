@@ -1,22 +1,27 @@
 {
   "package": "forgeKI",
   "version": "0.1.0",
-  "created_utc": "2026-06-12T22:12:28Z",
+  "created_utc": "2026-06-13T01:01:16Z",
   "files": [
     {
+      "path": ".gitattributes",
+      "sha256": "e03f2712e4bc0a5b1985f9d5a74fb221ade1370195485947ec553abe3e55ddd1",
+      "bytes": 371
+    },
+    {
       "path": ".github/workflows/R-CMD-check.yaml",
-      "sha256": "fadae7a5fe9d26a503861436a670adcea00e680895205b750bee05fca7433938",
-      "bytes": 688
+      "sha256": "e50f95f795561a105f000acb08ea535e74480757ecf0ebd14fde745d49fa37ed",
+      "bytes": 1038
     },
     {
       "path": ".gitignore",
-      "sha256": "91e0cfcf0fb5e017fbef34a835544b5d117f8f2cf3da0fb61f730ae393302f55",
-      "bytes": 217
+      "sha256": "0210762efdc6c89d055ae1db195befb1ada6e3ce6ba3b181a3b0f4a7ce6c9e54",
+      "bytes": 258
     },
     {
       "path": ".Rbuildignore",
-      "sha256": "949bf0bec49880ee2e674f40f1112c3045d86d249d939e58cfb50bd0bcf3d3ac",
-      "bytes": 487
+      "sha256": "1ee85206dc4e14a18ac446eb37f015708c07442433448d313ede9d691044aa05",
+      "bytes": 505
     },
     {
       "path": ".Rprofile",
@@ -24,29 +29,84 @@
       "bytes": 240
     },
     {
+      "path": ".Rproj.user/9BEE2C04/cpp-definition-cache",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    },
+    {
+      "path": ".Rproj.user/9BEE2C04/pcs/files-pane.pper",
+      "sha256": "098d9d3d127bd69091b96cba97ca3397eccc23bdc4dd1c14b27643449deec1cb",
+      "bytes": 162
+    },
+    {
+      "path": ".Rproj.user/9BEE2C04/pcs/source-pane.pper",
+      "sha256": "54e2bf7adcd467238905f09acebaf335556e6846be29593630ba10d2d0428a55",
+      "bytes": 22
+    },
+    {
+      "path": ".Rproj.user/9BEE2C04/pcs/windowlayoutstate.pper",
+      "sha256": "468055f1c9f96c1daf57313852a471729fbde73e3c1da46298c791a1b282094e",
+      "bytes": 289
+    },
+    {
+      "path": ".Rproj.user/9BEE2C04/pcs/workbench-pane.pper",
+      "sha256": "ea9964943892785911e4943e9696dbef288ca50a666b2f064d9fdb0b78bd7177",
+      "bytes": 57
+    },
+    {
+      "path": ".Rproj.user/9BEE2C04/rmd-outputs",
+      "sha256": "7c370d9536d7d0d6a0f7cd7f9826692acd93e4fb05ba46f7b630b879740343d3",
+      "bytes": 5
+    },
+    {
+      "path": ".Rproj.user/9BEE2C04/saved_source_markers",
+      "sha256": "943cf5311c54c71f50cdf4d28d072c70ec8785a4b2b73bcc2000e6f1cf1dfc31",
+      "bytes": 27
+    },
+    {
+      "path": ".Rproj.user/9BEE2C04/sources/session-b8307a4/265BE7AD",
+      "sha256": "f3c8be1a4662d1c79ae043224a4426968f705220db32343444b0481ba7524797",
+      "bytes": 588
+    },
+    {
+      "path": ".Rproj.user/9BEE2C04/sources/session-b8307a4/265BE7AD-contents",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": ".Rproj.user/9BEE2C04/sources/session-b8307a4/lock_file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": ".Rproj.user/shared/notebooks/patch-chunk-names",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
       "path": "_pkgdown.yml",
-      "sha256": "2e26123c21174db4e2220277f76e089b5d00b248b39089f3b524a7e0800ec045",
-      "bytes": 2519
+      "sha256": "3d4b7edfca99ad4fed05154b77fba4d993c918ac925b1e5a1f57bb11a03d4515",
+      "bytes": 2525
     },
     {
       "path": "CITATION.cff",
-      "sha256": "3ab1b778bcb345cda973c9c20765374de2365a3227a0e2ad1e92ef0c05bb275a",
-      "bytes": 638
+      "sha256": "0a554f3af5905988ad72b7224c5db5280ff5be40534ecda0acec43f3cacb12a8",
+      "bytes": 650
     },
     {
       "path": "DESCRIPTION",
-      "sha256": "7e586c8b01542eb38a02450a94d3dcf0161bb88d2b75062bcdba72a214866edb",
-      "bytes": 1550
+      "sha256": "f928bbb41c74c151941f902cb935a5213f004e1bc09b076798c284dd9baf9aae",
+      "bytes": 1568
     },
     {
       "path": "forgeKI_Rpackage.Rproj",
-      "sha256": "aa1bb6b4e0ed0325d1e781f5b6eacf7549b809566866accf8ca605331d136816",
-      "bytes": 218
+      "sha256": "5be94331bd32965250fbb2e9b786dd91cf40b19c582c80434c638f914c9079a8",
+      "bytes": 361
     },
     {
       "path": "inst/CITATION",
-      "sha256": "4cae50183d9a7013799ffc89000a14ee43983046934e1418307a7d6ffb1bc36e",
-      "bytes": 552
+      "sha256": "cc4af0accac6279e1c9120d7caaf01a220980bfe4e68c89ca589a0bd417ea292",
+      "bytes": 564
     },
     {
       "path": "inst/extdata/biology/paralog_pairs.csv",
@@ -140,8 +200,8 @@
     },
     {
       "path": "inst/package_meta/RELEASE_AUDIT.md",
-      "sha256": "f26971d66fde016b09fa4fe4f91da56cb1fbae6342c76b35db388797aa855208",
-      "bytes": 3040
+      "sha256": "c3d6f43a5df212a761521629443f54ae486a5c51c6e0d97bbe395031683748a9",
+      "bytes": 3257
     },
     {
       "path": "inst/package_meta/RELEASE_CHECKLIST.md",
@@ -985,8 +1045,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "fa20603aada3280fb700a7e62d91eafa12f5a8bf82a7573d764ed432be2c2fbd",
-      "bytes": 6457
+      "sha256": "135b61ff90eec8fc383b6185f8afa83bed45116b23aa29d88701843cc1abb484",
+      "bytes": 6463
     },
     {
       "path": "renv.lock",

@@ -20,7 +20,7 @@ After the GitHub release is published, install from GitHub:
 
 ```r
 install.packages("pak")
-pak::pak("dubleeteam/forgeKI")
+pak::pak("dylanconklin-cpu/forgeKI")
 ```
 
 For a local checkout:
