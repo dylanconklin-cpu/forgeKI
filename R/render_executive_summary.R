@@ -29,6 +29,7 @@ render_forgeki_executive_summary <- function(model, output_dir = NULL, file_name
   )
 }
 
+#' @param ... Arguments forwarded to `render_forgeki_executive_summary()`.
 #' @rdname render_forgeki_executive_summary
 #' @export
 render_hdr_executive_summary <- function(...) render_forgeki_executive_summary(...)
@@ -62,6 +63,7 @@ render_forgeki_detailed_html <- function(model, output_dir = NULL, file_name = "
   )
 }
 
+#' @param ... Arguments forwarded to `render_forgeki_detailed_html()`.
 #' @rdname render_forgeki_detailed_html
 #' @export
 render_hdr_detailed_html <- function(...) render_forgeki_detailed_html(...)

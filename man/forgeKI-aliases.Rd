@@ -24,6 +24,10 @@
 \alias{run_forgeki_pipeline}
 \alias{render_forgeki_report}
 \alias{export_forgeki_vendor_order_sheet}
+\alias{assemble_forgeki_report_model}
+\alias{write_forgeki_report_model}
+\alias{read_forgeki_report_model}
+\alias{render_forgeki_order_sheet}
 \alias{summarize_forgeki_result}
 \alias{load_forgeki_result}
 \alias{run_forgeki_shiny}
@@ -92,6 +96,14 @@ run_forgeki_pipeline(...)
 render_forgeki_report(...)
 
 export_forgeki_vendor_order_sheet(...)
+
+assemble_forgeki_report_model(...)
+
+write_forgeki_report_model(...)
+
+read_forgeki_report_model(...)
+
+render_forgeki_order_sheet(...)
 
 summarize_forgeki_result(...)
 

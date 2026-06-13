@@ -49,6 +49,7 @@ forgeki_assemble_report_model <- function(result, output_profile = NULL, include
   model
 }
 
+#' @param ... Arguments forwarded to `forgeki_assemble_report_model()`.
 #' @rdname forgeki_assemble_report_model
 #' @export
 hdr_assemble_report_model <- function(...) forgeki_assemble_report_model(...)
@@ -145,6 +146,7 @@ forgeki_write_report_model <- function(model, output_dir, overwrite = TRUE) {
   )
 }
 
+#' @param ... Arguments forwarded to `forgeki_write_report_model()`.
 #' @rdname forgeki_write_report_model
 #' @export
 hdr_write_report_model <- function(...) forgeki_write_report_model(...)
@@ -164,6 +166,7 @@ forgeki_read_report_model <- function(path) {
   model
 }
 
+#' @param ... Arguments forwarded to `forgeki_read_report_model()`.
 #' @rdname forgeki_read_report_model
 #' @export
 hdr_read_report_model <- function(...) forgeki_read_report_model(...)

@@ -1,7 +1,7 @@
 {
   "package": "forgeKI",
   "version": "0.1.0",
-  "created_utc": "2026-06-13T01:01:16Z",
+  "created_utc": "2026-06-13T02:51:18Z",
   "files": [
     {
       "path": ".gitattributes",
@@ -65,13 +65,13 @@
     },
     {
       "path": ".Rproj.user/9BEE2C04/sources/session-b8307a4/265BE7AD",
-      "sha256": "f3c8be1a4662d1c79ae043224a4426968f705220db32343444b0481ba7524797",
-      "bytes": 588
+      "sha256": "80314a7fb7332e1370cccb5aa9618366b00f2659241562ec46e7c6082a60ae19",
+      "bytes": 647
     },
     {
       "path": ".Rproj.user/9BEE2C04/sources/session-b8307a4/265BE7AD-contents",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "bytes": 0
+      "sha256": "de1994eea905d7987b97718f0f32d03696b9969d5017fd015ac70448e37e3f54",
+      "bytes": 76
     },
     {
       "path": ".Rproj.user/9BEE2C04/sources/session-b8307a4/lock_file",
@@ -95,8 +95,8 @@
     },
     {
       "path": "DESCRIPTION",
-      "sha256": "f928bbb41c74c151941f902cb935a5213f004e1bc09b076798c284dd9baf9aae",
-      "bytes": 1568
+      "sha256": "33568e64fe0d4c42545258bfc26230b828ae08441e46c65688f29163be5e335c",
+      "bytes": 1580
     },
     {
       "path": "forgeKI_Rpackage.Rproj",
@@ -255,8 +255,8 @@
     },
     {
       "path": "man/compute_hdr_production_readiness.Rd",
-      "sha256": "a0be65f978e4774e9f204a5069b34e129bd8f4be262183384d61d73a356e541d",
-      "bytes": 812
+      "sha256": "10c8addf9b7a56b81e62303086b8d76706dc06fb7a37b81e071daf04fa82bbc7",
+      "bytes": 697
     },
     {
       "path": "man/export_vendor_order_sheet.Rd",
@@ -265,8 +265,13 @@
     },
     {
       "path": "man/forgeKI-aliases.Rd",
-      "sha256": "f69f5714740be81530a71d87bdfbbf612c3d8f43c6f3a25eb7642e97c51ea5dc",
-      "bytes": 3776
+      "sha256": "25b88f3f8363e0aaee2646bec7683ae1683b523ccc5473ef1f0967cb9e7a5a03",
+      "bytes": 4052
+    },
+    {
+      "path": "man/forgeki_assemble_report_model.Rd",
+      "sha256": "4ab4cc2fba92398f787b55719e3ee3d55e3840ec1975c71ddc074cf4659d1216",
+      "bytes": 969
     },
     {
       "path": "man/forgeki_available_modules.Rd",
@@ -319,9 +324,14 @@
       "bytes": 1279
     },
     {
-      "path": "man/forgeki_report_model.Rd",
-      "sha256": "cfa903cbdac3e940fce4bff8963f5b3cfd284218249d88d08c018e10181e0cb5",
-      "bytes": 3018
+      "path": "man/forgeki_read_report_model.Rd",
+      "sha256": "08f97247af22ed9340461476715d871850f29c2606dabf32b8b6ddafd4dc5b6c",
+      "bytes": 537
+    },
+    {
+      "path": "man/forgeki_report_verdict.Rd",
+      "sha256": "cca2d1a7b75763479a9b99ec1cb0fa2a55265515f8fa33a7884c64652b19f978",
+      "bytes": 401
     },
     {
       "path": "man/forgeki_resolve_fusion_payload.Rd",
@@ -342,6 +352,16 @@
       "path": "man/forgeki_scan_external_module_library.Rd",
       "sha256": "0906d918410f239e103ce034976645c22f79ba1533f09ffb84429194d3599ef0",
       "bytes": 1029
+    },
+    {
+      "path": "man/forgeki_select_top_designs.Rd",
+      "sha256": "a03e06f7e631844983f81e5d5e4192cfcafe8c591075bee37a3a5e9648e773e7",
+      "bytes": 445
+    },
+    {
+      "path": "man/forgeki_write_report_model.Rd",
+      "sha256": "df5f95aa464c023fb44bc9b4e0c54ff3f6da496698433052e3ed6be666aec26a",
+      "bytes": 662
     },
     {
       "path": "man/get_hdr_stage1_hg38_resources.Rd",
@@ -379,6 +399,16 @@
       "bytes": 4947
     },
     {
+      "path": "man/hdr_build_target_biology_proteome_reference.Rd",
+      "sha256": "74c4f575a34729597f5d3b56bea9e0d3d7eeefe40a92352a668b301b5afae931",
+      "bytes": 1564
+    },
+    {
+      "path": "man/hdr_build_target_biology_reference.Rd",
+      "sha256": "3577271fe389235701a4ec9cd0798fe4b34c82e15b3f3d39ed22369fa32d4bc4",
+      "bytes": 1598
+    },
+    {
       "path": "man/hdr_check_stage10_omics_inputs.Rd",
       "sha256": "de65f0b50f900f37fc0ad2b69b5a05c0285a89bd0f25146ae80b11cd2eb42586",
       "bytes": 982
@@ -395,7 +425,7 @@
     },
     {
       "path": "man/hdr_crisprverse_capabilities.Rd",
-      "sha256": "4bc2a7dbec730d8425feb4445a8c42561b04489ea44183a4bba4e3981bb1f9db",
+      "sha256": "1d5c5bb86dcd784ecb223284d98865ed8ac51735874b87eb43a2fe047b848d13",
       "bytes": 575
     },
     {
@@ -407,6 +437,11 @@
       "path": "man/hdr_default_equivalence_plan.Rd",
       "sha256": "3449b829ef1a3cbfcef0796fb899d27ebbac010dc8829c608c9f18ed40a84f2c",
       "bytes": 648
+    },
+    {
+      "path": "man/hdr_fetch_uniprot_target_features.Rd",
+      "sha256": "df537ec664d658d62e702149ad2535f4fca540e89f671c2c4803720149a660fe",
+      "bytes": 754
     },
     {
       "path": "man/hdr_golden_gate_options.Rd",
@@ -424,6 +459,11 @@
       "bytes": 644
     },
     {
+      "path": "man/hdr_load_target_biology_reference.Rd",
+      "sha256": "81dd0c311dee87c545f2545acd43fb7b69004fe004ecf143df6e53e405dac20f",
+      "bytes": 579
+    },
+    {
       "path": "man/hdr_make_gene_slim_stage10_omics_bundle.Rd",
       "sha256": "f33c56541603377a14cc35fa2aff5f9014833bae4b353aa169d7254bc06c94b4",
       "bytes": 1557
@@ -437,6 +477,11 @@
       "path": "man/hdr_normalize_order_role.Rd",
       "sha256": "8e2d322667f6229fe8ee7a3280182ddff90b0afe48fca0e379c001ff06c98d83",
       "bytes": 556
+    },
+    {
+      "path": "man/hdr_parse_uniprot_features.Rd",
+      "sha256": "2e0fc8acbfcdb82eb44a2f5a03aabec2bbee20ba00e37a5305117fe8a408f4c1",
+      "bytes": 501
     },
     {
       "path": "man/hdr_repair_strategy.Rd",
@@ -464,9 +509,14 @@
       "bytes": 1045
     },
     {
-      "path": "man/hdr_target_biology_reference.Rd",
-      "sha256": "d9bb55a2d74d9e5ca478f0f54785b3f1258a2f337475b75cf65dfcf260d8dba0",
-      "bytes": 3354
+      "path": "man/hdr_target_biology_default_reference_path.Rd",
+      "sha256": "30783855b9547e63dfc5caf36403c8f5569c228d598674394fdbab08def6a634",
+      "bytes": 502
+    },
+    {
+      "path": "man/hdr_target_biology_reference_schema.Rd",
+      "sha256": "84049ef04878329293304986eb734c4c2ffc2c86f50afbfee94f9640ce070a38",
+      "bytes": 555
     },
     {
       "path": "man/hdr_target_biology_rules.Rd",
@@ -487,6 +537,11 @@
       "path": "man/hdr_write_stage10_resource_template.Rd",
       "sha256": "8c0bcab4ed18f21f33eed41cceb0d932014c82198901482613fc245743e4fd06",
       "bytes": 974
+    },
+    {
+      "path": "man/humanize_status.Rd",
+      "sha256": "4c04a2f937b8b085ad9005211fdaaf3aaa0fd55146aff1d7825ee1a7286eb28f",
+      "bytes": 439
     },
     {
       "path": "man/inspect_hdr_stage10_bundle.Rd",
@@ -534,6 +589,21 @@
       "bytes": 511
     },
     {
+      "path": "man/render_forgeki_detailed_html.Rd",
+      "sha256": "10a07f78dfb02a28107867c9327103e7a8265c6f7d048ab50aaf26481748bec1",
+      "bytes": 969
+    },
+    {
+      "path": "man/render_forgeki_executive_summary.Rd",
+      "sha256": "99df8cb67384742841dd738d55ba340de33460b1aef3ae80dc705fd4ee8f1a69",
+      "bytes": 903
+    },
+    {
+      "path": "man/render_forgeki_order_csv.Rd",
+      "sha256": "602419ea170c1679d615b4b38869fce44bc81f2ce684261501856d3271f68876",
+      "bytes": 1062
+    },
+    {
       "path": "man/render_hdr_report.Rd",
       "sha256": "759c9ccf8cee196708dc1ba5c07935cd1493a993aa6e41e026b3b545b1d8b488",
       "bytes": 1467
@@ -550,7 +620,7 @@
     },
     {
       "path": "man/run_hdr_pipeline.Rd",
-      "sha256": "ce73199fd74be98e5feb304d8f6880e8cd45b8b5682586c42a1eef367b8e4bc0",
+      "sha256": "b8abde28ae70fcbd9c5ab17d0129ecdf61d3c0f90bc244b40ca64afe657adca1",
       "bytes": 3873
     },
     {
@@ -845,13 +915,13 @@
     },
     {
       "path": "R/render_executive_summary.R",
-      "sha256": "5fe8561db1030263cd945a217e92c3e31ab16d33c3aac926c2ef5b4ab6ab707c",
-      "bytes": 42276
+      "sha256": "7465e3b16550cf29bcd956b2c7feef1a79154d46c62ab7ac63ccb69408c99de7",
+      "bytes": 42422
     },
     {
       "path": "R/render_order_csv.R",
-      "sha256": "6bd1d3951d9e1f61a2f88ef8929529d538a02d8377aedf578ecdb55b1800c931",
-      "bytes": 4166
+      "sha256": "4068d06a27da97ba3796bc32746aed0598ef83478bf00f51de38870f9cc63985",
+      "bytes": 4233
     },
     {
       "path": "R/repair_strategy.R",
@@ -865,8 +935,8 @@
     },
     {
       "path": "R/report_model.R",
-      "sha256": "865321744270b6fa9f9d55bcbb2eb44294a96ae335b072ccba111a1775e1130b",
-      "bytes": 21013
+      "sha256": "456f0a420e46349a30ebf34d89651f5728df12f19d0a7ce5ac55cedee3387818",
+      "bytes": 21222
     },
     {
       "path": "R/report_pages.R",

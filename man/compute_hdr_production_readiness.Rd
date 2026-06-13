@@ -13,9 +13,8 @@ compute_hdr_production_readiness(result)
 A tibble with one row per Stage 9 design recommendation.
 }
 \description{
-Derives a compact v44/v45/v46-style readiness table from the package result.
-The table is intended for equivalence review against historical report-facing
-readiness outputs: it propagates Stage 9 recommendation status, Stage 7 virtual
-allele status, Stage 8 donor/orderability status, orderable sequence availability,
-and major caution flags into a final package-facing order action.
+Derives a compact report/order/CSV readiness table from the package result.
+The table propagates recommendation status, virtual-allele status,
+donor/orderability status, orderable sequence availability, and major caution
+flags into a final package-facing order action.
 }

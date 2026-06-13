@@ -33,6 +33,7 @@ render_forgeki_order_csv <- function(model, output_dir = NULL, file_name = "forg
   )
 }
 
+#' @param ... Arguments forwarded to `render_forgeki_order_csv()`.
 #' @rdname render_forgeki_order_csv
 #' @export
 render_hdr_order_csv <- function(...) render_forgeki_order_csv(...)

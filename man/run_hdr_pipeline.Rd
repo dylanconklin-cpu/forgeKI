@@ -57,8 +57,8 @@ from the omics bundle after Stage 9 and attach it as \code{stage10_reference_bui
 
 \item{blocking_top_n}{Optional narrower number of ranked guides used for HDR
 donor-arm recleavage blocking. When \code{NULL}, user-facing HDR render runs
-default to the first five Stage 2 guides so unexported long-tail candidates do
-not introduce unexplained donor-arm edits; non-rendered runs retain
+default to the first five Stage 2 guides so unexported long-tail candidates
+do not introduce unexplained donor-arm edits; non-rendered runs retain
 \code{top_n}.}
 
 \item{write_outputs}{Whether stage tables should be written to disk.}

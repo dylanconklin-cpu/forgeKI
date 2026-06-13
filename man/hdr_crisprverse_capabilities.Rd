@@ -10,8 +10,8 @@ hdr_crisprverse_capabilities(options = hdr_crisprverse_options())
 \item{options}{crisprVerse options from \code{hdr_crisprverse_options()}.}
 }
 \value{
-A tibble describing optional package availability and whether each package is
-required for the requested mode.
+A tibble describing optional package availability and whether each
+package is required for the requested mode.
 }
 \description{
 Report local crisprVerse package availability
