@@ -1,7 +1,7 @@
 {
   "package": "forgeKI",
   "version": "0.1.0",
-  "created_utc": "2026-06-13T02:51:18Z",
+  "created_utc": "2026-06-13T03:37:30Z",
   "files": [
     {
       "path": ".gitattributes",
@@ -90,8 +90,8 @@
     },
     {
       "path": "CITATION.cff",
-      "sha256": "0a554f3af5905988ad72b7224c5db5280ff5be40534ecda0acec43f3cacb12a8",
-      "bytes": 650
+      "sha256": "a9c66b31e2c443337cadfa352c184f15c7b290a0ae4e7ba1b91e30cb36ba2316",
+      "bytes": 681
     },
     {
       "path": "DESCRIPTION",
@@ -105,8 +105,8 @@
     },
     {
       "path": "inst/CITATION",
-      "sha256": "cc4af0accac6279e1c9120d7caaf01a220980bfe4e68c89ca589a0bd417ea292",
-      "bytes": 564
+      "sha256": "6e0afe27da8c4b82e7f882682ce378b7b23a0a9359d9dcfee2f668110e0aa54b",
+      "bytes": 635
     },
     {
       "path": "inst/extdata/biology/paralog_pairs.csv",
@@ -830,8 +830,8 @@
     },
     {
       "path": "NEWS.md",
-      "sha256": "103e570d43813783b1b669b9094ea54a14e5e314284a90aa3f3c51d1ec0feaf8",
-      "bytes": 41958
+      "sha256": "8f2e474180bf70bffaa78b6419b0eca2261322a3b50de50619886b76390e305d",
+      "bytes": 42048
     },
     {
       "path": "R/config.R",
@@ -1115,8 +1115,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "135b61ff90eec8fc383b6185f8afa83bed45116b23aa29d88701843cc1abb484",
-      "bytes": 6463
+      "sha256": "c3f5a4d2e5d458a13474f31bbf572089d8d6e3e14f089da078330d302237ba97",
+      "bytes": 6572
     },
     {
       "path": "renv.lock",

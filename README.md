@@ -1,5 +1,7 @@
 # forgeKI
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20674490.svg)](https://doi.org/10.5281/zenodo.20674490)
+
 `forgeKI` is an R package for biology-first knock-in design. It builds staged HDR and MMEJ/PITCh reporter-tagging workflows around explicit resources, reproducible job folders, auditable guide and donor decisions, and bench-facing outputs.
 
 The package is currently prepared as the first public release candidate. Real production runs still require local hg38 resources and, for Stage 10 cell-line ranking, an explicitly supplied reference bundle that is not shipped with the public package.

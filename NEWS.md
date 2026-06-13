@@ -8,6 +8,7 @@
 - Added target-biology review and bundled target-biology reference support for unsupported or manual-review loci.
 - Added Stage 10 HDR/MMEJ cell-line context consumption and builder utilities, including gene-aware, design-aware, allele-aware, and chromatin-aware ranking layers when resources are supplied.
 - Added release-preparation metadata, citation files, CI scaffolding, and packaging hygiene for GitHub/Zenodo deployment.
+- Archived the first public release on Zenodo: <https://doi.org/10.5281/zenodo.20674490>.
 
 # forgeKI 0.0.1.9006.6t-g
 
