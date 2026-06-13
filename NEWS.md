@@ -7,6 +7,7 @@
 - Added Halo-HiBiT as an HDR fusion-module metadata entry, while keeping it sequence-gated until a curated payload sequence or external FASTA is supplied.
 - Clarified that the LID degron module is local/in-silico metadata rather than part of the current Addgene submission.
 - Improved README install, smoke-test, and donor-module selection guidance, including the prebuilt Windows binary install path.
+- Added Zenodo reference-bundle setup guidance and replaced workstation-specific production paths with portable user-local examples.
 
 # forgeKI 0.1.0
 

@@ -56,9 +56,30 @@ pkgload::load_all()
 The public package does not bundle private genome, DepMap, RRBS, or lab module-library data. Production workflows should supply these paths explicitly:
 
 - hg38 genome/transcript resources for exact locus and guide design.
-- Optional Stage 10 HDR/MMEJ reference bundle for cell-line ranking.
+- Optional Stage 10 HDR/MMEJ reference bundle for cell-line ranking. A frozen restricted research-use bundle is available on Zenodo: <https://zenodo.org/records/20680156>.
 - Optional external pForge module library for lab-specific cassette definitions.
 - Optional crisprVerse packages and Bowtie index for secondary guide-evidence audits.
+
+The Stage 10 bundle contains DepMap-derived resources and should be used under the terms described on Zenodo and in the bundle README/manifest. To use it, download the archive from Zenodo, unzip it outside the package source tree, and point forgeKI at the unzipped bundle root:
+
+```r
+reference_bundle_dir <- file.path(path.expand("~"), "forgeKI_reference_bundle")
+dir.create(reference_bundle_dir, recursive = TRUE, showWarnings = FALSE)
+
+utils::unzip(
+  "path/to/forgeKI_reference_bundle_hg38_stage10_v0.1.0_20260613_restricted_research_use.zip",
+  exdir = reference_bundle_dir
+)
+
+# If the archive expands into a single nested folder, use that nested folder
+# as `reference_bundle_dir` in the production examples below.
+```
+
+You can also set the location once per R session:
+
+```r
+Sys.setenv(FORGEKI_REFERENCE_BUNDLE_DIR = reference_bundle_dir)
+```
 
 The package ships toy fixtures for tests and examples only.
 
@@ -149,9 +170,12 @@ summarize_forgeki_result(res)
 ## Production-style HDR configuration
 
 ```r
+reference_bundle_dir <- file.path(path.expand("~"), "forgeKI_reference_bundle")
+project_dir <- file.path(path.expand("~"), "forgeKI_runs", "IRF1_HDR")
+
 cfg <- forgeki_config(
   gene = "IRF1",
-  project_dir = "D:/Bioinformatics/HDR/forgeKI_runs/IRF1_HDR",
+  project_dir = project_dir,
   method = "hdr",
   donor = forgeki_donor_options(
     destination_vector_id = "pForge-Dest-HSVTK",
@@ -164,7 +188,7 @@ cfg <- forgeki_config(
   ),
   stage10 = forgeki_stage10_options(
     mode = "require",
-    reference_bundle_dir = "D:/Bioinformatics/HDR/forgeKI_reference_bundle"
+    reference_bundle_dir = reference_bundle_dir
   )
 )
 
@@ -178,9 +202,12 @@ res <- run_forgeki_pipeline(
 ## Production-style MMEJ/PITCh configuration
 
 ```r
+reference_bundle_dir <- file.path(path.expand("~"), "forgeKI_reference_bundle")
+project_dir <- file.path(path.expand("~"), "forgeKI_runs", "IRF1_MMEJ")
+
 cfg <- forgeki_config(
   gene = "IRF1",
-  project_dir = "D:/Bioinformatics/HDR/forgeKI_runs/IRF1_MMEJ",
+  project_dir = project_dir,
   method = "mmej",
   donor = forgeki_donor_options(
     destination_vector_id = "pForge-Dest-HSVTK",
@@ -191,7 +218,7 @@ cfg <- forgeki_config(
   mmej = forgeki_mmej_options(),
   stage10 = forgeki_stage10_options(
     mode = "require",
-    reference_bundle_dir = "D:/Bioinformatics/HDR/forgeKI_reference_bundle"
+    reference_bundle_dir = reference_bundle_dir
   )
 )
 
@@ -238,11 +265,18 @@ inspect_forgeki_stage10_bundle()
 Feature-informed builder runs can also supply a consolidated omics bundle directly:
 
 ```r
+reference_bundle_dir <- file.path(path.expand("~"), "forgeKI_reference_bundle")
+
 cfg <- forgeki_config(
   gene = "IRF1",
   stage10 = forgeki_stage10_options(
     mode = "require",
-    omics_bundle_path = "D:/Bioinformatics/HDR/forgeKI_reference_bundle/hdr_stage10/omics/forgeKI_stage10_omics_bundle.rds"
+    omics_bundle_path = file.path(
+      reference_bundle_dir,
+      "hdr_stage10",
+      "omics",
+      "forgeKI_stage10_omics_bundle.rds"
+    )
   )
 )
 ```
