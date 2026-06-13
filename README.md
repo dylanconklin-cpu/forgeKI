@@ -25,6 +25,24 @@ install.packages("pak")
 pak::pak("dylanconklin-cpu/forgeKI")
 ```
 
+On Windows, a prebuilt binary is also attached to the GitHub release:
+
+```r
+install.packages(
+  "https://github.com/dylanconklin-cpu/forgeKI/releases/download/v0.1.0/forgeKI_0.1.0.zip",
+  repos = NULL,
+  type = "win.binary"
+)
+```
+
+The default exact hg38 pipeline also needs Bioconductor genome and annotation
+resources. Install them once after installing forgeKI:
+
+```r
+library(forgeKI)
+forgeki_install_hg38_resources()
+```
+
 For a local checkout:
 
 ```r
@@ -44,9 +62,65 @@ The public package does not bundle private genome, DepMap, RRBS, or lab module-l
 
 The package ships toy fixtures for tests and examples only.
 
+## Choosing HDR payload and selection modules
+
+For new user-facing runs, choose donor modules with `forgeki_donor_options()`.
+The three practical choices are:
+
+- `destination_vector_id`: the reusable pForge donor destination backbone.
+- `fusion_module_id`: the payload fused to the target gene.
+- `selectable_cassette_id`: the optional HDR selection/sorting cassette. Use
+  `NULL` for no drug-selection cassette.
+
+```r
+donor <- forgeki_donor_options(
+  destination_vector_id = "pForge-Dest-HSVTK",
+  fusion_module_id = "pForge-Fusion-HiBiT-p2A-EGFP",
+  selectable_cassette_id = "pForge-Cassette-mRFP1-Hygro",
+  nuclease_plasmid_id = "pForge-HDR-Cas9-SingleGuide"
+)
+```
+
+You can list the same choices from R:
+
+```r
+forgeki_available_hdr_payloads()
+forgeki_available_hdr_selection_cassettes()
+```
+
+Current HDR payload choices:
+
+| forgeKI ID | Payload | Addgene plasmid ID | Status |
+|---|---|---:|---|
+| `pForge-Fusion-HiBiT` | HiBiT | 258784 | Addgene-assigned; pending sample/public release |
+| `pForge-Fusion-GFP11` | GFP11 | 258785 | Addgene-assigned; pending sample/public release |
+| `pForge-Fusion-ddDegron` | ddDegron | 258786 | Addgene-assigned; pending sample/public release |
+| `pForge-Fusion-Halo-HiBiT` | Halo-HiBiT | 258787 | Addgene-assigned; pending sample/public release; Stage 7 sequence not bundled yet |
+| `pForge-Fusion-LID` | LID degron | - | Not Addgene-submitted; local/in-silico module metadata |
+| `pForge-Fusion-p2A-EGFP` | p2A-EGFP | 258788 | Addgene-assigned; pending sample/public release |
+| `pForge-Fusion-HiBiT-p2A-EGFP` | HiBiT-p2A-EGFP | 258789 | Addgene-assigned; pending sample/public release |
+| `pForge-Fusion-dTAG` | dTAG | 258790 | Addgene-assigned; pending sample/public release |
+
+Current HDR selection-cassette choices:
+
+| forgeKI ID | Selection/marker | Addgene plasmid ID | Status |
+|---|---|---:|---|
+| `NULL` | No drug-selection cassette | - | No selection module included |
+| `pForge-Cassette-mRFP1-Hygro` | mRFP1 + hygromycin | 258793 | Addgene-assigned; pending sample/public release |
+| `pForge-Cassette-mRFP1-Puro` | mRFP1 + puromycin | 258794 | Addgene-assigned; pending sample/public release |
+| `pForge-Cassette-BFP-Puro` | BFP + puromycin | 258795 | Addgene-assigned; pending sample/public release |
+
+The Addgene records above have assigned plasmid IDs but are not yet public/orderable
+while their status is "waiting for sample." Gene-specific homology arms and guide
+inserts are not Addgene plasmids; forgeKI designs them as target-specific synthetic
+DNA order items.
+
 ## Minimal smoke run
 
-This toy run checks local package mechanics without production hg38 evidence:
+This run checks local package mechanics while skipping off-target scanning and
+Stage 10. It still resolves ACTB from hg38, so run
+`forgeki_install_hg38_resources()` first if these Bioconductor packages are not
+already installed.
 
 ```r
 library(forgeKI)
@@ -80,9 +154,10 @@ cfg <- forgeki_config(
   project_dir = "D:/Bioinformatics/HDR/forgeKI_runs/IRF1_HDR",
   method = "hdr",
   donor = forgeki_donor_options(
-    destination_vector_id = "pForge-HDR-Cas9-SingleGuide",
+    destination_vector_id = "pForge-Dest-HSVTK",
     fusion_module_id = "pForge-Fusion-HiBiT-p2A-EGFP",
-    selectable_cassette_id = "pForge-Cassette-mRFP1-Hygro"
+    selectable_cassette_id = "pForge-Cassette-mRFP1-Hygro",
+    nuclease_plasmid_id = "pForge-HDR-Cas9-SingleGuide"
   ),
   golden_gate = forgeki_golden_gate_options(
     domestication_policy = "biology_first"
@@ -108,9 +183,10 @@ cfg <- forgeki_config(
   project_dir = "D:/Bioinformatics/HDR/forgeKI_runs/IRF1_MMEJ",
   method = "mmej",
   donor = forgeki_donor_options(
-    destination_vector_id = "pForge-MMEJ-Cas9-DualGuide",
+    destination_vector_id = "pForge-Dest-HSVTK",
     fusion_module_id = "pForge-Fusion-HiBiT-p2A-EGFP",
-    selectable_cassette_id = NULL
+    selectable_cassette_id = NULL,
+    nuclease_plasmid_id = "pForge-MMEJ-Cas9-DualGuide"
   ),
   mmej = forgeki_mmej_options(),
   stage10 = forgeki_stage10_options(

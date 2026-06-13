@@ -38,6 +38,7 @@ Suggests:
     zip,
     pagedown,
     webshot2,
+    BiocManager,
     Biostrings,
     BSgenome,
     GenomeInfoDb,

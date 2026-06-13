@@ -3,9 +3,10 @@ test_that("fusion payload registry covers built-in pForge fusion modules only", 
   payloads <- forgeki_fusion_payload_registry()
 
   built_in_fusion <- fusion |>
-    dplyr::filter(!.data$external_module)
+    dplyr::filter(!.data$external_module, .data$sequence_available)
 
   expect_true(all(built_in_fusion$module_id %in% payloads$module_id))
+  expect_false("pForge-Fusion-Halo-HiBiT" %in% payloads$module_id)
   expect_true(all(payloads$payload_length_bp %% 3L == 0L))
   expect_true(all(grepl("^(TAA|TAG|TGA)$", substr(payloads$payload_sequence, nchar(payloads$payload_sequence) - 2L, nchar(payloads$payload_sequence)))))
 })

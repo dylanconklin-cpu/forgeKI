@@ -26,7 +26,7 @@
 #' @return A Stage 1 resource list with class `hdr_stage1_resources`.
 #' @export
 get_hdr_stage1_hg38_resources <- function(gene = NULL, transcript_id = NULL, genome = NULL, txdb = NULL, orgdb = NULL, organism = "human", genome_build = "hg38") {
-  hdr_require_namespaces(c("Biostrings", "BSgenome", "GenomeInfoDb", "GenomicRanges", "IRanges", "GenomicFeatures", "AnnotationDbi", "BSgenome.Hsapiens.UCSC.hg38", "TxDb.Hsapiens.UCSC.hg38.knownGene", "org.Hs.eg.db"), stage = "stage1_locus")
+  hdr_require_namespaces(forgeki_hg38_bioc_packages(), stage = "stage1_locus")
 
   genome <- genome %||% BSgenome.Hsapiens.UCSC.hg38::BSgenome.Hsapiens.UCSC.hg38
   txdb <- txdb %||% TxDb.Hsapiens.UCSC.hg38.knownGene::TxDb.Hsapiens.UCSC.hg38.knownGene
@@ -76,13 +76,110 @@ get_hdr_stage1_hg38_resources <- function(gene = NULL, transcript_id = NULL, gen
 #' @return `TRUE` if the required namespaces are available; otherwise `FALSE`.
 #' @export
 has_hdr_stage1_hg38_resources <- function() {
-  all(vapply(c("Biostrings", "BSgenome", "GenomeInfoDb", "GenomicRanges", "IRanges", "GenomicFeatures", "AnnotationDbi", "BSgenome.Hsapiens.UCSC.hg38", "TxDb.Hsapiens.UCSC.hg38.knownGene", "org.Hs.eg.db"), requireNamespace, logical(1), quietly = TRUE))
+  !length(forgeki_missing_hg38_packages())
+}
+
+#' List hg38 Bioconductor packages used by forgeKI
+#'
+#' @return Character vector of package names needed for default hg38 Stage 1
+#'   resource discovery.
+#' @export
+forgeki_hg38_bioc_packages <- function() {
+  c(
+    "Biostrings",
+    "BSgenome",
+    "GenomeInfoDb",
+    "GenomicRanges",
+    "IRanges",
+    "GenomicFeatures",
+    "AnnotationDbi",
+    "BSgenome.Hsapiens.UCSC.hg38",
+    "TxDb.Hsapiens.UCSC.hg38.knownGene",
+    "org.Hs.eg.db"
+  )
+}
+
+#' List missing hg38 Bioconductor packages
+#'
+#' @param packages Character vector of package names to check. Defaults to the
+#'   packages returned by `forgeki_hg38_bioc_packages()`.
+#'
+#' @return Character vector of missing package names.
+#' @export
+forgeki_missing_hg38_packages <- function(packages = forgeki_hg38_bioc_packages()) {
+  packages[!vapply(packages, requireNamespace, logical(1), quietly = TRUE)]
+}
+
+#' Install hg38 Bioconductor resources used by forgeKI
+#'
+#' Installs the Bioconductor packages required for the default exact hg38
+#' pipeline resources. This is intentionally a user-called setup step rather
+#' than an automatic package-install hook because the genome and annotation
+#' resources are large and come from Bioconductor.
+#'
+#' @param packages Character vector of package names to install. Defaults to the
+#'   missing packages from `forgeki_hg38_bioc_packages()`.
+#' @param ask Passed to `BiocManager::install()`. Defaults to `interactive()`.
+#' @param update Passed to `BiocManager::install()`. Defaults to `FALSE` so the
+#'   helper installs missing resources without updating the user's full library.
+#' @param install_biocmanager If `TRUE`, install `BiocManager` from CRAN when it
+#'   is not already available.
+#'
+#' @return Invisibly returns the package vector that was requested.
+#' @export
+forgeki_install_hg38_resources <- function(packages = forgeki_missing_hg38_packages(), ask = interactive(), update = FALSE, install_biocmanager = TRUE) {
+  packages <- unique(as.character(packages))
+  packages <- packages[nzchar(packages)]
+  if (!length(packages)) {
+    message("All forgeKI hg38 Bioconductor resources are already installed.")
+    return(invisible(character()))
+  }
+
+  if (!requireNamespace("BiocManager", quietly = TRUE)) {
+    if (!isTRUE(install_biocmanager)) {
+      stop("BiocManager is required. Install it with install.packages('BiocManager'), then rerun forgeki_install_hg38_resources().", call. = FALSE)
+    }
+    message("Installing BiocManager from CRAN...")
+    utils::install.packages("BiocManager")
+  }
+
+  message("Installing forgeKI hg38 Bioconductor resources:")
+  message("  ", paste(packages, collapse = ", "))
+  BiocManager::install(packages, ask = ask, update = update)
+
+  still_missing <- forgeki_missing_hg38_packages(packages)
+  if (length(still_missing)) {
+    stop(
+      "Some forgeKI hg38 resources are still missing: ",
+      paste(still_missing, collapse = ", "),
+      call. = FALSE
+    )
+  }
+
+  invisible(packages)
 }
 
 hdr_require_namespaces <- function(pkgs, stage = "resources") {
   missing <- pkgs[!vapply(pkgs, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing)) {
-    abort_hdr_error("hdr_error_missing_resource", paste0("Missing required packages: ", paste(missing, collapse = ", ")), "A required Bioconductor resource is not installed.", stage, list(missing = missing))
+    abort_hdr_error(
+      "hdr_error_missing_resource",
+      paste0("Missing required packages: ", paste(missing, collapse = ", ")),
+      paste0(
+        "Required hg38 Bioconductor resources are not installed. Run ",
+        "forgeki_install_hg38_resources() once, then retry the pipeline."
+      ),
+      stage,
+      list(
+        missing = missing,
+        install_command = "forgeki_install_hg38_resources()",
+        manual_install = paste0(
+          "install.packages('BiocManager'); BiocManager::install(c(",
+          paste(sprintf("'%s'", missing), collapse = ", "),
+          "), ask = FALSE)"
+        )
+      )
+    )
   }
   invisible(TRUE)
 }

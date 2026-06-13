@@ -6,19 +6,21 @@ forgeki_registry_path <- function() {
 
 forgeki_builtin_registry_fallback <- function() {
   tibble::tribble(
-    ~module_id, ~addgene_id, ~internal_id, ~plasmid_type, ~module_class, ~contains, ~left_overhang, ~right_overhang, ~assembly_position, ~inventory_role, ~sequence_available, ~order_action, ~validation_status, ~notes,
-    "pForge-Dest-HSVTK", "pForge-Dest-HSVTK", "p1000 HSVTK Destination Plasmid", "Acceptor Destination", "destination_vector", "PGK_HSVTK", "GGAG", "CGCT", "destination_backbone", "reusable_inventory", FALSE, "REUSABLE_ADDGENE_INVENTORY", "registry_metadata_only", "Built-in pForge destination vector metadata.",
-    "pForge-Fusion-HiBiT", "pForge-Fusion-HiBiT", "p0945 TWIST003 HiBiT Fragment 2", "Fusion", "fusion_module", "Hibit", "AGGA", "TGCC", "fusion_module", "reusable_inventory", FALSE, "REUSABLE_ADDGENE_INVENTORY", "registry_metadata_only", "Built-in pForge fusion module metadata.",
-    "pForge-Fusion-GFP11", "pForge-Fusion-GFP11", "p0946 TWIST004 GFP11 Fragment 2", "Fusion", "fusion_module", "GFP11", "AGGA", "TGCC", "fusion_module", "reusable_inventory", FALSE, "REUSABLE_ADDGENE_INVENTORY", "registry_metadata_only", "Built-in pForge fusion module metadata.",
-    "pForge-Fusion-ddDegron", "pForge-Fusion-ddDegron", "p0947 TWIST005 ddDegron Fragment 2", "Fusion", "fusion_module", "dddegron", "AGGA", "TGCC", "fusion_module", "reusable_inventory", FALSE, "REUSABLE_ADDGENE_INVENTORY", "registry_metadata_only", "Built-in pForge fusion module metadata.",
-    "pForge-Fusion-LID", "pForge-Fusion-LID", "p0948 TWIST006 LID Degron Fragment 2", "Fusion", "fusion_module", "LIDdegron", "AGGA", "TGCC", "fusion_module", "reusable_inventory", FALSE, "REUSABLE_ADDGENE_INVENTORY", "registry_metadata_only", "Built-in pForge fusion module metadata.",
-    "pForge-Fusion-p2A-EGFP", "pForge-Fusion-p2A-EGFP", "p1052 p2A GFP KI MUAV", "Fusion", "fusion_module", "p2A_EGFP", "AGGA", "TGCC", "fusion_module", "reusable_inventory", FALSE, "REUSABLE_ADDGENE_INVENTORY", "registry_metadata_only", "Built-in pForge fusion module metadata.",
-    "pForge-Fusion-HiBiT-p2A-EGFP", "pForge-Fusion-HiBiT-p2A-EGFP", "p1060 TW103 into MUAV", "Fusion", "fusion_module", "Hibit_p2A_EGFP", "AGGA", "TGCC", "fusion_module", "reusable_inventory", FALSE, "REUSABLE_ADDGENE_INVENTORY", "registry_metadata_only", "Built-in pForge fusion module metadata.",
-    "pForge-Fusion-dTAG", "pForge-Fusion-dTAG", "p1127 mUAV dTAG Twist119", "Fusion", "fusion_module", "dTAG", "AGGA", "TGCC", "fusion_module", "reusable_inventory", FALSE, "REUSABLE_ADDGENE_INVENTORY", "registry_metadata_only", "Built-in pForge fusion module metadata.",
-    "pForge-Cassette-mRFP1-Hygro", "pForge-Cassette-mRFP1-Hygro", "p0965 Red Hygro into MUAV", "Selectable Cassette", "selectable_cassette", "EF1A_mRFP1_HygroR", "TGCC", "GCAA", "selectable_cassette", "reusable_inventory", FALSE, "REUSABLE_ADDGENE_INVENTORY", "registry_metadata_only", "Built-in pForge selectable cassette metadata.",
-    "pForge-Cassette-mRFP1-Puro", "pForge-Cassette-mRFP1-Puro", "p0966 Red Puro Into MUAV", "Selectable Cassette", "selectable_cassette", "EF1a_mRFP1_PuroR", "TGCC", "GCAA", "selectable_cassette", "reusable_inventory", FALSE, "REUSABLE_ADDGENE_INVENTORY", "registry_metadata_only", "Built-in pForge selectable cassette metadata.",
-    "pForge-Cassette-BFP-Puro", "pForge-Cassette-BFP-Puro", "p0967 Blue Puro into MUAV", "Selectable Cassette", "selectable_cassette", "EF1a_BFP_PuroR", "TGCC", "GCAA", "selectable_cassette", "reusable_inventory", FALSE, "REUSABLE_ADDGENE_INVENTORY", "registry_metadata_only", "Built-in pForge selectable cassette metadata.",
-    "pForge-MMEJ-Cas9-DualGuide", "pForge-MMEJ-Cas9-DualGuide", "p1474 Dual Guide Nuclease MMEJ ASSEMBLY", "MMEJ Dual Nuclease", "nuclease_plasmid", "hU6_7SK_Pitch_Cas9", "", "", "nuclease_delivery", "repair_strategy_inventory", FALSE, "REUSABLE_ADDGENE_INVENTORY", "registry_metadata_only", "Built-in pForge nuclease plasmid metadata."
+    ~module_id, ~addgene_id, ~addgene_plasmid_id, ~addgene_plasmid_name, ~addgene_status, ~addgene_url, ~availability_label, ~internal_id, ~plasmid_type, ~module_class, ~contains, ~left_overhang, ~right_overhang, ~assembly_position, ~inventory_role, ~sequence_available, ~order_action, ~validation_status, ~notes,
+    "pForge-Dest-HSVTK", "258783", "258783", "pForge-KI-Dest-HSVTK", "waiting_for_sample", "https://www.addgene.org/258783/", "Addgene-assigned; pending sample/public release", "p1000 HSVTK Destination Plasmid", "Acceptor Destination", "destination_vector", "PGK_HSVTK", "GGAG", "CGCT", "destination_backbone", "reusable_inventory", FALSE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "registry_metadata_only", "Built-in pForge destination vector metadata.",
+    "pForge-Fusion-HiBiT", "258784", "258784", "pForge-KI-Fusion-HiBiT", "waiting_for_sample", "https://www.addgene.org/258784/", "Addgene-assigned; pending sample/public release", "p0945 TWIST003 HiBiT Fragment 2", "Fusion", "fusion_module", "Hibit", "AGGA", "TGCC", "fusion_module", "reusable_inventory", TRUE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "stage7_payload_sequence_resource_available", "Built-in pForge fusion module metadata. Stage 7 payload sequence resource bundled in inst/extdata/fusion_modules.",
+    "pForge-Fusion-GFP11", "258785", "258785", "pForge-KI-Fusion-GFP11", "waiting_for_sample", "https://www.addgene.org/258785/", "Addgene-assigned; pending sample/public release", "p0946 TWIST004 GFP11 Fragment 2", "Fusion", "fusion_module", "GFP11", "AGGA", "TGCC", "fusion_module", "reusable_inventory", TRUE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "stage7_payload_sequence_resource_available", "Built-in pForge fusion module metadata. Stage 7 payload sequence resource bundled in inst/extdata/fusion_modules.",
+    "pForge-Fusion-ddDegron", "258786", "258786", "pForge-KI-Fusion-ddDegron", "waiting_for_sample", "https://www.addgene.org/258786/", "Addgene-assigned; pending sample/public release", "p0947 TWIST005 ddDegron Fragment 2", "Fusion", "fusion_module", "dddegron", "AGGA", "TGCC", "fusion_module", "reusable_inventory", TRUE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "stage7_payload_sequence_resource_available", "Built-in pForge fusion module metadata. Stage 7 payload sequence resource bundled in inst/extdata/fusion_modules.",
+    "pForge-Fusion-Halo-HiBiT", "258787", "258787", "pForge-KI-Fusion-Halo-HiBiT", "waiting_for_sample", "https://www.addgene.org/258787/", "Addgene-assigned; pending sample/public release", "pForge-KI-Fusion-Halo-HiBiT", "Fusion", "fusion_module", "Halo_HiBiT", "AGGA", "TGCC", "fusion_module", "reusable_inventory", FALSE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "addgene_assigned_sequence_not_bundled", "Addgene-assigned Halo-HiBiT module metadata. No packaged Stage 7 payload sequence is bundled yet; provide an external FASTA or curated payload resource before production design use.",
+    "pForge-Fusion-LID", "", "", "pForge-Fusion-LID", "not_addgene_submitted", "", "Not Addgene-submitted; local/in-silico module metadata", "p0948 TWIST006 LID Degron Fragment 2", "Fusion", "fusion_module", "LIDdegron", "AGGA", "TGCC", "fusion_module", "reusable_inventory", TRUE, "LOCAL_OR_IN_SILICO_REVIEW", "provisional_stage7_payload_sequence", "Compact LID degron simulation payload resource is bundled for Stage 7. This module is not part of Addgene deposit 87812 unless a future ID is assigned.",
+    "pForge-Fusion-p2A-EGFP", "258788", "258788", "pForge-KI-Fusion-p2A-EGFP", "waiting_for_sample", "https://www.addgene.org/258788/", "Addgene-assigned; pending sample/public release", "p1052 p2A GFP KI MUAV", "Fusion", "fusion_module", "p2A_EGFP", "AGGA", "TGCC", "fusion_module", "reusable_inventory", TRUE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "stage7_payload_sequence_resource_available", "Built-in pForge fusion module metadata. Stage 7 payload sequence resource bundled in inst/extdata/fusion_modules.",
+    "pForge-Fusion-HiBiT-p2A-EGFP", "258789", "258789", "pForge-KI-Fusion-HiBiT-p2A-EGFP", "waiting_for_sample", "https://www.addgene.org/258789/", "Addgene-assigned; pending sample/public release", "p1060 TW103 into MUAV", "Fusion", "fusion_module", "Hibit_p2A_EGFP", "AGGA", "TGCC", "fusion_module", "reusable_inventory", TRUE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "stage7_payload_sequence_resource_available", "Built-in pForge fusion module metadata. Stage 7 payload sequence resource bundled in inst/extdata/fusion_modules.",
+    "pForge-Fusion-dTAG", "258790", "258790", "pForge-KI-Fusion-dTAG", "waiting_for_sample", "https://www.addgene.org/258790/", "Addgene-assigned; pending sample/public release", "p1127 mUAV dTAG Twist119", "Fusion", "fusion_module", "dTAG", "AGGA", "TGCC", "fusion_module", "reusable_inventory", TRUE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "stage7_payload_sequence_resource_available", "Built-in pForge fusion module metadata. Stage 7 payload sequence resource bundled in inst/extdata/fusion_modules.",
+    "pForge-HDR-Cas9-SingleGuide", "258791", "258791", "pForge-KI-HDR-Cas9-SingleGuide", "waiting_for_sample", "https://www.addgene.org/258791/", "Addgene-assigned; pending sample/public release", "pForge-KI-HDR-Cas9-SingleGuide", "HDR Single Nuclease", "nuclease_plasmid", "hU6_SpCas9_SingleGuide", "", "", "nuclease_delivery", "repair_strategy_inventory", FALSE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "registry_metadata_only", "Built-in pForge HDR nuclease plasmid metadata.",
+    "pForge-MMEJ-Cas9-DualGuide", "258792", "258792", "pForge-KI-MMEJ-Cas9-DualGuide", "waiting_for_sample", "https://www.addgene.org/258792/", "Addgene-assigned; pending sample/public release", "p1474 Dual Guide Nuclease MMEJ ASSEMBLY", "MMEJ Dual Nuclease", "nuclease_plasmid", "hU6_7SK_Pitch_Cas9", "", "", "nuclease_delivery", "repair_strategy_inventory", FALSE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "registry_metadata_only", "Built-in pForge MMEJ nuclease plasmid metadata.",
+    "pForge-Cassette-mRFP1-Hygro", "258793", "258793", "pForge-KI-Cassette-mRFP1-Hygro", "waiting_for_sample", "https://www.addgene.org/258793/", "Addgene-assigned; pending sample/public release", "p0965 Red Hygro into MUAV", "Selectable Cassette", "selectable_cassette", "EF1A_mRFP1_HygroR", "TGCC", "GCAA", "selectable_cassette", "reusable_inventory", FALSE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "registry_metadata_only", "Built-in pForge selectable cassette metadata.",
+    "pForge-Cassette-mRFP1-Puro", "258794", "258794", "pForge-KI-Cassette-mRFP1-Puro", "waiting_for_sample", "https://www.addgene.org/258794/", "Addgene-assigned; pending sample/public release", "p0966 Red Puro Into MUAV", "Selectable Cassette", "selectable_cassette", "EF1a_mRFP1_PuroR", "TGCC", "GCAA", "selectable_cassette", "reusable_inventory", FALSE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "registry_metadata_only", "Built-in pForge selectable cassette metadata.",
+    "pForge-Cassette-BFP-Puro", "258795", "258795", "pForge-KI-Cassette-BFP-Puro", "waiting_for_sample", "https://www.addgene.org/258795/", "Addgene-assigned; pending sample/public release", "p0967 Blue Puro into MUAV", "Selectable Cassette", "selectable_cassette", "EF1a_BFP_PuroR", "TGCC", "GCAA", "selectable_cassette", "reusable_inventory", FALSE, "ADDGENE_ASSIGNED_PENDING_SAMPLE", "registry_metadata_only", "Built-in pForge selectable cassette metadata."
   )
 }
 
@@ -454,7 +456,8 @@ hdr_module_registry <- forgeki_module_registry
 forgeki_available_modules <- function(module_class = NULL, include_external = TRUE, external_path = NULL) {
   reg <- forgeki_module_registry(module_class = module_class, include_external = include_external, external_path = external_path)
   keep <- intersect(c(
-    "module_id", "module_class", "contains", "addgene_id", "internal_id",
+    "module_id", "module_class", "contains", "addgene_id", "addgene_plasmid_id",
+    "addgene_plasmid_name", "addgene_status", "addgene_url", "availability_label", "internal_id",
     "left_overhang", "right_overhang", "inventory_role", "validation_status",
     "schema_mode", "compatible_modes", "sequence_length_bp", "sequence_available",
     "external_module", "registry_source", "yaml_path", "fasta_path",
@@ -470,6 +473,117 @@ forgeki_available_modules <- function(module_class = NULL, include_external = TR
 #' @rdname forgeki_available_modules
 #' @export
 hdr_available_modules <- forgeki_available_modules
+
+#' List user-facing HDR payload choices
+#'
+#' Returns the fusion-module choices suitable for HDR donor configuration. This
+#' is a friendlier view of `forgeki_available_modules("fusion_module")` for
+#' README examples, Shiny dropdowns, and first-pass user selection.
+#'
+#' @param include_external Whether to include modules discovered in the external
+#'   YAML/FASTA module library.
+#' @param external_path Optional external module-library path.
+#'
+#' @return A tibble of HDR payload choices with Addgene/status metadata.
+#' @export
+forgeki_available_hdr_payloads <- function(include_external = TRUE, external_path = NULL) {
+  reg <- forgeki_available_modules("fusion_module", include_external = include_external, external_path = external_path)
+  out <- forgeki_user_module_table(reg, role = "HDR payload")
+  seq_available <- forgeki_coerce_bool(forgeki_registry_col(reg, "sequence_available", FALSE))
+  out$design_note <- ifelse(
+    seq_available,
+    "Built-in Stage 7 payload sequence is available for virtual allele simulation.",
+    "Inventory metadata only: provide an external FASTA or curated payload sequence before production design use."
+  )
+  out
+}
+
+#' List user-facing HDR selection-cassette choices
+#'
+#' Returns the selectable-cassette choices suitable for HDR donor configuration,
+#' with an explicit no-selection row that maps to `selectable_cassette_id = NULL`.
+#'
+#' @param include_no_selection Whether to include the no-selection option.
+#' @param include_external Whether to include modules discovered in the external
+#'   YAML/FASTA module library.
+#' @param external_path Optional external module-library path.
+#'
+#' @return A tibble of HDR selection-cassette choices with Addgene/status
+#'   metadata.
+#' @export
+forgeki_available_hdr_selection_cassettes <- function(include_no_selection = TRUE, include_external = TRUE, external_path = NULL) {
+  reg <- forgeki_available_modules("selectable_cassette", include_external = include_external, external_path = external_path)
+  out <- forgeki_user_module_table(reg, role = "HDR selection cassette")
+  out$design_note <- "Reusable HDR selection-cassette module; choose NULL when no drug-selection cassette should be included."
+  if (isTRUE(include_no_selection)) {
+    none <- tibble::tibble(
+      role = "HDR selection cassette",
+      module_id = "NULL",
+      display_name = "No selection cassette",
+      marker_or_payload = "No drug-selection cassette",
+      addgene_plasmid_id = NA_character_,
+      addgene_status = "not_applicable",
+      addgene_url = NA_character_,
+      availability = "No reusable selection module is included",
+      sequence_available = FALSE,
+      design_note = "Use selectable_cassette_id = NULL.",
+      notes = "Use for payload-only HDR designs or when selection is handled outside the pForge donor."
+    )
+    out <- dplyr::bind_rows(none, out)
+  }
+  out
+}
+
+forgeki_user_module_table <- function(reg, role) {
+  reg <- tibble::as_tibble(reg)
+  if (!nrow(reg)) {
+    return(tibble::tibble(
+      role = character(),
+      module_id = character(),
+      display_name = character(),
+      marker_or_payload = character(),
+      addgene_plasmid_id = character(),
+      addgene_status = character(),
+      addgene_url = character(),
+      availability = character(),
+      sequence_available = logical(),
+      design_note = character(),
+      notes = character()
+    ))
+  }
+  addgene_id <- forgeki_registry_col(reg, "addgene_plasmid_id")
+  legacy_id <- forgeki_registry_col(reg, "addgene_id")
+  missing_id <- is.na(addgene_id) | !nzchar(addgene_id)
+  addgene_id[missing_id] <- legacy_id[missing_id]
+  addgene_id[is.na(addgene_id) | !nzchar(addgene_id)] <- NA_character_
+  addgene_status <- forgeki_registry_col(reg, "addgene_status")
+  addgene_status[is.na(addgene_status) | !nzchar(addgene_status)] <- "not_recorded"
+  availability <- forgeki_registry_col(reg, "availability_label")
+  missing_availability <- is.na(availability) | !nzchar(availability)
+  availability[missing_availability] <- ifelse(
+    !is.na(addgene_id[missing_availability]) & nzchar(addgene_id[missing_availability]),
+    "Addgene metadata recorded",
+    "Local or in-silico module metadata"
+  )
+  tibble::tibble(
+    role = role,
+    module_id = forgeki_registry_col(reg, "module_id"),
+    display_name = forgeki_registry_col(reg, "addgene_plasmid_name", forgeki_registry_col(reg, "internal_id")),
+    marker_or_payload = forgeki_registry_col(reg, "contains"),
+    addgene_plasmid_id = addgene_id,
+    addgene_status = addgene_status,
+    addgene_url = forgeki_registry_col(reg, "addgene_url"),
+    availability = availability,
+    sequence_available = forgeki_coerce_bool(forgeki_registry_col(reg, "sequence_available", FALSE)),
+    design_note = NA_character_,
+    notes = forgeki_registry_col(reg, "notes")
+  )
+}
+
+forgeki_registry_col <- function(reg, name, default = NA_character_) {
+  if (name %in% names(reg)) return(as.character(reg[[name]]))
+  rep(as.character(default)[1], nrow(reg))
+}
 
 forgeki_registry_match <- function(module_id, module_class, registry = forgeki_module_registry()) {
   hit <- registry[registry$module_id == module_id & registry$module_class == module_class, , drop = FALSE]
@@ -594,7 +708,7 @@ forgeki_builtin_fusion_payload_fallback <- function() {
     "pForge-Fusion-HiBiT", "HiBiT", "ATGGGTAGCGGTTGGCGGCTGTTCAAGAAGATCAGCTAA", 39L, TRUE, "AGGA", "TGCC", "curated_stage7_payload_sequence", "stage7_virtual_allele_payload_not_full_plasmid", "Minimal N-terminal Met-HiBiT payload for virtual edited-CDS simulation; terminal stop included.",
     "pForge-Fusion-GFP11", "GFP11", "ATGCGTGATCACATGGTGCTGCATGAATATGTGAATGCTGCTGGTATTACCTAA", 60L, TRUE, "AGGA", "TGCC", "curated_stage7_payload_sequence", "stage7_virtual_allele_payload_not_full_plasmid", "Minimal N-terminal Met-GFP11 peptide payload for virtual edited-CDS simulation; terminal stop included.",
     "pForge-Fusion-ddDegron", "ddDegron", "ATGGATGATGAGCTGTACAAGGACGACGACGACAAGGCTGCTGCCTAA", 57L, TRUE, "AGGA", "TGCC", "provisional_stage7_payload_sequence", "stage7_virtual_allele_payload_not_full_plasmid", "Compact ddDegron simulation payload resource; replace with full Addgene module map when definitive GenBank is bundled.",
-    "pForge-Fusion-LID", "LIDdegron", "ATGCTGGCCGATCTGGAAAAGGACGACGACGACAAGGCTGCTGCCTAA", 57L, TRUE, "AGGA", "TGCC", "provisional_stage7_payload_sequence", "stage7_virtual_allele_payload_not_full_plasmid", "Compact LID degron simulation payload resource; replace with full Addgene module map when definitive GenBank is bundled.",
+    "pForge-Fusion-LID", "LIDdegron", "ATGCTGGCCGATCTGGAAAAGGACGACGACGACAAGGCTGCTGCCTAA", 57L, TRUE, "AGGA", "TGCC", "provisional_stage7_payload_sequence", "stage7_virtual_allele_payload_not_full_plasmid", "Compact LID degron simulation payload resource; treat as local/in-silico module metadata unless a future Addgene ID is assigned.",
     "pForge-Fusion-p2A-EGFP", "p2A_EGFP", "ATGGGCGCCACCAACTTCTCCCTGCTGAAGCAGGCTGGCGACGTGGAGGAGAATCCCGGCCCTGCTTAA", 78L, TRUE, "AGGA", "TGCC", "provisional_stage7_payload_sequence", "stage7_virtual_allele_payload_not_full_plasmid", "Compact p2A-EGFP simulation payload resource; not a complete EGFP coding sequence.",
     "pForge-Fusion-HiBiT-p2A-EGFP", "Hibit_p2A_EGFP", "ATGGGTAGCGGTTGGCGGCTGTTCAAGAAGATCAGCGGCGCCACCAACTTCTCCCTGCTGAAGCAGGCTGGCGACGTGGAGGAGAATCCCGGCCCTGCTTAA", 114L, TRUE, "AGGA", "TGCC", "provisional_stage7_payload_sequence", "stage7_virtual_allele_payload_not_full_plasmid", "HiBiT plus compact p2A-EGFP simulation payload resource; terminal stop included.",
     "pForge-Fusion-dTAG", "dTAG", "ATGGATACCGAGGAGATCCTGGAGAAGGACGACGACGACAAGGCTGCTGCCTAA", 60L, TRUE, "AGGA", "TGCC", "provisional_stage7_payload_sequence", "stage7_virtual_allele_payload_not_full_plasmid", "Compact dTAG simulation payload resource; replace with full FKBP12F36V module map when definitive GenBank is bundled."
