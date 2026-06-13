@@ -1,0 +1,9 @@
+resource_schema_version: 1
+project_name: toy_hdr_cellline_reference
+genome_build: hg38
+dataset_version: 0.0.1-toy
+resources:
+  toy_ranking:
+    type: file
+    path: data/toy_ranking.csv
+    sha256: ""

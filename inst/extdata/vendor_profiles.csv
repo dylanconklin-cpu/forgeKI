@@ -1,0 +1,4 @@
+Vendor_Profile_ID,Vendor_Name,Item_Types,Sequence_Source,Default_Purification,Review_Rule,Notes
+default_vendor_profile,vendor_unspecified,"homology_arm_fragment;PITCh_primer",forgeki_order_sheet.csv,vendor_policy,review_all_rows_before_submission,Generic profile used when no lab/vendor-specific constraints are configured.
+gene_fragment_review,vendor_unspecified,"synthesis_review_donor;long_gene_fragment",forgeki_order_sheet.csv,vendor_policy,manual_sequence_review_required,Synthesis-review donors are not automatic oligo orders.
+reusable_inventory,vendor_unspecified,"destination_vector;fusion_module;selectable_cassette;nuclease_plasmid",module_registry_or_lab_inventory,not_applicable,confirm_existing_inventory,Reusable pForge modules are tracked as inventory rather than gene-specific order rows.

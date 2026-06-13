@@ -1,0 +1,4 @@
+Gene,Paralog,Risk_Label,Message
+SMN1,SMN2,near_identical_paralog,SMN1/SMN2 sequence similarity can create co-editing and donor-arm specificity risk.
+HIST2H2BF,HIST2H2BE,histone_cluster_paralog,Histone cluster paralogs can complicate guide specificity and donor-arm uniqueness.
+HIST2H2BF,HIST2H2BC,histone_cluster_paralog,Histone cluster paralogs can complicate guide specificity and donor-arm uniqueness.

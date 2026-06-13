@@ -1,0 +1,21 @@
+test_that("new_hdr_job(cfg) creates real isolated directories", {
+  cfg <- hdr_config(gene = "ACTB", project_dir = file.path(tempdir(), paste0("hdr_job_test_", Sys.getpid())))
+  job <- new_hdr_job(cfg)
+  expect_s3_class(job, "hdr_job")
+  expect_false(is.na(job$job_dir))
+  expect_true(dir.exists(job$job_dir))
+  expect_true(dir.exists(job$input_dir))
+  expect_true(dir.exists(file.path(job$input_dir, "uploaded_files")))
+  expect_true(dir.exists(job$log_dir))
+  expect_true(dir.exists(job$output_dir))
+  expect_true(dir.exists(job$manifest_dir))
+  expect_true(file.exists(file.path(job$input_dir, "config.yml")))
+})
+
+test_that("new_hdr_job(root_dir, cfg) honors explicit root", {
+  root <- file.path(tempdir(), paste0("hdr_job_root_", Sys.getpid()))
+  cfg <- hdr_config(gene = "ACTB", project_dir = tempdir())
+  job <- new_hdr_job(root, cfg)
+  expected_root <- normalizePath(root, winslash = "/", mustWork = TRUE)
+  expect_equal(dirname(job$job_dir), expected_root)
+})

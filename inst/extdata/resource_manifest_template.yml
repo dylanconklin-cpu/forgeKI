@@ -1,0 +1,26 @@
+resource_schema_version: 1
+project_name: hdr_project
+genome_build: hg38
+resources:
+  cassette_root:
+    type: directory
+    path: cassettes
+  cellline_reference:
+    type: bundle
+    path: data/hdr-cellline-ranking-YYYY.MM.PATCH
+  global_cellline_ranking:
+    type: file
+    path: data/hdr-cellline-ranking-YYYY.MM.PATCH/data/20_HDR_CellLine_Ranking_Master.csv
+    sha256: ""
+  cellline_features:
+    type: file
+    path: data/hdr-cellline-ranking-YYYY.MM.PATCH/data/10_HDR_Ranking_Input_CellLine_Features.rds
+    sha256: ""
+  rrbs_tss_1kb:
+    type: file
+    path: data/rrbs/CCLE_RRBS_TSS_1kb_20180614.txt
+    sha256: ""
+  rrbs_cpg_clusters:
+    type: file
+    path: data/rrbs/CCLE_RRBS_TSS_CpG_clusters_20180614.txt
+    sha256: ""

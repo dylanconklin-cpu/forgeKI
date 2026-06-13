@@ -1,0 +1,86 @@
+url: https://dubleeteam.github.io/forgeKI/
+template:
+  bootstrap: 5
+reference:
+- title: Main workflow
+  contents:
+  - forgeki_config
+  - run_forgeki_pipeline
+  - summarize_forgeki_result
+  - load_forgeki_result
+  - hdr_config
+  - validate_hdr_config
+- title: Configuration helpers
+  contents:
+  - forgeki_donor_options
+  - forgeki_guide_options
+  - forgeki_arm_options
+  - forgeki_golden_gate_options
+  - forgeki_mmej_options
+  - forgeki_stage10_options
+  - forgeki_crisprverse_options
+  - forgeki_runtime_options
+- title: Reports and ordering
+  contents:
+  - forgeki_assemble_report_model
+  - forgeki_read_report_model
+  - forgeki_write_report_model
+  - render_forgeki_detailed_html
+  - render_forgeki_executive_summary
+  - render_forgeki_order_csv
+  - render_forgeki_report
+  - export_forgeki_vendor_order_sheet
+- title: Modules and payloads
+  contents:
+  - forgeki_module_registry
+  - forgeki_available_modules
+  - forgeki_module_route_compatibility
+  - forgeki_fusion_payload_registry
+  - forgeki_resolve_fusion_payload
+  - forgeki_resolve_mmej_single_print_payload
+  - forgeki_scan_external_module_library
+- title: Stage 10 resources
+  contents:
+  - forgeki_stage10_resource_quickstart
+  - forgeki_find_stage10_omics_bundle
+  - forgeki_build_stage10_reference
+  - forgeki_build_mmej_reference_bundle
+  - inspect_forgeki_stage10_bundle
+  - forgeki_validate_stage10_omics_bundle
+  - forgeki_load_stage10_omics_bundle
+- title: Target biology
+  contents:
+  - forgeki_biology_options
+  - forgeki_target_biology_default_reference_path
+  - forgeki_load_target_biology_reference
+  - forgeki_build_target_biology_reference
+  - forgeki_build_target_biology_proteome_reference
+  - forgeki_parse_uniprot_features
+  - forgeki_fetch_uniprot_target_features
+- title: MMEJ/PITCh stages
+  contents:
+  - run_mmej_stage4_mh_arms
+  - run_mmej_stage6_grna3_collision
+  - run_mmej_stage7_virtual_junction
+  - run_mmej_stage8_pitch_donor
+  - run_mmej_stage9_design_scoring
+  - run_mmej_stage10_cellline_context
+- title: Resources and jobs
+  contents:
+  - read_hdr_resource_manifest
+  - validate_hdr_resource_manifest
+  - check_hdr_resources
+  - resolve_hdr_resource
+  - write_hdr_resource_template
+  - new_hdr_job
+  - run_hdr_job
+  - read_hdr_job_status
+  - write_hdr_progress
+- title: Audits and compatibility
+  contents:
+  - audit_forgeki_equivalence
+  - audit_forgeki_sequence_differences
+  - audit_forgeki_stage10_migration
+  - audit_hdr_v51_inventory
+  - forgeki_default_equivalence_plan
+  - write_forgeki_equivalence_plan_template

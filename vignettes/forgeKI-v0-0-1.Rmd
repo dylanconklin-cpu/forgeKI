@@ -1,0 +1,77 @@
+---
+title: "forgeKI v0.0.1 local pipeline"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{forgeKI v0.0.1 local pipeline}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+`forgeKI` v0.0.1 provides a controlled local HDR reporter knock-in design pipeline. Each migrated stage can still be run independently, while `run_hdr_pipeline()` executes the gated stages in an isolated job directory and writes per-stage RDS/CSV outputs.
+
+The current orchestrator runs Stage 1, Stage 2, Stage 4, Stage 5, Stage 6, Stage 7, Stage 8, Stage 3, and Stage 9. Stage 10 runs only when a fixed cell-line reference is supplied or explicitly required.
+
+```{r, eval=FALSE}
+library(forgeKI)
+
+cfg <- hdr_config(
+  gene = "ACTB",
+  cassette_id = "toy_hibit",
+  project_dir = "D:/Bioinformatics/HDR/forgeKI_Rpackage_test",
+  guide = hdr_guide_options(search_radius_bp = 80L, top_n = 10L),
+  arms = hdr_arm_options(lha_target_bp = 2000L, rha_target_bp = 2000L, min_arm_bp = 300L),
+  runtime = hdr_runtime_options(save_rds = TRUE, write_progress = TRUE)
+)
+
+res <- run_hdr_pipeline(
+  cfg,
+  offtarget_mode = "none",
+  stage10_mode = "skip",
+  top_n = 10L
+)
+
+print(res)
+res$stages_completed
+res$stages$stage9_design_scoring$recommendation_summary
+res$outputs
+```
+
+With `offtarget_mode = "none"`, Stage 9 is deliberately conservative and should not emit a primary production recommendation. Use this mode for pipeline validation and donor-construction checks, not final guide release.
+
+Stage 10 consumes a fixed external cell-line reference. The package tests use toy references for portability; production use should point to the lab-maintained `20_HDR_CellLine_Ranking_Master.rds` or `.csv` file. The broader scoring bundle should be retained for provenance/audit.
+
+```{r, eval=FALSE}
+cell_ref <- load_hdr_cellline_reference(
+  "D:/Bioinformatics/HDR/HDR_Stage2_CellLine_Ranking/20_HDR_CellLine_Ranking_Master.rds"
+)
+
+res10 <- run_hdr_pipeline(
+  cfg,
+  cellline_reference = cell_ref,
+  offtarget_mode = "none",
+  stage10_mode = "auto",
+  top_n = 10L
+)
+
+res10$stages$stage10_cellline_context$cellline_context
+```
+
+The same reference can also be configured persistently:
+
+```{r, eval=FALSE}
+cfg <- hdr_config(
+  gene = "ACTB",
+  cassette_id = "toy_hibit",
+  project_dir = "D:/Bioinformatics/HDR/forgeKI_Rpackage_test",
+  stage10 = hdr_stage10_options(
+    cellline_reference_path = "D:/Bioinformatics/HDR/HDR_Stage2_CellLine_Ranking/20_HDR_CellLine_Ranking_Master.rds",
+    require_cellline_reference = TRUE
+  )
+)
+
+res10 <- run_hdr_pipeline(cfg, offtarget_mode = "none", stage10_mode = "auto")
+```
+
+If no direct object or config path is supplied, the orchestrator checks the `FORGEKI_CELLLINE_REFERENCE` environment variable, with `HDRDESIGNR_CELLLINE_REFERENCE` retained as a legacy alias.
+
+A typical job directory contains one subdirectory per stage under `outputs/stages`, a final `hdr_result.rds`, progress logs, and a manifest.

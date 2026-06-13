@@ -1,0 +1,33 @@
+schema_version: 1
+schema_mode: simple_single_insert
+cassette_id: HiBiT_dTAG_GFP_EF1a_BSD_P2A_mKATE
+name: Legacy HiBiT-dTAG-GFP plus EF1a-BSD-P2A-mKATE preset placeholder
+sequence_file: HiBiT_dTAG_GFP_EF1a_BSD_P2A_mKATE.fasta
+pipeline_defaults:
+  blocking_guide_scope: top_guide_only
+stop_codon_policy:
+  append_stop_if_reporter_lacks_stop: true
+  default_stop_codon: TAA
+edited_allele_model:
+  native_stop_policy: exclude_from_LHA_and_RHA
+modules:
+  reporter_module:
+    id: HiBiT_dTAG_GFP_EF1a_BSD_P2A_mKATE
+    input_overhang_5p: AGGA
+    output_overhang_3p: TGCC
+  selection_module:
+    id: loxP_EF1a_BSD_P2A_mKATE_bGH_loxP
+    input_overhang_5p: TGCC
+    output_overhang_3p: GCAA
+assembly:
+  destination_vector:
+    id: p1000_HSVTK_Destination
+    left_backbone_overhang: GGAG
+    right_backbone_overhang: CGCT
+homology_modules:
+  upstream_arm:
+    input_overhang_5p: GGAG
+    output_overhang_3p: AGGA
+  downstream_arm:
+    input_overhang_5p: GCAA
+    output_overhang_3p: CGCT

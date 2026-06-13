@@ -1,0 +1,207 @@
+---
+title: "Feature-informed Stage 10 omics workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Feature-informed Stage 10 omics workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+`forgeKI` can be run in two modes. The minimal mode designs HDR knock-in donors and guides without any cell-line omics resources. The feature-informed mode additionally builds a gene-specific Stage 10A-10E ranking from a local Stage 10 omics bundle. The omics bundle is external to the package because the underlying DepMap, CCLE, RRBS, and lab-derived HDR competency resources are large and should be versioned outside the source tree.
+
+## 1. Minimal design run without omics
+
+Use this mode to test guide enumeration, homology-arm construction, Type IIS handling, donor-module construction, virtual allele checks, and Stage 9 design scoring.
+
+```{r, eval=FALSE}
+library(forgeKI)
+
+cfg <- forgeki_config(
+  gene = "ACTB",
+  project_dir = "D:/Bioinformatics/HDR/forgeKI_Rpackage_test",
+  donor = forgeki_donor_options(
+    destination_vector_id = "pForge-Dest-HSVTK",
+    fusion_module_id = "pForge-Fusion-HiBiT-p2A-EGFP",
+    selectable_cassette_id = "pForge-Cassette-mRFP1-Hygro"
+  ),
+  guide = forgeki_guide_options(search_radius_bp = 80L, top_n = 10L),
+  arms = forgeki_arm_options(lha_target_bp = 2000L, rha_target_bp = 2000L, min_arm_bp = 300L),
+  golden_gate = forgeki_golden_gate_options(domestication_policy = "biology_first"),
+  runtime = forgeki_runtime_options(save_rds = TRUE, write_progress = TRUE)
+)
+
+res <- run_forgeki_pipeline(
+  cfg,
+  job_root = file.path(cfg$project_dir, "jobs"),
+  offtarget_mode = "exact_hg38",
+  stage10_mode = "skip",
+  top_n = 10L
+)
+
+report <- render_forgeki_report(res, output_dir = file.path(res$job$output_dir, "report"))
+vendor <- export_forgeki_vendor_order_sheet(res, output_dir = file.path(res$job$output_dir, "vendor"))
+```
+
+This mode does not attempt to rank cell lines. It is the right entry point for validating the molecular design path.
+
+## 2. Stage 10 resource-folder setup
+
+A feature-informed Stage 10 run expects a clean input folder. A practical local layout is:
+
+```text
+forgeKI_omics_resources/
+  inputs/
+    20_HDR_CellLine_Ranking_Master.csv
+    Model.csv
+    depmap_rna_full.rds
+    depmap_cn_full.rds
+    depmap_crispr_full.rds
+    depmap_mutations_full.rds
+    OmicsFusionFiltered.csv
+    CCLE_RRBS_TSS_1kb_20180614.txt
+    CCLE_RRBS_TSS_CpG_clusters_20180614.txt
+```
+
+Create a resource checklist and quickstart artifacts with:
+
+```{r, eval=FALSE}
+input_dir <- "D:/Bioinformatics/HDR/forgeKI_omics_resources/inputs"
+bundle_path <- "D:/Bioinformatics/HDR/forgeKI_omics_resources/forgeKI_stage10_omics_bundle.rds"
+
+quick <- forgeki_stage10_resource_quickstart(
+  input_dir = input_dir,
+  output_dir = file.path(input_dir, "forgeKI_stage10_quickstart"),
+  bundle_path = bundle_path,
+  release_label = "forgeKI Stage 10 local omics bundle"
+)
+
+quick
+
+check <- forgeki_check_stage10_omics_inputs(
+  input_dir = input_dir,
+  output_csv = file.path(input_dir, "forgeKI_stage10_quickstart", "stage10_omics_resource_check.csv")
+)
+
+check[, c("Resource_Key", "Expected_File", "Exists", "Requirement_Level", "Resource_Status")]
+```
+
+The quickstart writes a template CSV, an input-resource check CSV, a bundle README, and a compile script. Keep these files beside the input folder as the provenance record.
+
+## 3. Compile and validate the RDS bundle
+
+A single RDS bundle is the preferred runtime cache. The original raw files should still be retained for provenance.
+
+```{r, eval=FALSE}
+bundle <- forgeki_compile_stage10_omics_bundle(
+  output_rds = bundle_path,
+  depmap_root = input_dir,
+  global_ranking_path = file.path(input_dir, "20_HDR_CellLine_Ranking_Master.csv"),
+  cellline_metadata_path = file.path(input_dir, "Model.csv"),
+  expression_path = file.path(input_dir, "depmap_rna_full.rds"),
+  copy_number_path = file.path(input_dir, "depmap_cn_full.rds"),
+  crispr_dependency_path = file.path(input_dir, "depmap_crispr_full.rds"),
+  mutation_path = file.path(input_dir, "depmap_mutations_full.rds"),
+  fusion_path = file.path(input_dir, "OmicsFusionFiltered.csv"),
+  rrbs_tss_path = file.path(input_dir, "CCLE_RRBS_TSS_1kb_20180614.txt"),
+  rrbs_cpg_path = file.path(input_dir, "CCLE_RRBS_TSS_CpG_clusters_20180614.txt"),
+  release_label = "forgeKI Stage 10 local omics bundle",
+  max_rows = Inf,
+  compress = "gzip"
+)
+
+forgeki_validate_stage10_omics_bundle(bundle_path)
+```
+
+For runtime, `forgeKI` automatically materializes a per-gene slim bundle from the full bundle. The full bundle is the source archive; the gene-slim bundle is the fast working cache.
+
+## 4. Full feature-informed run with Stage 10A-10E
+
+Supply the bundle path through `forgeki_stage10_options()` and request the Stage 10 builder.
+
+```{r, eval=FALSE}
+cfg <- forgeki_config(
+  gene = "ACTB",
+  project_dir = "D:/Bioinformatics/HDR/forgeKI_Rpackage_test",
+  donor = forgeki_donor_options(
+    destination_vector_id = "pForge-Dest-HSVTK",
+    fusion_module_id = "pForge-Fusion-HiBiT-p2A-EGFP",
+    selectable_cassette_id = "pForge-Cassette-mRFP1-Hygro"
+  ),
+  guide = forgeki_guide_options(search_radius_bp = 80L, top_n = 10L),
+  arms = forgeki_arm_options(lha_target_bp = 2000L, rha_target_bp = 2000L, min_arm_bp = 300L),
+  golden_gate = forgeki_golden_gate_options(domestication_policy = "biology_first"),
+  stage10 = forgeki_stage10_options(
+    top_n = 100L,
+    omics_bundle_path = bundle_path,
+    build_stage10_reference = TRUE,
+    cellline_context_mode = "omics_builder",
+    build_10a = TRUE,
+    build_10b = TRUE,
+    build_10c = TRUE,
+    build_10d = TRUE,
+    build_10e = TRUE
+  ),
+  runtime = forgeki_runtime_options(save_rds = TRUE, write_progress = TRUE)
+)
+
+res <- run_forgeki_pipeline(
+  cfg,
+  job_root = file.path(cfg$project_dir, "jobs"),
+  offtarget_mode = "exact_hg38",
+  stage10_mode = "auto",
+  top_n = 10L
+)
+
+"stage10_reference_builder" %in% res$stages_completed
+res$stages$stage10_reference_builder$stage10_final_summary
+
+report <- render_forgeki_report(res, output_dir = file.path(res$job$output_dir, "report"))
+```
+
+The report audit directory should include:
+
+```text
+forgeKI_stage10_final_summary.csv
+stage10_builder_feature_status.csv
+stage10_builder_gene_feature_schema_audit.csv
+stage10_builder_chromatin_schema_audit.csv
+stage10_builder_practical_shortlist.csv
+```
+
+## 5. Interpreting Stage 10A-10E
+
+Stage 10 is a decision-support layer. It prioritizes cell lines and designs; it does not guarantee editing success.
+
+Stage 10A builds target-gene cell-line context from global HDR competency, model metadata, RNA expression, copy number, CRISPR dependency, mutation, and fusion resources. Stage 10B expands this context across candidate designs. Stage 10C carries allele-aware design context. Stage 10D overlays RRBS/chromatin proxy evidence when mappable. Stage 10E emits a final integrated ranking and a practical shortlist.
+
+The most important summary fields are:
+
+```text
+Stage10_Context_Mode
+Stage10A_QC_Status
+Stage10E_QC_Status
+N_Feature_Sources_Loaded
+RRBS_Mapping_Status
+N_RRBS_CellLines_Mapped
+Top_CellLine_ID
+Top_CellLine_Name
+Top_Design_ID
+Top_Final_Recommendation_Tier
+Top_Final_Limiting_Factor_Summary
+```
+
+`Stage10_Context_Mode = feature_informed` means omics resources were used. `minimal` or global-only modes should be interpreted more conservatively.
+
+## 6. What each feature contributes
+
+The global HDR ranking provides a baseline cell-line competency prior. RNA expression flags whether the target gene is likely detectable in a given model. Copy number flags amplification or deletion context. CRISPR dependency flags whether perturbation of the target gene may affect fitness. Mutation and fusion evidence identify altered target-gene alleles that could affect reporter interpretation. RRBS is treated as a conservative chromatin/methylation proxy, not as a direct editing-efficiency measurement.
+
+## 7. Troubleshooting
+
+If Stage 10A reports `PASS_stage10a_context_constructed_minimal`, the run did not map gene-specific omics features. Check the feature-status and gene-feature schema-audit CSVs.
+
+If RRBS reports `WARN_no_rrbs_locus_evidence_mapped`, the RRBS files were readable but not mappable to DepMap/cell-line IDs or to the target-gene locus. The Stage 10E ranking can still be produced, but chromatin evidence is unavailable.
+
+If the full bundle is slow, use the normal pipeline path rather than manually loading and scanning the full bundle. The pipeline creates a per-gene slim runtime cache automatically.
+
+If a required file is missing, rerun `forgeki_check_stage10_omics_inputs()` and inspect the `Resource_Status` and `Missing_Consequence` fields.

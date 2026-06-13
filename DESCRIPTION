@@ -1,0 +1,60 @@
+Package: forgeKI
+Title: Biology-First Knock-In Design and Repair-Pathway Donor Construction
+Version: 0.1.0
+Authors@R: c(
+    person("Dylan", "Conklin", email = "dubleeteam@gmail.com", role = c("aut", "cre"))
+    )
+Description: Provides a reproducible, staged knock-in design workflow for
+    HDR and MMEJ/PITCh reporter tagging. The package includes configuration
+    and resource validation, exact hg38-aware guide and donor construction,
+    optional crisprVerse guide-evidence audits, biology-first Type IIS
+    domestication, HDR and MMEJ order-form generation, stable report-model
+    exports, target-biology review, and Stage 10 cell-line context integration.
+License: MIT + file LICENSE
+URL: https://github.com/dubleeteam/forgeKI, https://dubleeteam.github.io/forgeKI/
+BugReports: https://github.com/dubleeteam/forgeKI/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends:
+    R (>= 4.3.0)
+Imports:
+    rlang,
+    jsonlite,
+    yaml,
+    digest,
+    tibble,
+    dplyr
+Suggests:
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown,
+    pkgdown,
+    shiny,
+    bslib,
+    DT,
+    callr,
+    future,
+    promises,
+    zip,
+    pagedown,
+    webshot2,
+    Biostrings,
+    BSgenome,
+    GenomeInfoDb,
+    GenomicRanges,
+    IRanges,
+    GenomicFeatures,
+    AnnotationDbi,
+    BSgenome.Hsapiens.UCSC.hg38,
+    TxDb.Hsapiens.UCSC.hg38.knownGene,
+    org.Hs.eg.db,
+    readr,
+    crisprBase,
+    crisprDesign,
+    crisprScore,
+    crisprBowtie,
+    Rbowtie,
+    crisprVerse
+VignetteBuilder: knitr
+Config/testthat/edition: 3

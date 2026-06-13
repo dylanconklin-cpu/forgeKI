@@ -1,0 +1,18 @@
+acceptance_runs/
+acceptance_runs/stress_test_work/
+acceptance_runs/stress_test_reports/
+*.zip
+*.tar.gz
+.Rcheck/
+..Rcheck/
+*.Rcheck/
+.Rhistory
+.Rprofile
+.RData
+.Ruserdata
+.Rproj.user/
+incorporating crisprverse.docx
+renv/library/
+renv/sandbox/
+docs/
+_pkgdown/

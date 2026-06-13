@@ -1,0 +1,8 @@
+schema_version: 2
+class: hdr_config
+required: [gene, project_dir, resources, output_dir, execution_mode, output_profile, donor]
+legacy_compatibility:
+  cassette_id: retained as a temporary Stage 7 payload-sequence compatibility hook
+preferred_user_inputs:
+  donor:
+    required_fields: [destination_vector_id, fusion_module_id, selectable_cassette_id]

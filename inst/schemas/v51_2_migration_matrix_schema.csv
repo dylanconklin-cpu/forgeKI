@@ -1,0 +1,13 @@
+Column,Description
+V51_2_Element,"Function, output file, environment variable, or status string found in the v51.2 script."
+V51_2_Stage,"Nearest preceding stage/report header inferred from comments."
+Element_Type,"Element category: function, output, report_output, envvar, or status_string."
+Source_Line,"Line number in the v51.2 monolithic script."
+Scientific_Output_Risk,"Heuristic risk if this element affects biological/scientific output."
+Runtime_Risk,"Heuristic risk if this element affects runtime/performance/robustness."
+Current_Package_Equivalent,"Approximate current package match, if found by literal string search."
+Migration_Status,"candidate_present or not_found_in_package; semantic equivalence still requires manual audit."
+Recommended_Action,"Suggested next action for migration planning."
+Priority,"P0 sequence/order critical, P1 recommendation/biology, P2 report usability, P3 runtime/robustness, P4 legacy/cosmetic."
+Context,"Source-code context line."
+Notes,"Additional notes."

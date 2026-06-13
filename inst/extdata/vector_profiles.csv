@@ -1,0 +1,4 @@
+Vector_Profile_ID,Method,Vector_ID,Assembly_System,Guide_System,Order_Truth_Source,Reusable_Inventory_Required,Notes
+pForge_HDR_default,hdr,pForge-Dest-HSVTK,BsaI_modular_Golden_Gate,SpCas9_NGG,stage8_order_sheet_and_module_registry,TRUE,Use Stage 8 overhangs and module registry records; this profile does not redefine cloning biology.
+pForge_MMEJ_PITCh_default,mmej,pForge-MMEJ-Cas9-DualGuide,PITCh_MMEJ_donor_primer_amplicon,SpCas9_NGG_plus_PITCh_gRNA3,stage8_order_sheet_and_mmej_primer_design,TRUE,Use Stage 8 PITCh primer and synthesis-review fields; verify donor-linearization conventions before ordering.
+legacy_HDR_default,hdr,HDR_default,BsaI_modular_Golden_Gate,SpCas9_NGG,stage8_order_sheet,FALSE,Compatibility profile for cassette-only runs.

@@ -1,0 +1,1416 @@
+{
+  "package": "forgeKI",
+  "version": "0.1.0",
+  "created_utc": "2026-06-12T22:12:28Z",
+  "files": [
+    {
+      "path": ".github/workflows/R-CMD-check.yaml",
+      "sha256": "fadae7a5fe9d26a503861436a670adcea00e680895205b750bee05fca7433938",
+      "bytes": 688
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "91e0cfcf0fb5e017fbef34a835544b5d117f8f2cf3da0fb61f730ae393302f55",
+      "bytes": 217
+    },
+    {
+      "path": ".Rbuildignore",
+      "sha256": "949bf0bec49880ee2e674f40f1112c3045d86d249d939e58cfb50bd0bcf3d3ac",
+      "bytes": 487
+    },
+    {
+      "path": ".Rprofile",
+      "sha256": "f9b72f0e79c28c35d382663ef8ecba0734fdd954fb2486c61fe0f0f19e89a04a",
+      "bytes": 240
+    },
+    {
+      "path": "_pkgdown.yml",
+      "sha256": "2e26123c21174db4e2220277f76e089b5d00b248b39089f3b524a7e0800ec045",
+      "bytes": 2519
+    },
+    {
+      "path": "CITATION.cff",
+      "sha256": "3ab1b778bcb345cda973c9c20765374de2365a3227a0e2ad1e92ef0c05bb275a",
+      "bytes": 638
+    },
+    {
+      "path": "DESCRIPTION",
+      "sha256": "7e586c8b01542eb38a02450a94d3dcf0161bb88d2b75062bcdba72a214866edb",
+      "bytes": 1550
+    },
+    {
+      "path": "forgeKI_Rpackage.Rproj",
+      "sha256": "aa1bb6b4e0ed0325d1e781f5b6eacf7549b809566866accf8ca605331d136816",
+      "bytes": 218
+    },
+    {
+      "path": "inst/CITATION",
+      "sha256": "4cae50183d9a7013799ffc89000a14ee43983046934e1418307a7d6ffb1bc36e",
+      "bytes": 552
+    },
+    {
+      "path": "inst/extdata/biology/paralog_pairs.csv",
+      "sha256": "48d7a8b839ccee829e72eebd3ad0916fb84a33bfc6eb534ceae92698c72a28c7",
+      "bytes": 405
+    },
+    {
+      "path": "inst/extdata/biology/target_biology_rules.csv",
+      "sha256": "6729b19d4d7458d653318031d6b44a49a70f073656a48550f8cafff57b2dce69",
+      "bytes": 2840
+    },
+    {
+      "path": "inst/extdata/biology/target_biology_uniprot_human_slim.csv.gz",
+      "sha256": "5ca1a2ba2d23a630750c148140e28dfc6f2d8f6a7e7a51795aa32b02d8fe2849",
+      "bytes": 1159145
+    },
+    {
+      "path": "inst/extdata/biology/target_biology_uniprot_human_slim.rds",
+      "sha256": "001754f6e7f4e6b29f67495a4163dabc355a446750b28bb0ea2db6a2ecf6132d",
+      "bytes": 1041308
+    },
+    {
+      "path": "inst/extdata/biology/target_biology_uniprot_human_slim_manifest.yml",
+      "sha256": "b13c43c0376ee43648d8f2eafbb1cff331f0d5b41e94c7623eee8fd7add6141a",
+      "bytes": 588
+    },
+    {
+      "path": "inst/extdata/cassettes/toy_hibit/cassette.fa",
+      "sha256": "dddeafbb93c2c4221ef1f881ec89f62eb79d07ce121c6c493bc807496bc760f0",
+      "bytes": 107
+    },
+    {
+      "path": "inst/extdata/cassettes/toy_hibit/cassette.yml",
+      "sha256": "fbd38e1cf2a2455b26cb9fd8d0b86b371ec1c227c5468fbf81e785b3b3727d08",
+      "bytes": 981
+    },
+    {
+      "path": "inst/extdata/fusion_modules/forgeki_fusion_payload_registry.csv",
+      "sha256": "d47bd235e04b883257b5aa5f5291544d4e64aa9c04bb64afb4bce57f8ec91a1d",
+      "bytes": 2206
+    },
+    {
+      "path": "inst/extdata/fusion_modules/forgeki_fusion_payloads.fasta",
+      "sha256": "dfd700f1d6deae00a8b1727b4f9de4bbdadfe2726c977a1b37d6c8eb645c329a",
+      "bytes": 990
+    },
+    {
+      "path": "inst/extdata/registries/forgeki_module_registry.csv",
+      "sha256": "98b05ca77841f5d89d448ccf7884b8bbf2fad72df07ebf72c030669531bb3df3",
+      "bytes": 4248
+    },
+    {
+      "path": "inst/extdata/resource_manifest_template.yml",
+      "sha256": "93f0f7b1cec765a1d74819fac939a390241ed41ca37b4edb9aeaf857a17fe937",
+      "bytes": 733
+    },
+    {
+      "path": "inst/extdata/schemas/hdr_config_schema.yml",
+      "sha256": "1b6041d24031171083bf3ff1471d7598e3b51d1d766f0d7a210f0168443bc7f0",
+      "bytes": 352
+    },
+    {
+      "path": "inst/extdata/templates/report_placeholder.html",
+      "sha256": "73765fd2b79828016fbb8fd3b78a97e5f4bb9dad72c0b22a1d0f5725f14eabee",
+      "bytes": 77
+    },
+    {
+      "path": "inst/extdata/toy_cellline_reference/data/toy_ranking.csv",
+      "sha256": "a54a8dc1ce65c9e54823e49bfac61b38400d95e5872009e468f5d13be8b2beff",
+      "bytes": 81
+    },
+    {
+      "path": "inst/extdata/toy_cellline_reference/manifest.yml",
+      "sha256": "7fdc4913183f74a1bca87d3d578828124604abe93b527c3d233d0ec5dab58112",
+      "bytes": 201
+    },
+    {
+      "path": "inst/extdata/vector_profiles.csv",
+      "sha256": "9c86f72509ca5318eddc66c565c2d92634d13fa1d634c3514fc5ac94e463c318",
+      "bytes": 755
+    },
+    {
+      "path": "inst/extdata/vendor_profiles.csv",
+      "sha256": "52c38fe3ce4ffaad19afa91592d776f26269123f5aab116efdb8b23e6002b619",
+      "bytes": 806
+    },
+    {
+      "path": "inst/package_meta/MIGRATION_NOTES.md",
+      "sha256": "b49b78fe8507d4012645102bdf8da84f7f67a0b77521a02cafff9e83b6619a36",
+      "bytes": 941
+    },
+    {
+      "path": "inst/package_meta/RELEASE_AUDIT.md",
+      "sha256": "f26971d66fde016b09fa4fe4f91da56cb1fbae6342c76b35db388797aa855208",
+      "bytes": 3040
+    },
+    {
+      "path": "inst/package_meta/RELEASE_CHECKLIST.md",
+      "sha256": "df48878148e5bb838f574edd89fecdb5d3b4822745d9c0fcb90fb9660e5f4eac",
+      "bytes": 1846
+    },
+    {
+      "path": "inst/schemas/v51_2_migration_matrix_schema.csv",
+      "sha256": "9a4ff4667a30bb3b166438a3d8329317aa6c3dfb77044f36a71359a37a035196",
+      "bytes": 1000
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "2468e3938108858a35a5bb10c63c43fc4254ede7c7407a70793af7679c81ee94",
+      "bytes": 43
+    },
+    {
+      "path": "man/abort_hdr_error.Rd",
+      "sha256": "9586025fad08ba4e39f16596c3293b6c657351a51483a64ddfb843a5c56937ab",
+      "bytes": 645
+    },
+    {
+      "path": "man/audit_hdr_equivalence.Rd",
+      "sha256": "33ef843ad7611c81c42c57feb85c259c588ed71e1b92ea9c46f4688e30103ea9",
+      "bytes": 1370
+    },
+    {
+      "path": "man/audit_hdr_sequence_differences.Rd",
+      "sha256": "a99230f1f4598c9b5394f193cb2f4f0837a5bac76f23c593ae4bda56f7e7eaad",
+      "bytes": 858
+    },
+    {
+      "path": "man/audit_hdr_stage10_migration.Rd",
+      "sha256": "7257c88dde4ecc2bf225e629f3516289017530a57d88a2afe0d9a440b2133164",
+      "bytes": 1235
+    },
+    {
+      "path": "man/audit_hdr_v51_inventory.Rd",
+      "sha256": "8671d3bbe591a11c437fcda9ceaf616483a022eb7e79300152cb8b1fcc2adf9c",
+      "bytes": 997
+    },
+    {
+      "path": "man/check_hdr_resources.Rd",
+      "sha256": "0708ea28a176b9cd000ac37fa6e44e9e57eb412c5088e514270523c6fba15022",
+      "bytes": 482
+    },
+    {
+      "path": "man/cleanup_hdr_jobs.Rd",
+      "sha256": "c285756ebc420ee61d35a80d8d03aee3b28f26e70ae8edf9215b5f0b11b6b132",
+      "bytes": 486
+    },
+    {
+      "path": "man/compute_hdr_production_readiness.Rd",
+      "sha256": "a0be65f978e4774e9f204a5069b34e129bd8f4be262183384d61d73a356e541d",
+      "bytes": 812
+    },
+    {
+      "path": "man/export_vendor_order_sheet.Rd",
+      "sha256": "aec63fe1a991d497c31534300103f1a542d66ffb0fd38bc03dba5a2c72ef667b",
+      "bytes": 948
+    },
+    {
+      "path": "man/forgeKI-aliases.Rd",
+      "sha256": "f69f5714740be81530a71d87bdfbbf612c3d8f43c6f3a25eb7642e97c51ea5dc",
+      "bytes": 3776
+    },
+    {
+      "path": "man/forgeki_available_modules.Rd",
+      "sha256": "a88c72373e8f5c0339e55899a5cc6bddcfc2a030c7aa3bfd589aa824b0e6085c",
+      "bytes": 783
+    },
+    {
+      "path": "man/forgeki_build_mmej_reference_bundle.Rd",
+      "sha256": "e8db532911ba87825e5ca7346d01520ef4f24be0e36094e03d5c48ffdbbe18dc",
+      "bytes": 1359
+    },
+    {
+      "path": "man/forgeki_check_mmej_reference_bundle.Rd",
+      "sha256": "3d48670bf4b4bbdd0ac7bc775031e280c66f79f462dd9bf2f7668154fdb32cc0",
+      "bytes": 697
+    },
+    {
+      "path": "man/forgeki_donor_options.Rd",
+      "sha256": "7d40941cd5c37eb44377a14dc7ed57afb42b3738d22945d467d5dbf656a22dc9",
+      "bytes": 1625
+    },
+    {
+      "path": "man/forgeki_external_module_library_path.Rd",
+      "sha256": "6a7df0df370763702f90604ee5e6973b7aceb49d3f4d54a9a816ae6481d56892",
+      "bytes": 954
+    },
+    {
+      "path": "man/forgeki_find_stage10_omics_bundle.Rd",
+      "sha256": "b418d7f79e20c8d854708da0a0f107961990d50e0695b875c15828272fab559c",
+      "bytes": 935
+    },
+    {
+      "path": "man/forgeki_fusion_payload_registry.Rd",
+      "sha256": "4553c352be5873544ca8869f795cd32421a48b75c7006d857b156333e2bb3334",
+      "bytes": 806
+    },
+    {
+      "path": "man/forgeki_mmej_reference_bundle_layout.Rd",
+      "sha256": "98a3f327f4ba3d0f81e494ac72d494ee2560a70860eaeb161aedf6852e3eb93d",
+      "bytes": 703
+    },
+    {
+      "path": "man/forgeki_module_registry.Rd",
+      "sha256": "a4fd172f58e9e680cbd693256fde91f5acae75c0d524828019fc9e9307011984",
+      "bytes": 928
+    },
+    {
+      "path": "man/forgeki_module_route_compatibility.Rd",
+      "sha256": "7064d52939811e509e79223fb5fa30c630fe459c71cbe5053df88302e8ec5b93",
+      "bytes": 1279
+    },
+    {
+      "path": "man/forgeki_report_model.Rd",
+      "sha256": "cfa903cbdac3e940fce4bff8963f5b3cfd284218249d88d08c018e10181e0cb5",
+      "bytes": 3018
+    },
+    {
+      "path": "man/forgeki_resolve_fusion_payload.Rd",
+      "sha256": "917ce5c606861823f36a7906868786c5b22585a8ccc59e1f570c808dcc0a7060",
+      "bytes": 864
+    },
+    {
+      "path": "man/forgeki_resolve_mmej_reference.Rd",
+      "sha256": "1ced912a3d08752aae3e183c48856bca36e451e29c22dbdd088d9c8e4e093de1",
+      "bytes": 1033
+    },
+    {
+      "path": "man/forgeki_resolve_mmej_single_print_payload.Rd",
+      "sha256": "e925c18906830e2671cfd25c7cf78b351c1af3b26948ac25e7d7764e700839db",
+      "bytes": 1555
+    },
+    {
+      "path": "man/forgeki_scan_external_module_library.Rd",
+      "sha256": "0906d918410f239e103ce034976645c22f79ba1533f09ffb84429194d3599ef0",
+      "bytes": 1029
+    },
+    {
+      "path": "man/get_hdr_stage1_hg38_resources.Rd",
+      "sha256": "108b9a49401e5db7b3804d696d34a30139728e518ea429caff1fb8f07ddc60e0",
+      "bytes": 1491
+    },
+    {
+      "path": "man/has_hdr_stage1_hg38_resources.Rd",
+      "sha256": "a2b5b80611899e398100abef74228b36c9dae2c3c7b7a4f531c9e1a2e06ead89",
+      "bytes": 457
+    },
+    {
+      "path": "man/hash_hdr_files.Rd",
+      "sha256": "ed6c29e2f77cce59a3d0fa82ddbc6211e100bbc7b5853d87a02be671a229e38d",
+      "bytes": 459
+    },
+    {
+      "path": "man/hdr_arm_options.Rd",
+      "sha256": "1bc57ecd8b9d0d71c82c274172149edefc7f35c917e479fe3a89b64b4e74ca54",
+      "bytes": 752
+    },
+    {
+      "path": "man/hdr_audit_stage10_builder_inputs.Rd",
+      "sha256": "ad5d3e273931ae64a2d7a6a0134470e99261106690167eff3ca6a4b822a87417",
+      "bytes": 649
+    },
+    {
+      "path": "man/hdr_biology_options.Rd",
+      "sha256": "25274fb670c4e72d8f4e6ab44f48716e6ae4845cd99f0315b47279e943b2335d",
+      "bytes": 1585
+    },
+    {
+      "path": "man/hdr_build_stage10_reference.Rd",
+      "sha256": "0d8f37cc006a7e72179bdd3960c269de30146c48b6fe0fb90d3db4cb0f3f397c",
+      "bytes": 4947
+    },
+    {
+      "path": "man/hdr_check_stage10_omics_inputs.Rd",
+      "sha256": "de65f0b50f900f37fc0ad2b69b5a05c0285a89bd0f25146ae80b11cd2eb42586",
+      "bytes": 982
+    },
+    {
+      "path": "man/hdr_compile_stage10_omics_bundle.Rd",
+      "sha256": "5d5f8b5d7374e7880ca554741f67e93d475e58ad149a2419698ff7e42413f2f9",
+      "bytes": 2328
+    },
+    {
+      "path": "man/hdr_config.Rd",
+      "sha256": "09da558c1956881c2342ed46ac36a15f1d2774c338722be7d9773a71b0602793",
+      "bytes": 3005
+    },
+    {
+      "path": "man/hdr_crisprverse_capabilities.Rd",
+      "sha256": "4bc2a7dbec730d8425feb4445a8c42561b04489ea44183a4bba4e3981bb1f9db",
+      "bytes": 575
+    },
+    {
+      "path": "man/hdr_crisprverse_options.Rd",
+      "sha256": "e2a07c870ee0c459cb05b3afb05b77ab3f43c822f875d1c0cda3feccf1fa7194",
+      "bytes": 1571
+    },
+    {
+      "path": "man/hdr_default_equivalence_plan.Rd",
+      "sha256": "3449b829ef1a3cbfcef0796fb899d27ebbac010dc8829c608c9f18ed40a84f2c",
+      "bytes": 648
+    },
+    {
+      "path": "man/hdr_golden_gate_options.Rd",
+      "sha256": "cd661bdfa13ff4b7e57377c38bb31dee5a73a20ba3036e53c3a851771c4a5e69",
+      "bytes": 3523
+    },
+    {
+      "path": "man/hdr_guide_options.Rd",
+      "sha256": "3769ab681977cdf07db92b95996c975ae190b1d8b69f117686c9f8911d201626",
+      "bytes": 889
+    },
+    {
+      "path": "man/hdr_load_stage10_omics_bundle.Rd",
+      "sha256": "22d7696546f940882b67c73c4425a363a1b40f8ef55003011fdec477b6f1387f",
+      "bytes": 644
+    },
+    {
+      "path": "man/hdr_make_gene_slim_stage10_omics_bundle.Rd",
+      "sha256": "f33c56541603377a14cc35fa2aff5f9014833bae4b353aa169d7254bc06c94b4",
+      "bytes": 1557
+    },
+    {
+      "path": "man/hdr_mmej_options.Rd",
+      "sha256": "adc4d7e78472abd15fd48bbcffe8b7932902aaad0cadeae78916a0f8fd323f02",
+      "bytes": 1170
+    },
+    {
+      "path": "man/hdr_normalize_order_role.Rd",
+      "sha256": "8e2d322667f6229fe8ee7a3280182ddff90b0afe48fca0e379c001ff06c98d83",
+      "bytes": 556
+    },
+    {
+      "path": "man/hdr_repair_strategy.Rd",
+      "sha256": "d4739cf7d9e3ef6181a6cfa9a4aa76008defd1f404716953c68edb0865e071f0",
+      "bytes": 468
+    },
+    {
+      "path": "man/hdr_reverse_complement.Rd",
+      "sha256": "98d66d941c00367e6e71b84c3de17a72875e8d5dccc9b4219e0ac8c744614c37",
+      "bytes": 382
+    },
+    {
+      "path": "man/hdr_runtime_options.Rd",
+      "sha256": "1024ded1ba99a34c2a0cd759144cdd7c2a5ca142185a4695f3b2403ba64282ee",
+      "bytes": 720
+    },
+    {
+      "path": "man/hdr_stage10_options.Rd",
+      "sha256": "aeec120fa22eb33e03267544f0d9d7f31065e50053346bb27ba97b610b2630bc",
+      "bytes": 3492
+    },
+    {
+      "path": "man/hdr_stage10_resource_quickstart.Rd",
+      "sha256": "736df6da19ef55e2b913a81b1b07b884d1addad46833300679844486b83e0438",
+      "bytes": 1045
+    },
+    {
+      "path": "man/hdr_target_biology_reference.Rd",
+      "sha256": "d9bb55a2d74d9e5ca478f0f54785b3f1258a2f337475b75cf65dfcf260d8dba0",
+      "bytes": 3354
+    },
+    {
+      "path": "man/hdr_target_biology_rules.Rd",
+      "sha256": "739cc8402ea0491540df670cc21ccf5011a2ca25d7b91b0da7258f676edc128e",
+      "bytes": 553
+    },
+    {
+      "path": "man/hdr_validate_stage10_omics_bundle.Rd",
+      "sha256": "2cddf00832a2ca485134e851bbf393cc3a10785e62ec113bcbe926dea285a8b8",
+      "bytes": 579
+    },
+    {
+      "path": "man/hdr_write_stage10_bundle_readme.Rd",
+      "sha256": "cacb2501f0e41070ecf0248edf2a4aa5c9d8ca520c75159748b389519d373363",
+      "bytes": 1207
+    },
+    {
+      "path": "man/hdr_write_stage10_resource_template.Rd",
+      "sha256": "8c0bcab4ed18f21f33eed41cceb0d932014c82198901482613fc245743e4fd06",
+      "bytes": 974
+    },
+    {
+      "path": "man/inspect_hdr_stage10_bundle.Rd",
+      "sha256": "8ebfcb4be420bdee927a0a9f25ba0aac87165d52c492174efb2fb462e9477091",
+      "bytes": 1146
+    },
+    {
+      "path": "man/inspect_mmej_cellline_reference.Rd",
+      "sha256": "fb5e139b2565d52d89fd033ffd5465b576ba34e0d9aea82519f0f3a6501b2177",
+      "bytes": 660
+    },
+    {
+      "path": "man/load_hdr_cellline_reference.Rd",
+      "sha256": "bd868d1bc34c81523e744d463bff8bdfd888feecce5621e98409dc4741b3810a",
+      "bytes": 657
+    },
+    {
+      "path": "man/load_hdr_gene_cellline_context.Rd",
+      "sha256": "bbdeed235dd7471f572328014d057f9427c88f0f4e3b2e732de07574dacce290",
+      "bytes": 1038
+    },
+    {
+      "path": "man/load_hdr_result.Rd",
+      "sha256": "95f3deb81c0692bd4a895a9b139711c9e46ff95abab997b700dd84217da1b8be",
+      "bytes": 385
+    },
+    {
+      "path": "man/load_mmej_cellline_reference.Rd",
+      "sha256": "bd0a775daa358dcab3871b69cdca1c5c932555e6dd4edec88994a71516c0441a",
+      "bytes": 936
+    },
+    {
+      "path": "man/new_hdr_job.Rd",
+      "sha256": "8101ac8a51191a9bdcf78c2396b6d095fcd87c1a9cb768a76ea161c27a59da33",
+      "bytes": 805
+    },
+    {
+      "path": "man/read_hdr_job_status.Rd",
+      "sha256": "3165910d208415700c5a5f784701211d97e5726e309206cccead9c3d1c6f05c0",
+      "bytes": 413
+    },
+    {
+      "path": "man/read_hdr_resource_manifest.Rd",
+      "sha256": "42c2e4d9f975dc9088b82f8be2d20e7fa1457902ee997a9d2e38244b9caf8213",
+      "bytes": 511
+    },
+    {
+      "path": "man/render_hdr_report.Rd",
+      "sha256": "759c9ccf8cee196708dc1ba5c07935cd1493a993aa6e41e026b3b545b1d8b488",
+      "bytes": 1467
+    },
+    {
+      "path": "man/resolve_hdr_resource.Rd",
+      "sha256": "0effba73e9ce642cef62208694580a00135f41f79338261b111217199cbe6b93",
+      "bytes": 639
+    },
+    {
+      "path": "man/run_hdr_job.Rd",
+      "sha256": "8b8b90cb8fb60b005102cd506456355f1dfcaa25c77e6d69e8288b85a2896c91",
+      "bytes": 485
+    },
+    {
+      "path": "man/run_hdr_pipeline.Rd",
+      "sha256": "ce73199fd74be98e5feb304d8f6880e8cd45b8b5682586c42a1eef367b8e4bc0",
+      "bytes": 3873
+    },
+    {
+      "path": "man/run_hdr_shiny.Rd",
+      "sha256": "c6350ee827ac228b6903808d3a1b7c15774e5577f759262d76c1cd0ee5cac098",
+      "bytes": 377
+    },
+    {
+      "path": "man/run_hdr_stage1.Rd",
+      "sha256": "35ddc114a10f76764c88dd4612b66487f0879d6a90e753965a45baacdd743826",
+      "bytes": 1680
+    },
+    {
+      "path": "man/run_hdr_stage10.Rd",
+      "sha256": "148723ff346b77c7137ed2efafffa6c4be2d94cdee9c53c633f2154bb7350e54",
+      "bytes": 1571
+    },
+    {
+      "path": "man/run_hdr_stage10_gene_context.Rd",
+      "sha256": "22182f2ff3b635aeade16423b8c4304bf4994428d8d726f2091a598c3b13eacc",
+      "bytes": 1388
+    },
+    {
+      "path": "man/run_hdr_stage2.Rd",
+      "sha256": "2301f46a5d92054b6b934e8a9de872d58bea4db24178c8edb44b9abb13cb90e4",
+      "bytes": 1126
+    },
+    {
+      "path": "man/run_hdr_stage3.Rd",
+      "sha256": "51a83bc1280d042ea6d4311269a6ccd15b1df45817fbb3a7fdbf8d36653acee1",
+      "bytes": 1916
+    },
+    {
+      "path": "man/run_hdr_stage4.Rd",
+      "sha256": "00b605d83d1b84618c571199aaa7c6d5d7ad81f51aa37f6c27dce9e5c34ba092",
+      "bytes": 1621
+    },
+    {
+      "path": "man/run_hdr_stage5.Rd",
+      "sha256": "93f2f50621d6fb4047e948f84e377adc30a9dc38a84935e0f9c1e878f0b5b0bd",
+      "bytes": 1271
+    },
+    {
+      "path": "man/run_hdr_stage6.Rd",
+      "sha256": "3f99a9913c7d6d01e4cf75db4d38b50960e5a8e8e72bf3a1621cb132085ac02e",
+      "bytes": 1795
+    },
+    {
+      "path": "man/run_hdr_stage7.Rd",
+      "sha256": "9d1376caa10f8fd7360d0616a7bcc6ea30d4d2bb27e7052eff39190e9bd489df",
+      "bytes": 1905
+    },
+    {
+      "path": "man/run_hdr_stage8.Rd",
+      "sha256": "90f337dc999c66531aab83dcfd390d05632aff0896ea53051e1bdccef7b84022",
+      "bytes": 1469
+    },
+    {
+      "path": "man/run_hdr_stage9.Rd",
+      "sha256": "266ac98dde01b8c7a671842facae6ad92cefac6d154f606937a754444e11e9ea",
+      "bytes": 1579
+    },
+    {
+      "path": "man/run_mmej_stage10a_global_competency.Rd",
+      "sha256": "ce9851166ebba64d796dc297558df7f4b670dbfda0a92d010409d6402bd834c4",
+      "bytes": 2083
+    },
+    {
+      "path": "man/run_mmej_stage10b_gene_context.Rd",
+      "sha256": "5ec377b878472f5a8548975aa84b68ba248d9462441985ff28bf486dfebfe28c",
+      "bytes": 1067
+    },
+    {
+      "path": "man/run_mmej_stage10b_gene_context_from_omics_bundle.Rd",
+      "sha256": "6e8cb781b073f03edc277c664586743565731aa7a88d0dd5c3c4d59e74015fb0",
+      "bytes": 1118
+    },
+    {
+      "path": "man/run_mmej_stage10c_design_cellline_matrix.Rd",
+      "sha256": "2187f9a83966ab00b36160d9d24cf3b4fa141b499cb4ac2d74b48b588fdefd68",
+      "bytes": 1309
+    },
+    {
+      "path": "man/run_mmej_stage10d_allele_integrity.Rd",
+      "sha256": "4184f80db7fd263cd2170139bc0ba570dc5ff671eeecaa59afefc23f8791dbc8",
+      "bytes": 1127
+    },
+    {
+      "path": "man/run_mmej_stage10e_chromatin_overlay.Rd",
+      "sha256": "56dd4dd833b211a937b6be3b48951bff56cc0d8b802cefbb07fa46c2a9b7ac8f",
+      "bytes": 954
+    },
+    {
+      "path": "man/run_mmej_stage4_mh_arms.Rd",
+      "sha256": "00c01d64ddacd3529efe27643be069ca16457057c96d7ce6d5b93a2ef60a53c3",
+      "bytes": 1043
+    },
+    {
+      "path": "man/run_mmej_stage6_grna3_collision.Rd",
+      "sha256": "f496691ca96fc93101644e95bca527e8af54192c574f7bbb94ddbbca46da07a9",
+      "bytes": 1271
+    },
+    {
+      "path": "man/run_mmej_stage7_virtual_junction.Rd",
+      "sha256": "c49aba51b56066f8dc4b0ed6ec5188d37d68a22898c6a17ddbf70ce3f0101d25",
+      "bytes": 1678
+    },
+    {
+      "path": "man/run_mmej_stage8_pitch_donor.Rd",
+      "sha256": "481f20261fcd0c131ff53907dcbe65eb12316eb881d7f62ee30bbefcb32117ad",
+      "bytes": 1522
+    },
+    {
+      "path": "man/run_mmej_stage9_design_scoring.Rd",
+      "sha256": "da493831647ca36251575a3acbc3395a2f49492c04594cca85df781b9f8370b4",
+      "bytes": 1557
+    },
+    {
+      "path": "man/standardize_mmej_cellline_reference.Rd",
+      "sha256": "66c2e78ab721b1173bd4a122555aecb12afcbfaa463c2a364abbaf308b278df4",
+      "bytes": 754
+    },
+    {
+      "path": "man/summarize_hdr_result.Rd",
+      "sha256": "521f231dd90673315a12c08e0ee729e25e17fe0da0a59b3b51e4100c41e14891",
+      "bytes": 394
+    },
+    {
+      "path": "man/summarize_hdr_stage10_builder.Rd",
+      "sha256": "cb2fe787ba058840960912c06d2127cf907135eb4562fcf0c3b2f6aaccb2b30b",
+      "bytes": 1020
+    },
+    {
+      "path": "man/summarize_hdr_stage8_orderability.Rd",
+      "sha256": "74dc406b9ff547c91c9184b05655c2f841c60690e0142dfdeda02f7c6c3e88a2",
+      "bytes": 1010
+    },
+    {
+      "path": "man/summarize_hdr_v51_audit.Rd",
+      "sha256": "4434895596152e05aa19a6d89531c94b65df4fd4a6a820148a25f53f1ee5e90c",
+      "bytes": 1029
+    },
+    {
+      "path": "man/validate_forgeki_donor_options.Rd",
+      "sha256": "3b3342c370fb09f72c4ab22420cf0cfccd494a78331d41d12a35a58922860fae",
+      "bytes": 649
+    },
+    {
+      "path": "man/validate_hdr_config.Rd",
+      "sha256": "edd0ab2b5e96edb56342fff0659c241177e214c6b50a4fd886347af2bd0b6b34",
+      "bytes": 374
+    },
+    {
+      "path": "man/validate_hdr_gene_cellline_context.Rd",
+      "sha256": "70b059a7cdda8f44d1032363fdfb7c3e9b50ef982fb6823e1a18928663cd48fd",
+      "bytes": 991
+    },
+    {
+      "path": "man/validate_hdr_resource_manifest.Rd",
+      "sha256": "9d19afe6be4d7dd0cedcfeb98ad2c72936c288ab41d778d87192c4a35686d8bb",
+      "bytes": 667
+    },
+    {
+      "path": "man/validate_mmej_cellline_reference.Rd",
+      "sha256": "510e80afcd41dcbdf6db2d0fbc270c9d7e3186e745561d8ac4feaf0d5fb6fb51",
+      "bytes": 551
+    },
+    {
+      "path": "man/validate_output_path_is_within_job_dir.Rd",
+      "sha256": "e051192b4432d15b236dfde00f6f0dafd881dc2a5eb187406e49044b455df01f",
+      "bytes": 551
+    },
+    {
+      "path": "man/write_hdr_config.Rd",
+      "sha256": "a08fbfb495b8502499ef32ee7b0c43771428e703adb075dcb57e66ed651b2a67",
+      "bytes": 449
+    },
+    {
+      "path": "man/write_hdr_equivalence_plan_template.Rd",
+      "sha256": "fadfac3ae44e1e03393e5668e6f64c10b325ad5636d395a681793d8bfcdeabc9",
+      "bytes": 512
+    },
+    {
+      "path": "man/write_hdr_progress.Rd",
+      "sha256": "2c5b8aef8d30ff8da346d904a999e60acd4ccbfb119b006c41b7ce29e3e86b23",
+      "bytes": 529
+    },
+    {
+      "path": "man/write_hdr_resource_template.Rd",
+      "sha256": "a7709df7d68ec4de8f219ee04834b15f70b1b52f2dae95964ae085d5e9e49bb1",
+      "bytes": 586
+    },
+    {
+      "path": "man/write_hdr_v51_audit_summary.Rd",
+      "sha256": "bdfaf90be207d7e57b813d4793c395b29ff3da7bd9ef250306698bb384699709",
+      "bytes": 591
+    },
+    {
+      "path": "man/zip_hdr_job_outputs.Rd",
+      "sha256": "eced5cd02ea2643c58b9225ff687711ee44fe19440a65b2b317627dcedfacb3e",
+      "bytes": 473
+    },
+    {
+      "path": "NAMESPACE",
+      "sha256": "3f5850027e4ee390973e087e37cc6f010c4f9a84d6973bff1a61302f2620b51d",
+      "bytes": 8270
+    },
+    {
+      "path": "NEWS.md",
+      "sha256": "103e570d43813783b1b669b9094ea54a14e5e314284a90aa3f3c51d1ec0feaf8",
+      "bytes": 41958
+    },
+    {
+      "path": "R/config.R",
+      "sha256": "fdec535662e22e1003071e6181a0d0719378197d641583c0cb5ff79105dd436f",
+      "bytes": 29501
+    },
+    {
+      "path": "R/crisprverse_adapter.R",
+      "sha256": "b1235f10db57e580db731503010ecfb9408f13ac21923310a37c19515dd5635b",
+      "bytes": 28389
+    },
+    {
+      "path": "R/equivalence_audit.R",
+      "sha256": "6124cd26cb880add13259625e174dd136e8fcfbc2760eeafb68bd3b0d2cdf8b3",
+      "bytes": 55504
+    },
+    {
+      "path": "R/errors.R",
+      "sha256": "6560d2f4189374f1e8e93adb6bbaeb732cb4f0fdfdf4de38a937b9a94ad6cf2a",
+      "bytes": 966
+    },
+    {
+      "path": "R/forgeki_aliases.R",
+      "sha256": "d48ce3faf6aa998715b0d45dda3bbb498a00d58f0f012afaf8061bad85100231",
+      "bytes": 6024
+    },
+    {
+      "path": "R/globals.R",
+      "sha256": "89758065b25f42e4c2fdbdbfddea51ecf83c972a9717bdb8df0c11f2f90d61e6",
+      "bytes": 125
+    },
+    {
+      "path": "R/job_model.R",
+      "sha256": "2505ec10f8ce36b3569d0b80bff255619cd3f09070ef6c3c6dd23e029114b49f",
+      "bytes": 5792
+    },
+    {
+      "path": "R/logging.R",
+      "sha256": "1585be79f33e8c5ab1506b3e52b7cc80fc32ba7c5d5917c438f8aaa37a3cb651",
+      "bytes": 765
+    },
+    {
+      "path": "R/mmej_cellline_reference.R",
+      "sha256": "1acca77b8f743fb9d16c24cbf0d2c6a00609192edf482a5abaa3517e46413df9",
+      "bytes": 13585
+    },
+    {
+      "path": "R/mmej_payload_composition.R",
+      "sha256": "de29146cef39d78351b012907b7871d1067b8b2cfd6da92077c111218e14ad6a",
+      "bytes": 13067
+    },
+    {
+      "path": "R/module_orderability_summary.R",
+      "sha256": "06dda5fc5a039da657e30f9c20c3c794ea2a125aab515645004eb4840163cefe",
+      "bytes": 7871
+    },
+    {
+      "path": "R/module_registry.R",
+      "sha256": "792d3a698f5dd77715784112ef46bf5edfec7b9928a7985167bc0b6bfe0fa3a3",
+      "bytes": 47043
+    },
+    {
+      "path": "R/oligo_builder.R",
+      "sha256": "f1d2578d50e478cb442be9fa6882d1ab4f5a79ed4074f2510ebcffe2e122e58f",
+      "bytes": 29669
+    },
+    {
+      "path": "R/output_profiles.R",
+      "sha256": "c95b2fed130c4c1c3fc9a01912e2722b891750c914691b9c05fcc3a5512f7a5c",
+      "bytes": 706
+    },
+    {
+      "path": "R/pipeline_api.R",
+      "sha256": "bf4225970cfe76b9811c5b530e061ac3ff3a541b4eefd2c55888227aa569a96c",
+      "bytes": 28324
+    },
+    {
+      "path": "R/protocol_templates.R",
+      "sha256": "a7276e8ce725c07360b0927d3ab9ae22676432fdec4e1d9db5b035ee9c83cf57",
+      "bytes": 2951
+    },
+    {
+      "path": "R/render_executive_summary.R",
+      "sha256": "5fe8561db1030263cd945a217e92c3e31ab16d33c3aac926c2ef5b4ab6ab707c",
+      "bytes": 42276
+    },
+    {
+      "path": "R/render_order_csv.R",
+      "sha256": "6bd1d3951d9e1f61a2f88ef8929529d538a02d8377aedf578ecdb55b1800c931",
+      "bytes": 4166
+    },
+    {
+      "path": "R/repair_strategy.R",
+      "sha256": "8f399c7423b8ff302d681d9a4630b152176670ed8f94beafa5db670f10843e38",
+      "bytes": 2692
+    },
+    {
+      "path": "R/report_export.R",
+      "sha256": "9c92b2532501cfe25ee122814d6833ea854192379de41c0e99fba26c17d43fae",
+      "bytes": 133455
+    },
+    {
+      "path": "R/report_model.R",
+      "sha256": "865321744270b6fa9f9d55bcbb2eb44294a96ae335b072ccba111a1775e1130b",
+      "bytes": 21013
+    },
+    {
+      "path": "R/report_pages.R",
+      "sha256": "6ab5a85363f569ac7444a58b8b577984fcde2339b900a78a3a9ef968dbf7e3d9",
+      "bytes": 65
+    },
+    {
+      "path": "R/report_resolver.R",
+      "sha256": "7b5e563952d5b357e5e61aa796271598b8a3d32274b115f077eed381e107189a",
+      "bytes": 68
+    },
+    {
+      "path": "R/resources.R",
+      "sha256": "8dcbbde1daea41a9adb9182037dd2b1b3e109c8287742d73b688bb34ca43fbe3",
+      "bytes": 6198
+    },
+    {
+      "path": "R/result_summary.R",
+      "sha256": "a12d74d58a42c386396a273a25066570598e476a57347a1b32e1ded651bd5d03",
+      "bytes": 7721
+    },
+    {
+      "path": "R/stage1_bioc_adapter.R",
+      "sha256": "87593fc6ef289e31e045ca69256f071c06a090ead0c1e95c8ceeed30ea328d55",
+      "bytes": 8153
+    },
+    {
+      "path": "R/stage1_locus.R",
+      "sha256": "cfc2d8dc8cb978916a42dbfb9ecefcc52872aaaaa5d2bc10fd909b63cebd4e3d",
+      "bytes": 23552
+    },
+    {
+      "path": "R/stage10_cellline_context.R",
+      "sha256": "bc9ad571f451ecf0db7450036790d3344b58abe46b35eea9e8bfe54efa26534d",
+      "bytes": 20424
+    },
+    {
+      "path": "R/stage10_gene_context.R",
+      "sha256": "60b5d477ff2b0eb3ae386bd90a547468afe571a6c930d478b52de22c18905b1a",
+      "bytes": 71235
+    },
+    {
+      "path": "R/stage10_mmej_cellline_context.R",
+      "sha256": "3485604974ceb2670761a832dd1adcd1a9fddb6ff2a0bbc28f518073014f24eb",
+      "bytes": 75783
+    },
+    {
+      "path": "R/stage10_mmej_reference_bundle.R",
+      "sha256": "34929a17d6bd82906031aa7347173101a2160d3d9f9e237faa6691ce68ecf5cb",
+      "bytes": 16311
+    },
+    {
+      "path": "R/stage10_omics_bundle.R",
+      "sha256": "3ce129a19efccac47339ca89cb5f145667285a51bf31bbe47421bea8c7a01c20",
+      "bytes": 18014
+    },
+    {
+      "path": "R/stage10_reference_builder.R",
+      "sha256": "7cfa66f624c356038e721c1c3dce974209148f3d8ccc741374e2f69a4efa99ba",
+      "bytes": 102833
+    },
+    {
+      "path": "R/stage10_resource_setup.R",
+      "sha256": "1ea2977cde75bfb3d9a2a59b9f0b2a9db86915786b36cb5780636e1e2a0e3402",
+      "bytes": 16262
+    },
+    {
+      "path": "R/stage2_guides.R",
+      "sha256": "54ca7e44972e8ed27ac01a6978e76a21bddf099d8d7767f38c52cd389848534f",
+      "bytes": 10299
+    },
+    {
+      "path": "R/stage3_guide_risk.R",
+      "sha256": "3b745e047e3f456fcc9fc55efd2c7d5bc60f74225debdb2553a5dfbfa0222261",
+      "bytes": 37896
+    },
+    {
+      "path": "R/stage4_arms.R",
+      "sha256": "8d979b2a4fe0963646a5770a128a64d55d746e997be8f2d836af2fd5ff7e9807",
+      "bytes": 9703
+    },
+    {
+      "path": "R/stage4_mmej_mh_arms.R",
+      "sha256": "02afca6b324fe1949868669aecaaf84c3c166e58dbe207d9eca0355ebf0cf0e3",
+      "bytes": 11269
+    },
+    {
+      "path": "R/stage5_domestication.R",
+      "sha256": "6c3b50cc7a0636efc1865767f3e9def69e4055d739b645206d822664e5063ba8",
+      "bytes": 37647
+    },
+    {
+      "path": "R/stage6_blocking.R",
+      "sha256": "cd07eab9928eed6ba23cdf35f759395d0dba7f8b69c25200dfc74acd5b6109d0",
+      "bytes": 22084
+    },
+    {
+      "path": "R/stage6_mmej_grna3_collision.R",
+      "sha256": "c61f03a049bd010cd05c2d3ed9ea3cb539e9df14c145e2df8d06e83a7a9f17e2",
+      "bytes": 8320
+    },
+    {
+      "path": "R/stage7_mmej_virtual_junction.R",
+      "sha256": "3b9e74ff6f750705e8b829e18a42c928b6c0800890c12e39f1be38c640086dc9",
+      "bytes": 16381
+    },
+    {
+      "path": "R/stage7_virtual_allele.R",
+      "sha256": "b242124fea089f9e870a5b4e873dd575f05c509acdd49876a03a16094f97d552",
+      "bytes": 21431
+    },
+    {
+      "path": "R/stage8_donor_modules.R",
+      "sha256": "a155cff85c5b5775b657fb5e18322c77d5e93d527452840766e28db7d50f6c97",
+      "bytes": 30227
+    },
+    {
+      "path": "R/stage8_mmej_pitch_donor.R",
+      "sha256": "cdb5a550424dec6888468637c637e5505accf59cf86b323a40bed187723c25a7",
+      "bytes": 42315
+    },
+    {
+      "path": "R/stage9_design_scoring.R",
+      "sha256": "9657cf6031708f9989e2ec7d5d4c9a16b06417da6a9cd9d37c4ccee6d247e462",
+      "bytes": 16738
+    },
+    {
+      "path": "R/stage9_mmej_design_scoring.R",
+      "sha256": "c861e4e70b7d867120e07a38abbf7bedf97579ead0aaeb7428e027fb276b9515",
+      "bytes": 17889
+    },
+    {
+      "path": "R/target_biology.R",
+      "sha256": "e74af6883c27f59b0acc74a40e0ec7f3c6908868471b9c83e7d6b0810bf30727",
+      "bytes": 24268
+    },
+    {
+      "path": "R/target_biology_reference.R",
+      "sha256": "e252ae82a1add65eca9a84f60f309b631e9574100d0200719ebe913eb2842509",
+      "bytes": 46920
+    },
+    {
+      "path": "R/utils_io.R",
+      "sha256": "6a6e1283280252eeedb96c7059dd54fc00ca121a4ea76babaf50fcab9efe5c6f",
+      "bytes": 3941
+    },
+    {
+      "path": "R/utils_sequences.R",
+      "sha256": "a1ed43635f55b8992bf9c5f40b0ef37924b0cdcdeef60f6b888cbdc09876a1ab",
+      "bytes": 6359
+    },
+    {
+      "path": "R/utils_tables.R",
+      "sha256": "543b6fba0a534e867ba83ce37d75cb10a2b374ea83543fd8666be358e3cbbaa8",
+      "bytes": 1757
+    },
+    {
+      "path": "R/v51_audit.R",
+      "sha256": "c564986b69e72e4fdf7bc827cac0b089d911ebe123ba89c555a89a51fa8a0979",
+      "bytes": 16478
+    },
+    {
+      "path": "R/v51_audit_summary.R",
+      "sha256": "080646fd6af387579d54ce96b0ae63b48114b3da77760193a1f5e95a1e0303fc",
+      "bytes": 13164
+    },
+    {
+      "path": "R/validation.R",
+      "sha256": "7c0896811262ff86a8239064f6132e9ff70d62b1d1293688f0bd35b2b72aa180",
+      "bytes": 63
+    },
+    {
+      "path": "R/web_api.R",
+      "sha256": "57836cb6c4f6941c10b256bc147712e7eaef410007b04b8f04150619aaad39ea",
+      "bytes": 60
+    },
+    {
+      "path": "README.md",
+      "sha256": "fa20603aada3280fb700a7e62d91eafa12f5a8bf82a7573d764ed432be2c2fbd",
+      "bytes": 6457
+    },
+    {
+      "path": "renv.lock",
+      "sha256": "6665253965c869b13c3ba74c01743cd79206a89fe18244e4458b4a850363a0b0",
+      "bytes": 493788
+    },
+    {
+      "path": "tests/lint_user_outputs.R",
+      "sha256": "544c2debf05f310558499404cff0a9136c4b98de2009fdf179982a53320d3108",
+      "bytes": 8606
+    },
+    {
+      "path": "tests/testthat.R",
+      "sha256": "75814e13d71090a97fbc517aa5224437afe361de4d55c242fa043a8b921c9b98",
+      "bytes": 57
+    },
+    {
+      "path": "tests/testthat/helper-stage10.R",
+      "sha256": "107e022a7b9c6f22849a980888ae013b8313edc8139f87c8f7dd6a2fa233ebd5",
+      "bytes": 965
+    },
+    {
+      "path": "tests/testthat/test-config.R",
+      "sha256": "42a831ca41da835fffd6ec06ec630f5683554e8d9c6be6993391d97e7e8b2e2e",
+      "bytes": 382
+    },
+    {
+      "path": "tests/testthat/test-crisprverse-adapter.R",
+      "sha256": "66714c63cc3200ecff3b1f8b4ec12b6c29e7c7cfefdcf540fa66394e82a3a519",
+      "bytes": 9345
+    },
+    {
+      "path": "tests/testthat/test-equivalence-audit.R",
+      "sha256": "b72abceffde8aacd72cbec4e8c484bde620b69292ffe95632137f1a010700850",
+      "bytes": 9240
+    },
+    {
+      "path": "tests/testthat/test-job-model.R",
+      "sha256": "1bf437aa555d57a1a077d0f5f3916f3d3884826535848433adcc24d6cc7d8dad",
+      "bytes": 969
+    },
+    {
+      "path": "tests/testthat/test-mmej-config-strategy.R",
+      "sha256": "7bb57c3f30f5b1e0f65f96356baa26357a1875dc611f5dbf283338937901caea",
+      "bytes": 1425
+    },
+    {
+      "path": "tests/testthat/test-mmej-report-export.R",
+      "sha256": "4786b45ae3b10c1e9e128a548be895bc261feb1ff6efea33d0d1b7502ff98bbe",
+      "bytes": 22667
+    },
+    {
+      "path": "tests/testthat/test-mmej-stage4-mh-arms.R",
+      "sha256": "a895ed2ada973aa3796fba12e8477eef44f46d636581d693458c0ae843cbdf1e",
+      "bytes": 2049
+    },
+    {
+      "path": "tests/testthat/test-mmej-stage6-grna3-collision.R",
+      "sha256": "a8e30981cc443fd2fd257eb6eb0dd4e2af8e381073f52f8f170e63744e8d2993",
+      "bytes": 6722
+    },
+    {
+      "path": "tests/testthat/test-mmej-stage7-virtual-junction.R",
+      "sha256": "4db9e0dfbfb92820eeb851f23ccb257fa45940261572c92b826a5b25b6baa163",
+      "bytes": 7707
+    },
+    {
+      "path": "tests/testthat/test-mmej-stage8-pitch-donor.R",
+      "sha256": "c062411984e7e0a5bfa28fcc507a0df413d21d49e2cdcf48daf6641256d672a0",
+      "bytes": 9313
+    },
+    {
+      "path": "tests/testthat/test-mmej-stage9-design-scoring.R",
+      "sha256": "34b0ceca9a33b55a4e58e24a3f104a19c19e53b4ae84bc5714d07b32ebd50ad3",
+      "bytes": 10026
+    },
+    {
+      "path": "tests/testthat/test-patch-aari-domestication.R",
+      "sha256": "bd56284c7fae0cfb5628387d42dcf4340eed93ae9bc247e14714a5efa462d16c",
+      "bytes": 3489
+    },
+    {
+      "path": "tests/testthat/test-patch10-order-role-equivalence.R",
+      "sha256": "9d6f099b69a8d6d1864f2efc9e17ed41ba5c0d5c2e668b74f9b72eb7ee1e20a5",
+      "bytes": 1934
+    },
+    {
+      "path": "tests/testthat/test-patch11-explanatory-equivalence.R",
+      "sha256": "d5d996447ccea56b15dab64b4d21d92036d8b5f57cc9d902e7cc83c2924daa38",
+      "bytes": 4410
+    },
+    {
+      "path": "tests/testthat/test-patch14-forgeki-aliases.R",
+      "sha256": "8fad6319ae3d6c9e18abd575e5d127e46b72ad1ea620911ead210ff85ec2609e",
+      "bytes": 2308
+    },
+    {
+      "path": "tests/testthat/test-patch15-module-registry.R",
+      "sha256": "7c5d7f243193fc2eadb320d66932a32abd0048bf6538dfbc93de1e984ae00de7",
+      "bytes": 1589
+    },
+    {
+      "path": "tests/testthat/test-patch16-module-aware-donor.R",
+      "sha256": "8ba9ea8fe4f4782d49614a4680f8b88c2aa326be9c10a06f903f895b18e5aca5",
+      "bytes": 1647
+    },
+    {
+      "path": "tests/testthat/test-patch17-fusion-payloads.R",
+      "sha256": "8796edfc231e15f5d0b88e706a32c11e74d50e6598aed0ecf29d4d6bf09d7f3e",
+      "bytes": 3587
+    },
+    {
+      "path": "tests/testthat/test-patch18-stage10-bundle-audit.R",
+      "sha256": "c15960fa0cf69c17c5ed48deb10479c8a9bd0977a4cb8404a2e67ab5a1d72d54",
+      "bytes": 3368
+    },
+    {
+      "path": "tests/testthat/test-patch19-stage10-consumer.R",
+      "sha256": "028c826d92f36626e47a22aadf45dc99ef411a58c185bcbb0311455b33b96ace",
+      "bytes": 1539
+    },
+    {
+      "path": "tests/testthat/test-patch20-stage10-builder-scaffold.R",
+      "sha256": "24ec7f1df21f5993657c2a04540559c43e5e2d150d103fd1968fcbe4201f0eaa",
+      "bytes": 2668
+    },
+    {
+      "path": "tests/testthat/test-patch21-stage10a-builder.R",
+      "sha256": "15fc85518b3b2f84db84d8f33bded5795435b20b0e4b994cdc0c40503cf1886d",
+      "bytes": 3059
+    },
+    {
+      "path": "tests/testthat/test-patch22-stage10bc-builder.R",
+      "sha256": "ca2aca3cc7cb14fe24041d865f51fb0c8968fcfbdf699f78e506427f8df94a5f",
+      "bytes": 2280
+    },
+    {
+      "path": "tests/testthat/test-patch23-stage10d-builder.R",
+      "sha256": "dd17b9520c09d5eda11ad3cd0d4e1c6f7628c631120b08b673dd0c137ccffa61",
+      "bytes": 2428
+    },
+    {
+      "path": "tests/testthat/test-patch24-stage10e-builder.R",
+      "sha256": "c727d0343db6ec84cf4ba674ad4e6fc2e173d5e257ebf13a7d0e99fad094b2c6",
+      "bytes": 2191
+    },
+    {
+      "path": "tests/testthat/test-patch25-stage10-omics-bundle.R",
+      "sha256": "dab072c6d51678c707ba51e44518e3ec9980755d1c1bcb6c41c34c9359d28159",
+      "bytes": 2555
+    },
+    {
+      "path": "tests/testthat/test-patch26-gene-slim-omics.R",
+      "sha256": "72c8209b65054e22664ead829c4d44a118d000f248e8105638e59b75d3ed5ecc",
+      "bytes": 4495
+    },
+    {
+      "path": "tests/testthat/test-patch27-stage10-report-summary.R",
+      "sha256": "028f8ea7080269c6e64a92045311cba33f7ace4361356b3bb43935caad93c3c7",
+      "bytes": 2601
+    },
+    {
+      "path": "tests/testthat/test-patch28-pipeline-stage10-builder.R",
+      "sha256": "94e685b7c15ff734e99f56c038385cd2128b3b3727657318892fa9749b6e3d11",
+      "bytes": 3444
+    },
+    {
+      "path": "tests/testthat/test-patch29-stage10-resource-setup.R",
+      "sha256": "b9dbbc8f8a4a3386e94643585bb065170c1edcee00a1d97ea0b1b4952e59c1dc",
+      "bytes": 2265
+    },
+    {
+      "path": "tests/testthat/test-patch30-stage10-docs.R",
+      "sha256": "e4d82ab714cfd0b3f83154b949df88221c60a755d9fdbc88c5244d35dd8f0b45",
+      "bytes": 968
+    },
+    {
+      "path": "tests/testthat/test-patch6d-external-module-registry.R",
+      "sha256": "c36179a129d943f98e9c94834d544a881808621eaa25fba6f51727e518e26d19",
+      "bytes": 4373
+    },
+    {
+      "path": "tests/testthat/test-patch6e-route-compatibility.R",
+      "sha256": "b888223583a05b0f526b16a7087fbf2e8e128560417671ffe49d4522704b8d5f",
+      "bytes": 3720
+    },
+    {
+      "path": "tests/testthat/test-patch6f-mmej-module-composition.R",
+      "sha256": "5a4e8c2bef665f27368b5e6c2644a7aabeca2eb680f6f5287e62f34dfc5cbf6b",
+      "bytes": 5438
+    },
+    {
+      "path": "tests/testthat/test-patch6m-mmej-cellline-reference.R",
+      "sha256": "36ec66b154b0d4cb847cd7bb8de8d73e725e7e5eee192daebb5958129029bdde",
+      "bytes": 2761
+    },
+    {
+      "path": "tests/testthat/test-patch6n-mmej-stage10a-global.R",
+      "sha256": "dbc479a7b5cba89c7945677a4e5f337bd5b8cd7dd5f398c6ea885b55af1a691c",
+      "bytes": 1694
+    },
+    {
+      "path": "tests/testthat/test-patch6ob-mmej-stage10b-reference-routing.R",
+      "sha256": "ddddef8c8ebc77f5c1130191c255aacdff5334229ba37bb643ecc008a1dcb823",
+      "bytes": 5463
+    },
+    {
+      "path": "tests/testthat/test-patch6p-mmej-reference-bundle.R",
+      "sha256": "c95ab0dfded77543f448fbabe55cacffc145ef50423553b31647db072cfd5cdb",
+      "bytes": 3996
+    },
+    {
+      "path": "tests/testthat/test-patch6q-mmej-stage10c-design-cellline.R",
+      "sha256": "060d50b889a2a70dc217b53ff6b26ac97d409582bb3287ef3688df6bb801539e",
+      "bytes": 3842
+    },
+    {
+      "path": "tests/testthat/test-patch6r-mmej-stage10d-allele-integrity.R",
+      "sha256": "58ecb07f5d10181a43334c83d8440cc7b8bdb6ceb3e3892ca62b6df852e0ae7b",
+      "bytes": 2598
+    },
+    {
+      "path": "tests/testthat/test-patch6s-mmej-stage10e-chromatin.R",
+      "sha256": "56ca3cdf6f065f6eca72c0395d93b321f21d5419fde0946b7f253a630575ecc1",
+      "bytes": 1667
+    },
+    {
+      "path": "tests/testthat/test-patch6tc-stage10-omics-discovery.R",
+      "sha256": "0a4ea63a0812068f4a9a5ef9724aca33f83f46a47fac8f816e126aab45dde4f4",
+      "bytes": 3177
+    },
+    {
+      "path": "tests/testthat/test-patch7-stage7-and-equivalence.R",
+      "sha256": "5e7f5edead957a770018d1f657573f6a05190bb89c037a8c0f61c26a2c9eeab6",
+      "bytes": 2156
+    },
+    {
+      "path": "tests/testthat/test-patch8-biology-first-domestication.R",
+      "sha256": "093970b665adbc759ae8c5ecfaa5760a9ada55b52a0ccc45f2461bed07697ff7",
+      "bytes": 2575
+    },
+    {
+      "path": "tests/testthat/test-patch9-coding-context-domestication.R",
+      "sha256": "740eefbf87a00871bf4e4c8b9b589d4a29381c904327c050f54e46b4960f7009",
+      "bytes": 2025
+    },
+    {
+      "path": "tests/testthat/test-pipeline-orchestrator.R",
+      "sha256": "11a16952c5134bd2c570b72e904a656d1889dc9e350cf44fcc4986d2951cd13c",
+      "bytes": 6186
+    },
+    {
+      "path": "tests/testthat/test-report-export.R",
+      "sha256": "89769776300835f429752b5e280d481a88e1ced2e37b54b92f8817a0a0783754",
+      "bytes": 10119
+    },
+    {
+      "path": "tests/testthat/test-report-model.R",
+      "sha256": "20181fa038fa6252efb5c2e13177fab72dab9f3286f4bf79dba56c8e31f66479",
+      "bytes": 10380
+    },
+    {
+      "path": "tests/testthat/test-resources.R",
+      "sha256": "a7592cb37295067194b7eb31473586a3a33c75802296096c6aa4eea51073e859",
+      "bytes": 311
+    },
+    {
+      "path": "tests/testthat/test-stage1-bioc-adapter.R",
+      "sha256": "c749cd62845db14db5b1c6aa1bde2c937b5f47b6485cb55bbfe256f2a58c3804",
+      "bytes": 1002
+    },
+    {
+      "path": "tests/testthat/test-stage1-locus.R",
+      "sha256": "dc68c0da1514d2146af87cc3d627d2d0aeb9930a394d768eb2355d2e2f76a5d9",
+      "bytes": 4872
+    },
+    {
+      "path": "tests/testthat/test-stage10-cellline-context.R",
+      "sha256": "cbc7674ebbdca9eb92c3e9d0a42127f33d548af3db9a9d9df2831e535ce04d85",
+      "bytes": 4448
+    },
+    {
+      "path": "tests/testthat/test-stage10-gene-context.R",
+      "sha256": "e1e36dc1cb7a9309f8324c6b257c204ac3d31cf0411e08f60b78f1a51babc761",
+      "bytes": 7223
+    },
+    {
+      "path": "tests/testthat/test-stage10-local-reference-smoke.R",
+      "sha256": "8bb67d94dff4ef250fa360c57c0a50f9fdb44fc4054175d2db72e7639ed493dc",
+      "bytes": 1396
+    },
+    {
+      "path": "tests/testthat/test-stage2-guides.R",
+      "sha256": "379aab0edcb238bb16f4fb04b5110a73f23a959bd1d658c7a7464690c6faa366",
+      "bytes": 4995
+    },
+    {
+      "path": "tests/testthat/test-stage3-guide-risk.R",
+      "sha256": "134de89e2c6f8fffbf6274c91bcfd85a1aa2ad8ff709e0e2c6da835a8062d0d4",
+      "bytes": 10256
+    },
+    {
+      "path": "tests/testthat/test-stage4-arms.R",
+      "sha256": "87af59e38ec50e516f6484989b6120e0810cfc47a8cd587201bcb3428aeb7209",
+      "bytes": 4594
+    },
+    {
+      "path": "tests/testthat/test-stage5-domestication.R",
+      "sha256": "2e95e370aaa3487cb6c3e1ba3b4cfd0fc0ee5cd74e3d09b26cc2656c81fe600c",
+      "bytes": 4440
+    },
+    {
+      "path": "tests/testthat/test-stage6-blocking.R",
+      "sha256": "f1dad0a9344004aacb923e80c60bbd8464d30ac77af55f306b80ddb6cd62c5c6",
+      "bytes": 7455
+    },
+    {
+      "path": "tests/testthat/test-stage7-virtual-allele.R",
+      "sha256": "44ed94214ceaff1ea7a09d1f02a7c70798ae29170560398c282c4b2c29f12f86",
+      "bytes": 7788
+    },
+    {
+      "path": "tests/testthat/test-stage8-donor-modules.R",
+      "sha256": "a51d9093914ad7f3e42e0d0670e0a793f8af70f025555a16bed1b43dd49f378b",
+      "bytes": 10902
+    },
+    {
+      "path": "tests/testthat/test-stage9-design-scoring.R",
+      "sha256": "65aeb81aec59133e12f78afde126e2bf194fcd0d323695e30040c67fb5904a07",
+      "bytes": 7613
+    },
+    {
+      "path": "tests/testthat/test-stress-test-harness.R",
+      "sha256": "5b3494c423a3748a75104e9c08dc458ff2363a3f9c7370818c7eab4a5faf4d95",
+      "bytes": 2329
+    },
+    {
+      "path": "tests/testthat/test-target-biology-reference.R",
+      "sha256": "a8acbc31197092085b12aaf65b0e2c6b476566a1b1160f33db094262b482ef9e",
+      "bytes": 7176
+    },
+    {
+      "path": "tests/testthat/test-target-biology.R",
+      "sha256": "a44cc0292bef5e6756beeebf5b025b904ad823dd6584ef925800efed0206946b",
+      "bytes": 6288
+    },
+    {
+      "path": "tests/testthat/test-utils-io.R",
+      "sha256": "d82a4f65e00b7e1695e5148ff1bb6b2fff668cf96d68ddc4301dce699fc8b6bc",
+      "bytes": 1312
+    },
+    {
+      "path": "tests/testthat/test-utils-sequences.R",
+      "sha256": "5ff3fb7d29410a9bd36e5589879e75e3ca75a4f1ffb0d229af3b31eb3e1615e6",
+      "bytes": 1396
+    },
+    {
+      "path": "tests/testthat/test-utils-tables.R",
+      "sha256": "c200e9b247a5bf65e908fb1ac30da4337cfd68fae7d8659bbe4652893fa6b1ab",
+      "bytes": 1085
+    },
+    {
+      "path": "tests/testthat/test-v51-migration-audit.R",
+      "sha256": "eab411f17867f77ba7a4ee75429b802918eecb367917cfd5d3a77668d62f81ce",
+      "bytes": 6203
+    },
+    {
+      "path": "tools/audit_v51_2_inventory.R",
+      "sha256": "4951a9d660000af785f058e3159a9372042caae6545707346c9feba39af61af4",
+      "bytes": 1949
+    },
+    {
+      "path": "tools/build_target_biology_proteome_reference.R",
+      "sha256": "53d1a8fb4fffbdd123c7c78b697fe9b151c0bbc32d367a6001ca4a02be4f53a6",
+      "bytes": 2981
+    },
+    {
+      "path": "tools/build_target_biology_reference.R",
+      "sha256": "7c05c4b41999309472a5fae2d7584b0e723ea96d6b2af6be69b623232542174b",
+      "bytes": 1443
+    },
+    {
+      "path": "tools/run_egfr_mmej_acceptance.R",
+      "sha256": "dcb1e67433b60c88723da3b25e949d8e52c8c92f969ff241887835e68976515f",
+      "bytes": 13338
+    },
+    {
+      "path": "tools/run_stress_test_matrix.R",
+      "sha256": "a1259c9e5323f248a1523d52aa9120d6c52c342f4907b0a4a84af4bec0a1297e",
+      "bytes": 32464
+    },
+    {
+      "path": "tools/run_target_biology_failure_mode_stress.R",
+      "sha256": "0774af3795059d24aaee241bfe29266d9d625da25a336f12bd5905b41ee633f3",
+      "bytes": 16429
+    },
+    {
+      "path": "tools/run_target_biology_heldout_stress.R",
+      "sha256": "fa99a67099f8aab45449f6d53aca7ef63e2d3e7e9865424d53a8ff6751c99698",
+      "bytes": 20137
+    },
+    {
+      "path": "tools/run_user_facing_output_matrix.R",
+      "sha256": "5e86ae85967320f129518c296f555a7f485e56e37af676b659738b592b9c26db",
+      "bytes": 17716
+    },
+    {
+      "path": "tools/stress_test_harness_lib.R",
+      "sha256": "c62c56da46535384bd02741fc8147e4e21b39a305758c602df4361d642a1c020",
+      "bytes": 10997
+    },
+    {
+      "path": "vignettes/forgeKI-stage10-omics-workflow.Rmd",
+      "sha256": "59060f3a8492233caf85eb21bc701229653d77ec124bd703431b50ae82ec53fa",
+      "bytes": 8683
+    },
+    {
+      "path": "vignettes/forgeKI-v0-0-1.Rmd",
+      "sha256": "0e6580678b7fa234ff3d2db53edf3a0e7e49d6edda3f7f3bfee755cfa11a5e1d",
+      "bytes": 2945
+    }
+  ],
+  "notes": {
+    "self_manifest_sha256_omitted": true,
+    "generated_artifacts_excluded": ["acceptance_runs", "renv", "*.zip", "*.tar.gz", "*.Rcheck"]
+  }
+}
