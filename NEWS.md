@@ -1,4 +1,13 @@
 
+# forgeKI 0.1.1
+
+- Added first-run helper `forgeki_install_hg38_resources()` for installing the hg38 Bioconductor genome and annotation resources used by the default exact-hg38 pipeline.
+- Added user-facing HDR payload and selection-cassette listing helpers for clearer donor-module selection.
+- Added Addgene-assigned plasmid IDs and pending-public-release status metadata for pForge modules in the built-in registry.
+- Added Halo-HiBiT as an HDR fusion-module metadata entry, while keeping it sequence-gated until a curated payload sequence or external FASTA is supplied.
+- Clarified that the LID degron module is local/in-silico metadata rather than part of the current Addgene submission.
+- Improved README install, smoke-test, and donor-module selection guidance, including the prebuilt Windows binary install path.
+
 # forgeKI 0.1.0
 
 - Promoted the package toward its first public release candidate after the HDR and MMEJ/PITCh workflows were integrated behind the shared forgeKI API.
