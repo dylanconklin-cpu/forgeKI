@@ -1,7 +1,7 @@
 ﻿{
     "package":  "forgeKI",
-    "version":  "0.1.1",
-    "created_utc":  "2026-06-18T18:49:05Z",
+    "version":  "0.1.2",
+    "created_utc":  "2026-06-18T19:10:35Z",
     "files":  [
                   {
                       "path":  ".gitattributes",
@@ -30,12 +30,12 @@
                   },
                   {
                       "path":  "CITATION.cff",
-                      "sha256":  "a9c66b31e2c443337cadfa352c184f15c7b290a0ae4e7ba1b91e30cb36ba2316",
+                      "sha256":  "ff2fba1809084673c5e8c0fa9b4a1199738681158fa9e4cbdb3ad96a8a0f7f4a",
                       "bytes":  681
                   },
                   {
                       "path":  "DESCRIPTION",
-                      "sha256":  "085d6f2dcc4db5e214a819a593ad7774736907ef84d211e02ac6f19302b6f313",
+                      "sha256":  "33b333d3c2e1905ffa1d636c0f9eb6c5299eb08e063df048ca25a4561543d7e4",
                       "bytes":  1597
                   },
                   {
@@ -45,7 +45,7 @@
                   },
                   {
                       "path":  "inst/CITATION",
-                      "sha256":  "6e0afe27da8c4b82e7f882682ce378b7b23a0a9359d9dcfee2f668110e0aa54b",
+                      "sha256":  "acc7d2ac17c9754fd8946a438bc00f8a230b2b5f6c654318653615481f87961d",
                       "bytes":  635
                   },
                   {
@@ -135,8 +135,8 @@
                   },
                   {
                       "path":  "inst/package_meta/MANIFEST.json",
-                      "sha256":  "c60e0472f5fd3a5bc65ec9bbcadac78a2b44d96e869e677ef805449f72580834",
-                      "bytes":  76515
+                      "sha256":  "87f31925b4efb843528f072b2ace8ab0e62116867f03f640d7fb9a4340d88268",
+                      "bytes":  76523
                   },
                   {
                       "path":  "inst/package_meta/MIGRATION_NOTES.md",
@@ -145,13 +145,13 @@
                   },
                   {
                       "path":  "inst/package_meta/RELEASE_AUDIT.md",
-                      "sha256":  "aa6948ae20aa3190e751830d68eaf06afb645ad074d772a5f57b49ce9d9aab17",
-                      "bytes":  3010
+                      "sha256":  "2cb5dd4535d35c89789493e0cac8db20ba12692c0f3ec8ab59e2d18c83581525",
+                      "bytes":  3013
                   },
                   {
                       "path":  "inst/package_meta/RELEASE_CHECKLIST.md",
-                      "sha256":  "d743d04aee715b6f31df284f46a6018203a7bddd19ae601f39212e7a15b74b1c",
-                      "bytes":  1804
+                      "sha256":  "e3f6b6f542197939fd418eb022f105af16e24b6d04e183a76d2d34d4a1255947",
+                      "bytes":  1815
                   },
                   {
                       "path":  "inst/schemas/v51_2_migration_matrix_schema.csv",
@@ -800,8 +800,8 @@
                   },
                   {
                       "path":  "NEWS.md",
-                      "sha256":  "585091d676a34693d3caf66e122836f45946049ab7771bc4a567a8625b19bf0c",
-                      "bytes":  3603
+                      "sha256":  "bef49a4a9fc322e39f7e9d85623335cf7f7e647eacf0b30e375ee2f0c6954b21",
+                      "bytes":  4016
                   },
                   {
                       "path":  "R/config.R",
@@ -1065,8 +1065,8 @@
                   },
                   {
                       "path":  "README.md",
-                      "sha256":  "187d4612ff5055e61ef393f305944e47911bdc968a06a5535a7b4b208f35b1a7",
-                      "bytes":  10828
+                      "sha256":  "d2b5ee552053f14069c0af9f4878dafa056f55508b1eab337951c8bca4151ea5",
+                      "bytes":  10801
                   },
                   {
                       "path":  "renv.lock",

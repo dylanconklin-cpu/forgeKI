@@ -5,14 +5,14 @@ citEntry(
   title = "forgeKI: Biology-first knock-in design for HDR and MMEJ/PITCh reporter tagging",
   author = personList(person("Dylan", "Conklin")),
   year = "2026",
-  note = "R package version 0.1.0",
+  note = "R package version 0.1.2",
   doi = "10.5281/zenodo.20674490",
   url = "https://github.com/dylanconklin-cpu/forgeKI",
 
   textVersion = paste(
     "Conklin D (2026).",
     "forgeKI: Biology-first knock-in design for HDR and MMEJ/PITCh reporter tagging.",
-    "R package version 0.1.0.",
+    "R package version 0.1.2.",
     "doi:10.5281/zenodo.20674490.",
     "https://github.com/dylanconklin-cpu/forgeKI"
   )

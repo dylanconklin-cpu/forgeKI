@@ -4,7 +4,7 @@
 
 `forgeKI` is an R package for biology-first knock-in design. It builds staged HDR and MMEJ/PITCh reporter-tagging workflows around explicit resources, reproducible job folders, auditable guide and donor decisions, and bench-facing outputs.
 
-The package is currently prepared as the first public release candidate. Real production runs still require local hg38 resources and, for Stage 10 cell-line ranking, an explicitly supplied reference bundle that is not shipped with the public package.
+The package is available as a public release. Real production runs still require local hg38 resources and, for Stage 10 cell-line ranking, an explicitly supplied reference bundle that is not shipped with the public package.
 
 ## What forgeKI does
 
@@ -29,7 +29,7 @@ On Windows, a prebuilt binary is also attached to the GitHub release:
 
 ```r
 install.packages(
-  "https://github.com/dylanconklin-cpu/forgeKI/releases/download/v0.1.0/forgeKI_0.1.0.zip",
+  "https://github.com/dylanconklin-cpu/forgeKI/releases/download/v0.1.2/forgeKI_0.1.2.zip",
   repos = NULL,
   type = "win.binary"
 )
@@ -308,7 +308,7 @@ Recommended local release checks are:
 pkgload::load_all()
 testthat::test_dir("tests/testthat")
 R CMD build .
-R CMD check forgeKI_0.1.1.tar.gz
+R CMD check forgeKI_0.1.2.tar.gz
 ```
 
 Regenerate roxygen documentation before release and confirm both local and GitHub Actions checks are green.

@@ -8,7 +8,7 @@ This audit records release-preparation work for the forgeKI package source tree.
 
 ## Prepared locally
 
-- Updated package metadata for version `0.1.0`.
+- Updated package metadata for the current release version.
 - Added public-facing GitHub and pkgdown URLs.
 - Added a current `NEWS.md` release entry.
 - Replaced the development-history README with a release-facing README covering HDR, MMEJ/PITCh, Stage 10, target-biology review, optional crisprVerse evidence, and user-facing outputs.
@@ -29,10 +29,10 @@ This audit records release-preparation work for the forgeKI package source tree.
 
 ## Validation completed
 
-- `pkgload::load_all()` passed for forgeKI `0.1.0`.
+- `pkgload::load_all()` passed for the release source tree.
 - Full `testthat::test_dir("tests/testthat")` passed. Expected skips: crisprVerse unavailable-error branch because all requested packages were available, optional real Stage 10 local reference smoke because no `FORGEKI_CELLLINE_REFERENCE` was set, and exact-hg38 scanning because the explicit hg38 test toggle was not enabled.
-- `R CMD build --no-build-vignettes .` passed and produced `forgeKI_0.1.0.tar.gz`.
-- `R CMD check --no-manual --ignore-vignettes forgeKI_0.1.0.tar.gz` completed with `Status: OK`.
+- `R CMD build --no-build-vignettes .` passed and produced the release source archive.
+- `R CMD check --no-manual --ignore-vignettes` completed with `Status: OK`.
 - Repository-index access warnings during offline checks are environmental and do not change a final `Status: OK` result.
 
 ## Manual release gates

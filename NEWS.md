@@ -1,4 +1,13 @@
 ﻿
+# forgeKI 0.1.2
+
+- Polished public package metadata and release notes.
+- Removed workstation-specific paths from public examples, vignettes, tests, and metadata.
+- Replaced patch-style test filenames with feature-oriented names.
+- Removed empty placeholder source files.
+- Refreshed roxygen documentation and package manifest.
+- Preserved existing HDR/MMEJ design, scoring, biology-gate, and orderability behavior.
+
 # forgeKI 0.1.1
 
 - Added first-run helper `forgeki_install_hg38_resources()` for installing the hg38 Bioconductor genome and annotation resources used by the default exact-hg38 pipeline.

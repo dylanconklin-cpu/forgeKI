@@ -6,9 +6,9 @@ authors:
   - family-names: Conklin
     given-names: Dylan
     email: dubleeteam@gmail.com
-version: 0.1.0
+version: 0.1.2
 doi: "10.5281/zenodo.20674490"
-date-released: "2026-06-12"
+date-released: "2026-06-18"
 license: MIT
 repository-code: "https://github.com/dylanconklin-cpu/forgeKI"
 url: "https://dylanconklin-cpu.github.io/forgeKI/"

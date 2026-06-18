@@ -1,6 +1,6 @@
 Package: forgeKI
 Title: Biology-First Knock-In Design and Repair-Pathway Donor Construction
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(
     person("Dylan", "Conklin", email = "dubleeteam@gmail.com", role = c("aut", "cre"))
     )
