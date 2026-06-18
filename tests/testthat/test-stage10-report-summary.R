@@ -1,4 +1,4 @@
-test_that("patch27 writes report-facing Stage 10 final summary", {
+test_that("report-facing Stage 10 final summary is written", {
   td <- tempfile("forgeki_stage10_report_summary_"); dir.create(td)
   global <- data.frame(
     depmap_id = c("ACH-1", "ACH-2"),

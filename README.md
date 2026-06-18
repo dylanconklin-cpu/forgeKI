@@ -302,13 +302,13 @@ crisprVerse evidence is reported for review and does not silently override forge
 
 ## Release validation
 
-The release-prep baseline is:
+Recommended local release checks are:
 
 ```r
 pkgload::load_all()
 testthat::test_dir("tests/testthat")
 R CMD build .
-R CMD check forgeKI_0.1.0.tar.gz
+R CMD check forgeKI_0.1.1.tar.gz
 ```
 
-The Codex environment can run package loading, tests, and direct R build/check attempts with the project-local renv. RStudio remains the preferred place to regenerate roxygen documentation and run `devtools::check()` because the current Codex renv does not include `devtools` or `roxygen2`.
+Regenerate roxygen documentation before release and confirm both local and GitHub Actions checks are green.

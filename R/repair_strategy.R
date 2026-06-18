@@ -1,6 +1,6 @@
 # Repair-pathway strategy dispatch.
 #
-# Patch 1 introduces the dispatch seam and implements the first true MMEJ
+# Repair-strategy dispatch supports HDR and MMEJ/PITCh workflows.
 # divergence: Stage 4 microhomology-arm extraction. Later MMEJ patches will
 # replace the placeholder Stage 5-9 functions with pathway-specific logic.
 
@@ -52,8 +52,8 @@ run_mmej_stage5_noop <- function(cfg, stage4_result, ...) {
   }
   qc <- tibble::tibble(
     Method = "mmej",
-    Stage5_MMEJ_Domestication_Status = "PASS_noop_patch1",
-    Stage5_MMEJ_Domestication_Interpretation = "Patch 1 does not domesticate MMEJ microhomology arms. Payload/primer donor checks are added in later MMEJ patches.",
+    Stage5_MMEJ_Domestication_Status = "PASS_noop_domestication_not_required",
+    Stage5_MMEJ_Domestication_Interpretation = "MMEJ microhomology arms do not require Type IIS domestication at this stage; payload and primer donor checks are handled downstream.",
     N_MMEJ_Candidates = nrow(stage4_result$microhomology_candidates)
   )
   result <- list(

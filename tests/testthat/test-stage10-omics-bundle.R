@@ -1,4 +1,4 @@
-test_that("patch25 compiles, validates, loads, and consumes a Stage 10 omics RDS bundle", {
+test_that("Stage 10 omics RDS bundles compile, validate, load, and run", {
   td <- tempfile("forgeki_stage10_bundle_"); dir.create(td)
   global <- data.frame(
     depmap_id = c("ACH-1", "ACH-2"),
@@ -23,7 +23,7 @@ test_that("patch25 compiles, validates, loads, and consumes a Stage 10 omics RDS
     output_rds = bundle_path,
     global_ranking_path = gp,
     expression_path = ep,
-    release_label = "toy_release_patch25",
+    release_label = "toy_release_stage10_omics",
     max_rows = Inf
   )
   expect_true(file.exists(bundle_path))

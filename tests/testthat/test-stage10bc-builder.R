@@ -1,4 +1,4 @@
-test_that("patch22 builds Stage 10B/10C design-aware rankings from Stage 10A and designs", {
+test_that("Stage 10B/10C design-aware rankings build from Stage 10A and designs", {
   td <- tempfile("forgeki_stage10bc_"); dir.create(td)
   global <- data.frame(
     depmap_id = c("ACH-1", "ACH-2"),

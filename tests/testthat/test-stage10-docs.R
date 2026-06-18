@@ -1,4 +1,4 @@
-test_that("patch30 documents Stage 10 user workflow", {
+test_that("Stage 10 user workflow is documented", {
   pkg_root <- normalizePath(file.path(testthat::test_path(), "..", ".."), winslash = "/", mustWork = FALSE)
   readme <- file.path(pkg_root, "README.md")
   vignette <- file.path(pkg_root, "vignettes", "forgeKI-stage10-omics-workflow.Rmd")

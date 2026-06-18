@@ -2,11 +2,9 @@ test_that("optional local real cell-line reference bundle can be loaded", {
   candidates <- unique(c(
     Sys.getenv("FORGEKI_CELLLINE_REFERENCE", unset = NA_character_),
     Sys.getenv("HDRDESIGNR_CELLLINE_REFERENCE", unset = NA_character_),
-    file.path("D:/Bioinformatics/HDR", "HDR_CellLine_Reference"),
-    file.path("D:/Bioinformatics/HDR", "HDR cell-line reference"),
-    file.path("D:/Bioinformatics/HDR", "cellline_reference_bundle"),
-    file.path("D:/Bioinformatics/HDR", "HDR_Competency_CellLine_Reference"),
-    file.path("D:/Bioinformatics/HDR", "global_cellline_ranking.csv")
+    file.path(path.expand("~"), "forgeKI_reference_bundle"),
+    file.path(path.expand("~"), "forgeKI_cellline_reference"),
+    file.path(path.expand("~"), "forgeKI_cellline_reference", "global_cellline_ranking.csv")
   ))
   candidates <- candidates[!is.na(candidates) & nzchar(candidates) & file.exists(candidates)]
   if (!length(candidates)) testthat::skip("No local HDR cell-line reference bundle/file was found; set FORGEKI_CELLLINE_REFERENCE to enable this integration smoke test.")

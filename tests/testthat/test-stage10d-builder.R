@@ -1,4 +1,4 @@
-test_that("patch23 builds Stage 10D chromatin-aware rankings from Stage 10C and RRBS inputs", {
+test_that("Stage 10D chromatin-aware rankings build from Stage 10C and RRBS inputs", {
   td <- tempfile("forgeki_stage10d_"); dir.create(td)
   global <- data.frame(
     depmap_id = c("ACH-1", "ACH-2"),

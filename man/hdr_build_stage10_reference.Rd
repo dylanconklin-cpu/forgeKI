@@ -42,7 +42,7 @@ forgeki_build_stage10_reference(...)
 
 \item{output_dir}{Directory where the scaffold audit should be written.}
 
-\item{omics_bundle_path}{Optional consolidated Stage 10 omics RDS bundle produced by \code{hdr_compile_stage10_omics_bundle()}/\code{forgeki_compile_stage10_omics_bundle()}. In Patch 26, a full bundle is automatically materialized to a per-gene slim runtime bundle before Stage 10A when \code{gene} is supplied. Explicit file paths supplied to this function override bundle-derived paths.}
+\item{omics_bundle_path}{Optional consolidated Stage 10 omics RDS bundle produced by \code{hdr_compile_stage10_omics_bundle()}/\code{forgeki_compile_stage10_omics_bundle()}. A full bundle is automatically materialized to a per-gene slim runtime bundle before Stage 10A when \code{gene} is supplied. Explicit file paths supplied to this function override bundle-derived paths.}
 
 \item{depmap_root}{Optional directory containing DepMap/CCLE/HDR-ranker inputs.}
 
@@ -97,13 +97,13 @@ A classed \code{hdr_stage10_reference_builder_audit} list.
 }
 \description{
 Audits the external resources needed by the future internal Stage 10 builder.
-Patch 20 created the input-audit scaffold. Patch 21 additionally builds a
+The Stage 10 builder audits inputs and builds a
 conservative Stage 10A target-gene cell-line context table when usable global
 HDR competency, metadata, expression, copy-number, CRISPR, mutation, or fusion
-resources are supplied. Patch 22 additionally builds Stage 10B cell-line x
+resources are supplied. It additionally builds Stage 10B cell-line x
 design rankings and Stage 10C allele-aware rankings when a design table is
-supplied. Patch 23 additionally builds a conservative Stage 10D
+supplied and builds a conservative Stage 10D
 RRBS/chromatin-aware overlay when Stage 10C and RRBS resources are available.
-Patch 24 adds Stage 10E final integrated ranking and practical shortlist generation.
-Patch 25 adds optional consolidated RDS omics-resource bundle support. Patch 26 adds automatic gene-slim bundle materialization and local DepMap long-table schema readers so full bundles are not scanned repeatedly at runtime. Patch 27 adds report-facing Stage 10 final summary exports.
+Stage 10E adds final integrated ranking and practical shortlist generation.
+Optional consolidated RDS omics-resource bundle support, automatic gene-slim materialization, local DepMap long-table readers, and report-facing final summaries are supported.
 }

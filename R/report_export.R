@@ -1370,7 +1370,7 @@ hdr_report_final_diagnostics <- function(result) {
 }
 
 # -----------------------------------------------------------------------------
-# Patch 6: method-aware MMEJ/PITCh report and export helpers.
+# Method-aware MMEJ/PITCh report and export helpers.
 # These definitions intentionally override a few HDR-oriented helper functions
 # above while preserving their HDR behavior for method = "hdr".
 # -----------------------------------------------------------------------------

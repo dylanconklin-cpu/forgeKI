@@ -25,8 +25,8 @@ arg_value <- function(prefix, default = NA_character_) {
 timestamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
 lint_root <- arg_value("--run-root", file.path(package_root, "acceptance_runs", "user_output_lint", timestamp))
 lint_root <- normalizePath(lint_root, winslash = "/", mustWork = FALSE)
-reference_bundle <- arg_value("--reference-bundle", Sys.getenv("FORGEKI_REFERENCE_BUNDLE_DIR", unset = "D:/Bioinformatics/HDR/forgeKI_reference_bundle"))
-module_library <- arg_value("--module-library", Sys.getenv("FORGEKI_MODULE_LIBRARY", unset = "D:/Bioinformatics/HDR/cassettes"))
+reference_bundle <- arg_value("--reference-bundle", Sys.getenv("FORGEKI_REFERENCE_BUNDLE_DIR", unset = file.path(path.expand("~"), "forgeKI_reference_bundle")))
+module_library <- arg_value("--module-library", Sys.getenv("FORGEKI_MODULE_LIBRARY", unset = file.path(path.expand("~"), "forgeKI_module_library")))
 
 if (!dir.exists(reference_bundle)) stop("Reference bundle not found: ", reference_bundle, call. = FALSE)
 if (!dir.exists(module_library)) stop("Module library not found: ", module_library, call. = FALSE)
@@ -77,7 +77,7 @@ run_case <- function(case) {
     }
   }, add = TRUE)
   Sys.setenv(
-    RENV_PATHS_LIBRARY = "D:/Bioinformatics/HDR/forgeKI_Rpackage/renv/library",
+    RENV_PATHS_LIBRARY = file.path(package_root, "renv", "library"),
     RENV_CONFIG_SANDBOX_ENABLED = "FALSE",
     FORGEKI_REFERENCE_BUNDLE_DIR = normalizePath(reference_bundle, winslash = "/", mustWork = TRUE),
     FORGEKI_MODULE_LIBRARY = normalizePath(module_library, winslash = "/", mustWork = TRUE)

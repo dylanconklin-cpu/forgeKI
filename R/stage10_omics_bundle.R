@@ -1,8 +1,8 @@
 # Stage 10 consolidated omics-resource RDS bundle helpers.
 #
-# Patch 25 adds an optional R-native resource bundle for internal Stage 10
+# Stage 10 supports an optional R-native resource bundle for internal reference building
 # builder workflows. The bundle is a fast runtime cache with provenance; raw
-# downloaded DepMap/CCLE resources remain the source of truth. Patch 26 adds
+# downloaded DepMap/CCLE resources remain the source of truth. Gene-slim bundle support adds
 # per-gene slim bundle materialization to avoid scanning tens of millions of
 # rows at Stage 10A runtime.
 
@@ -66,7 +66,7 @@ hdr_compile_stage10_omics_bundle <- function(output_rds, depmap_root = NULL, glo
   checksums <- hdr_stage10_omics_checksums(audit)
   bundle <- list(
     bundle_type = "forgeKI_stage10_omics_bundle",
-    schema_version = "patch25_stage10_omics_bundle_v1",
+    schema_version = "stage10_omics_bundle_v1",
     created_at = as.character(Sys.time()),
     release_label = as.character(release_label %||% "unspecified_stage10_omics_release"),
     provenance = list(
@@ -228,7 +228,7 @@ hdr_make_gene_slim_stage10_omics_bundle <- function(omics_bundle_path, gene, out
   log("Loading full Stage 10 omics bundle for gene-slim materialization:", gene)
   b <- hdr_load_stage10_omics_bundle(omics_bundle_path, validate = TRUE)
   slim <- b
-  slim$schema_version <- paste0(b$schema_version %||% "unknown", "+patch26_gene_slim_v1")
+  slim$schema_version <- paste0(b$schema_version %||% "unknown", "+gene_slim_v1")
   slim$release_label <- paste0(b$release_label %||% "stage10_omics_bundle", " | gene-slim: ", gene)
   slim$created_at <- as.character(Sys.time())
   slim$provenance$gene_slim_target <- gene

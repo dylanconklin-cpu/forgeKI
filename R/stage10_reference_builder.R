@@ -1,29 +1,29 @@
 # Stage 10 reference-builder scaffold and Stage 10A context builder.
 #
-# Patch 20 implemented input auditing and bundle scaffolding. Patch 21 adds a
+# The Stage 10 builder implements input auditing, bundle scaffolding, and a
 # conservative Stage 10A target-gene cell-line context builder from supplied
-# private/derived feature tables. Patch 22 adds Stage 10B/10C design-aware and
+# private/derived feature tables. Stage 10B/10C design-aware and
 # allele-aware ranking construction from Stage 10A plus current forgeKI design
-# outputs. Patch 23 adds a conservative RRBS/chromatin-aware Stage 10D overlay.
-# Patch 24 adds a final integrated Stage 10E ranking and practical shortlist.
-# Patch 25 adds a consolidated RDS omics-resource bundle compiler/loader. Patch 26 adds gene-slim bundle materialization and local DepMap long-table schema readers. Patch 27 adds report-facing Stage 10 final summary exports.
+# outputs. Stage 10D adds a conservative RRBS/chromatin-aware overlay.
+# Stage 10E adds a final integrated ranking and practical shortlist.
+# Stage 10 includes a consolidated RDS omics-resource bundle compiler/loader, gene-slim materialization, local DepMap long-table schema readers, and report-facing final summary exports.
 
 #' Build or audit a Stage 10 reference-bundle input scaffold
 #'
 #' Audits the external resources needed by the future internal Stage 10 builder.
-#' Patch 20 created the input-audit scaffold. Patch 21 additionally builds a
+#' The Stage 10 builder audits inputs and builds a
 #' conservative Stage 10A target-gene cell-line context table when usable global
 #' HDR competency, metadata, expression, copy-number, CRISPR, mutation, or fusion
-#' resources are supplied. Patch 22 additionally builds Stage 10B cell-line x
+#' resources are supplied. It additionally builds Stage 10B cell-line x
 #' design rankings and Stage 10C allele-aware rankings when a design table is
-#' supplied. Patch 23 additionally builds a conservative Stage 10D
+#' supplied and builds a conservative Stage 10D
 #' RRBS/chromatin-aware overlay when Stage 10C and RRBS resources are available.
-#' Patch 24 adds Stage 10E final integrated ranking and practical shortlist generation.
-#' Patch 25 adds optional consolidated RDS omics-resource bundle support. Patch 26 adds automatic gene-slim bundle materialization and local DepMap long-table schema readers so full bundles are not scanned repeatedly at runtime. Patch 27 adds report-facing Stage 10 final summary exports.
+#' Stage 10E adds final integrated ranking and practical shortlist generation.
+#' Optional consolidated RDS omics-resource bundle support, automatic gene-slim materialization, local DepMap long-table readers, and report-facing final summaries are supported.
 #'
 #' @param gene Gene symbol for the planned Stage 10 reference bundle.
 #' @param output_dir Directory where the scaffold audit should be written.
-#' @param omics_bundle_path Optional consolidated Stage 10 omics RDS bundle produced by `hdr_compile_stage10_omics_bundle()`/`forgeki_compile_stage10_omics_bundle()`. In Patch 26, a full bundle is automatically materialized to a per-gene slim runtime bundle before Stage 10A when `gene` is supplied. Explicit file paths supplied to this function override bundle-derived paths.
+#' @param omics_bundle_path Optional consolidated Stage 10 omics RDS bundle produced by `hdr_compile_stage10_omics_bundle()`/`forgeki_compile_stage10_omics_bundle()`. A full bundle is automatically materialized to a per-gene slim runtime bundle before Stage 10A when `gene` is supplied. Explicit file paths supplied to this function override bundle-derived paths.
 #' @param depmap_root Optional directory containing DepMap/CCLE/HDR-ranker inputs.
 #' @param global_ranking_path Optional global HDR cell-line ranking file.
 #' @param cellline_metadata_path Optional cell-line metadata/model annotation file.
@@ -211,11 +211,11 @@ hdr_build_stage10_reference <- function(gene, output_dir, omics_bundle_path = NU
     jsonlite::write_json(
       list(
         package = "forgeKI",
-        scaffold_version = "patch25_stage10_omics_bundle_v1",
+        scaffold_version = "stage10_omics_bundle_v1",
         gene = gene,
         mode = mode,
         created_at = as.character(Sys.time()),
-        note = "Patch 25 supports optional consolidated Stage 10 omics RDS bundles and builds Stage 10A through 10E using transparent internal builder scores; private final models are not regenerated.",
+        note = "Optional consolidated Stage 10 omics RDS bundles are supported; Stage 10A through 10E use transparent internal builder scores and do not regenerate private final models.",
         output_paths = output_paths
       ),
       output_paths$manifest_json,
@@ -227,7 +227,7 @@ hdr_build_stage10_reference <- function(gene, output_dir, omics_bundle_path = NU
   out <- list(
     gene = gene,
     mode = mode,
-    scaffold_version = "patch25_stage10_omics_bundle_v1",
+    scaffold_version = "stage10_omics_bundle_v1",
     resource_manifest = resource_manifest,
     resource_audit = resource_audit,
     feature_plan = feature_plan,
@@ -253,7 +253,7 @@ hdr_build_stage10_reference <- function(gene, output_dir, omics_bundle_path = NU
     stage10_final_summary = stage10_final_summary,
     output_dir = if (isTRUE(write_files)) normalize_path2(output_dir, must_work = TRUE) else output_dir,
     output_paths = output_paths,
-    note = "Patch 27 adds report-facing Stage 10 final summary exports while preserving Patch 26b feature-aware Stage 10A through 10E builder behavior; private final models are not regenerated."
+    note = "Report-facing Stage 10 final summary exports preserve feature-aware Stage 10A through 10E builder behavior; private final models are not regenerated."
   )
   class(out) <- c("hdr_stage10_reference_builder_audit", "list")
   out
@@ -467,7 +467,7 @@ hdr_stage10_builder_audit_resources <- function(manifest, depmap_root = NULL) {
       File_Extension = if (nzchar(p) && !dir.exists(p)) tolower(tools::file_ext(p)) else NA_character_,
       N_Bytes = n_bytes,
       Resource_Status = dplyr::case_when(
-        !nzchar(p_raw) ~ "not_supplied_patch20_optional",
+        !nzchar(p_raw) ~ "not_supplied_optional",
         !exists ~ "FAIL_supplied_path_not_found",
         !nonempty ~ "WARN_supplied_path_empty",
         TRUE ~ "PASS_resource_available"
@@ -548,7 +548,7 @@ hdr_stage10_builder_add_discovery <- function(audit, depmap_root = NULL) {
 
 hdr_stage10_builder_feature_plan <- function() {
   tibble::tibble(
-    Planned_Patch = c("Patch 20", "Patch 21", "Patch 22", "Patch 22", "Patch 23", "Patch 24"),
+    Planned_Layer = c("Input audit", "Stage 10A", "Stage 10B", "Stage 10C", "Stage 10D", "Stage 10E"),
     Stage10_Layer = c("builder_scaffold", "10A", "10B", "10C", "10D", "10E"),
     Planned_Output = c(
       "stage10_builder_resource_manifest.csv; stage10_builder_resource_audit.csv; stage10_builder_feature_plan.csv; stage10_builder_qc.csv",
@@ -591,7 +591,7 @@ hdr_stage10_builder_qc <- function(gene, mode, resource_audit, strict = FALSE) {
   tibble::tibble(
     Gene = gene,
     Builder_Mode = mode,
-    Scaffold_Version = "patch23_stage10d_chromatin_builder_v1",
+    Scaffold_Version = "stage10d_chromatin_builder_v1",
     N_Resources_Supplied = as.integer(n_supplied),
     N_Resources_Available = as.integer(n_available),
     N_Resources_Failed = as.integer(n_failed),
@@ -599,11 +599,11 @@ hdr_stage10_builder_qc <- function(gene, mode, resource_audit, strict = FALSE) {
     Has_Gene_Feature_Resources = has_feature,
     Private_Feature_Model_Regenerated = FALSE,
     Stage10_Builder_QC_Status = status,
-    Next_Action = "Patch 24 constructs Stage 10E final integrated recommendations and practical shortlist when inputs allow it."
+    Next_Action = "Stage 10E constructs final integrated recommendations and a practical shortlist when inputs allow it."
   )
 }
 
-# ---- Patch 21: Stage 10A target-gene cell-line context builder -----------------
+# ---- Stage 10A target-gene cell-line context builder ----------------------------
 
 hdr_stage10_builder_add_10a_qc <- function(builder_qc, stage10a) {
   builder_qc$Stage10A_Context_Constructed <- isTRUE(stage10a$qc$Stage10A_Context_Constructed[[1]])
@@ -673,7 +673,7 @@ hdr_stage10a_build_context <- function(gene, resource_audit, build_10a = TRUE, t
     if (!nm %in% names(context)) context[[nm]] <- rep(required_gene_feature_cols[[nm]], nrow(context))
   }
   context$Gene <- gene
-  context$Stage10A_Context_Source <- "forgeKI_patch21_builder"
+  context$Stage10A_Context_Source <- "forgeKI_stage10a_builder"
   context$Private_Feature_Model_Regenerated <- FALSE
 
   context <- hdr_stage10a_score_context(context)
@@ -706,7 +706,7 @@ hdr_stage10a_build_context <- function(gene, resource_audit, build_10a = TRUE, t
     N_Feature_Tables_Missing = as.integer(n_missing),
     Stage10A_QC_Status = qc_status,
     Private_Feature_Model_Regenerated = FALSE,
-    Notes = "Patch 21 constructs Stage 10A feature context only; Stage 10B-10E ranking/scoring is not regenerated."
+    Notes = "Stage 10A constructs feature context; Stage 10B-10E ranking/scoring is handled by downstream layers when inputs are available."
   )
   list(context = context, top_celllines = top_celllines, feature_status = feature_status, global_ranking_schema_audit = global_schema, gene_feature_schema_audit = gene_feature_schema_audit, qc = qc)
 }
@@ -1066,12 +1066,12 @@ hdr_stage10a_feature_status_row <- function(gene, source, table, path, value_col
     N_Rows = as.integer(if (available) nrow(table) else 0L),
     Value_Column = value_col,
     Source_Path = path %||% "",
-    Notes = if (available) "Feature table contributed to Stage 10A context." else "Feature not available for Patch 21 Stage 10A context."
+    Notes = if (available) "Feature table contributed to Stage 10A context." else "Feature not available for Stage 10A context."
   )
 }
 
 
-# ---- Patch 22: Stage 10B/10C design-aware and allele-aware rankings -----------
+# ---- Stage 10B/10C design-aware and allele-aware rankings -----------------------
 
 hdr_stage10_builder_add_10bc_qc <- function(builder_qc, stage10bc) {
   builder_qc$Stage10B_Ranking_Constructed <- isTRUE(stage10bc$stage10b_qc$Stage10B_Ranking_Constructed[[1]] %||% FALSE)
@@ -1261,7 +1261,7 @@ hdr_stage10c_add_allele_awareness <- function(stage10b, gene = NA_character_) {
   x
 }
 
-# ---- Patch 23: Stage 10D RRBS/chromatin-aware overlay ------------------------
+# ---- Stage 10D RRBS/chromatin-aware overlay ------------------------------------
 
 hdr_stage10_builder_add_10d_qc <- function(builder_qc, stage10d) {
   builder_qc$Stage10D_Ranking_Constructed <- isTRUE(stage10d$stage10d_qc$Stage10D_Ranking_Constructed[[1]] %||% FALSE)
@@ -1384,7 +1384,7 @@ hdr_stage10d_load_chromatin_features <- function(gene, rrbs_tss_path = NULL, rrb
       file.exists(rrbs_tss_path %||% "") || file.exists(rrbs_cpg_path %||% "") ~ "WARN_rrbs_files_available_but_gene_features_unmapped",
       TRUE ~ "SKIP_rrbs_chromatin_resources_not_available"
     ),
-    Notes = "RRBS evidence is used as a conservative locus methylation/chromatin proxy, not as a regenerated private final ranking model. Patch 23c adds wide-matrix RRBS sample-column mapping audits."
+    Notes = "RRBS evidence is used as a conservative locus methylation/chromatin proxy, not as a regenerated private final ranking model. Wide-matrix RRBS sample-column mapping audits are included."
   )
   list(features = feats, schema_audit = audit, mapping_audit = mapping_audit)
 }
@@ -1560,7 +1560,7 @@ hdr_stage10d_normalize_rrbs_sample_id <- function(x) {
   y
 }
 
-# ---- Patch 24: Stage 10E final integrated recommendation layer --------------
+# ---- Stage 10E final integrated recommendation layer ---------------------------
 
 hdr_stage10_builder_add_10e_qc <- function(builder_qc, stage10e) {
   builder_qc$Stage10E_Final_Ranking_Constructed <- isTRUE(stage10e$stage10e_qc$Stage10E_Final_Ranking_Constructed[[1]] %||% FALSE)

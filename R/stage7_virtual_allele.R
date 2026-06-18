@@ -110,7 +110,7 @@ hdr_stage7_resolve_cassette <- function(cfg, cassette_sequence = NULL, cassette_
     module_payload_mode <- "cassette_path_override"
   }
 
-  # Patch 17: explicit pForge donor selections resolve Stage 7 from the selected
+  # Explicit pForge donor selections resolve Stage 7 from the selected
   # fusion-module payload resource. Legacy cassette_id is used only when no donor
   # was explicitly supplied, or when the user provides a direct override above.
   if (is.null(raw) && isTRUE(cfg$donor_supplied %||% FALSE) && !is.null(donor$fusion_module_id) && nzchar(donor$fusion_module_id)) {

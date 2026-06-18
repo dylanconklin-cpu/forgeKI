@@ -198,7 +198,7 @@ test_that("MMEJ repair strategy routes Stage 9 to MMEJ scoring", {
   expect_s3_class(res, "mmej_stage9_result")
 })
 
-test_that("Patch 5 preserves HDR Stage 9 strategy routing", {
+test_that("HDR Stage 9 strategy routing is preserved", {
   strat <- hdr_repair_strategy("hdr")
   expect_identical(strat$method, "hdr")
   expect_identical(strat$scoring_fn, run_hdr_stage9)

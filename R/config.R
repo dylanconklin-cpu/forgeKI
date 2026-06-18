@@ -111,7 +111,7 @@ hdr_arm_options <- function(lha_target_bp = 2000L, rha_target_bp = 2000L, min_ar
 #'
 #' @param mh_length Microhomology arm length in base pairs.
 #' @param pitch_grna3_seq Generic PITCh donor-linearization gRNA sequence.
-#' @param mh_length_grid Optional future microhomology-length grid. Patch 1 uses
+#' @param mh_length_grid Optional future microhomology-length grid. Current defaults use
 #'   `mh_length` only and validates but does not execute a grid.
 #' @param donor_architecture MMEJ/PITCh single-print donor architecture. Use
 #'   `auto` to infer from selected donor modules, `payload_only_single_print`

@@ -1,5 +1,5 @@
-test_that("patch26 creates gene-slim omics bundles and maps local long-table schemas", {
-  td <- tempfile("forgeki_patch26_gene_slim_"); dir.create(td)
+test_that("gene-slim omics bundles can map local long-table schemas", {
+  td <- tempfile("forgeki_gene_slim_"); dir.create(td)
   global <- data.frame(
     depmap_id = c("ACH-1", "ACH-2", "ACH-3"),
     cell_line_name = c("A", "B", "C"),
@@ -20,7 +20,7 @@ test_that("patch26 creates gene-slim omics bundles and maps local long-table sch
   write.csv(global, gp, row.names = FALSE); write.csv(expr, ep, row.names = FALSE); write.csv(cn, cp, row.names = FALSE); write.csv(crispr, crp, row.names = FALSE); write.csv(mut, mp, row.names = FALSE); write.csv(fus, fp, row.names = FALSE); write.csv(rrbs_tss, tp, row.names = FALSE); write.csv(rrbs_cpg, cpgp, row.names = FALSE); write.csv(designs, dp, row.names = FALSE)
 
   bundle_path <- file.path(td, "full_bundle.rds")
-  forgeki_compile_stage10_omics_bundle(output_rds = bundle_path, global_ranking_path = gp, expression_path = ep, copy_number_path = cp, crispr_dependency_path = crp, mutation_path = mp, fusion_path = fp, rrbs_tss_path = tp, rrbs_cpg_path = cpgp, release_label = "patch26_toy", compress = "gzip")
+  forgeki_compile_stage10_omics_bundle(output_rds = bundle_path, global_ranking_path = gp, expression_path = ep, copy_number_path = cp, crispr_dependency_path = crp, mutation_path = mp, fusion_path = fp, rrbs_tss_path = tp, rrbs_cpg_path = cpgp, release_label = "gene_slim_toy", compress = "gzip")
   slim_path <- forgeki_make_gene_slim_stage10_omics_bundle(bundle_path, gene = "ACTB", output_dir = file.path(td, "slim"), verbose = FALSE)
   slim <- forgeki_load_stage10_omics_bundle(slim_path)
   expect_lt(nrow(slim$tables$expression_path), nrow(expr))

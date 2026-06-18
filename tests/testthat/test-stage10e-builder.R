@@ -1,4 +1,4 @@
-test_that("patch24 builds Stage 10E final ranking and practical shortlist", {
+test_that("Stage 10E builds final ranking and practical shortlist", {
   td <- tempfile("forgeki_stage10e_"); dir.create(td)
   global <- data.frame(
     depmap_id = c("ACH-1", "ACH-2"),

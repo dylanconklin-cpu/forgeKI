@@ -24,7 +24,7 @@ A tibble with one row per parsed module.
 }
 \description{
 Parses YAML/FASTA module pairs from an external cassette/module directory and
-returns registry-compatible rows. Patch 6d is intentionally read-only: it
+returns registry-compatible rows. The external-library scanner is intentionally read-only: it
 exposes external modules to selectors and validation, but route-specific HDR
 versus MMEJ manufacturability gates are added in the next patch.
 }

@@ -18,7 +18,7 @@ library(forgeKI)
 
 cfg <- forgeki_config(
   gene = "ACTB",
-  project_dir = "D:/Bioinformatics/HDR/forgeKI_Rpackage_test",
+  project_dir = file.path(path.expand("~"), "forgeKI_runs", "ACTB_HDR"),
   donor = forgeki_donor_options(
     destination_vector_id = "pForge-Dest-HSVTK",
     fusion_module_id = "pForge-Fusion-HiBiT-p2A-EGFP",
@@ -65,8 +65,8 @@ forgeKI_omics_resources/
 Create a resource checklist and quickstart artifacts with:
 
 ```{r, eval=FALSE}
-input_dir <- "D:/Bioinformatics/HDR/forgeKI_omics_resources/inputs"
-bundle_path <- "D:/Bioinformatics/HDR/forgeKI_omics_resources/forgeKI_stage10_omics_bundle.rds"
+input_dir <- file.path(path.expand("~"), "forgeKI_omics_resources", "inputs")
+bundle_path <- file.path(path.expand("~"), "forgeKI_omics_resources", "forgeKI_stage10_omics_bundle.rds")
 
 quick <- forgeki_stage10_resource_quickstart(
   input_dir = input_dir,
@@ -121,7 +121,7 @@ Supply the bundle path through `forgeki_stage10_options()` and request the Stage
 ```{r, eval=FALSE}
 cfg <- forgeki_config(
   gene = "ACTB",
-  project_dir = "D:/Bioinformatics/HDR/forgeKI_Rpackage_test",
+  project_dir = file.path(path.expand("~"), "forgeKI_runs", "ACTB_HDR_stage10"),
   donor = forgeki_donor_options(
     destination_vector_id = "pForge-Dest-HSVTK",
     fusion_module_id = "pForge-Fusion-HiBiT-p2A-EGFP",

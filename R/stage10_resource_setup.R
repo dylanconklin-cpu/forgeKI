@@ -1,6 +1,6 @@
 # Stage 10 omics resource setup and reproducibility helpers.
 #
-# Patch 29 adds user-facing utilities for preparing a clean Stage 10 omics input
+# User-facing utilities prepare a clean Stage 10 omics input
 # folder before compiling the consolidated RDS bundle. These helpers do not read
 # large matrices or change scoring; they create templates, validate file
 # presence/provenance, and write a reproducibility README/quickstart script.
@@ -219,8 +219,8 @@ hdr_stage10_resource_quickstart <- function(input_dir, output_dir = NULL, bundle
   hdr_write_stage10_bundle_readme(input_dir = input_dir, output_md = readme_md, bundle_path = bundle_path, check_result = check, release_label = release_label)
   script <- c(
     "# forgeKI Stage 10 omics bundle compile script",
-    "pkg_root <- \"D:/Bioinformatics/HDR/forgeKI_Rpackage\"  # edit if needed",
-    "if (dir.exists(pkg_root)) { setwd(pkg_root); devtools::load_all() } else { library(forgeKI) }",
+    "pkg_root <- getwd()",
+    "if (file.exists(file.path(pkg_root, 'DESCRIPTION')) && requireNamespace('pkgload', quietly = TRUE)) { pkgload::load_all(pkg_root) } else { library(forgeKI) }",
     sprintf("input_dir <- %s", deparse(input_dir)),
     sprintf("bundle_path <- %s", deparse(normalize_path2(bundle_path, must_work = FALSE))),
     sprintf("release_label <- %s", deparse(release_label %||% "forgeKI Stage 10 omics bundle")),

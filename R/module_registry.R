@@ -49,8 +49,7 @@ forgeki_external_module_registry_schema <- function() {
 #' module, with a YAML metadata file and usually a FASTA sequence file. The
 #' default search order is an explicit argument, option
 #' `forgeKI.module_library_path`, environment variable `FORGEKI_MODULE_LIBRARY`,
-#' environment variable `FORGEKI_CASSETTE_LIBRARY`, and finally
-#' `D:/Bioinformatics/HDR/cassettes` when present.
+#' and environment variable `FORGEKI_CASSETTE_LIBRARY`.
 #'
 #' @param path Optional explicit module-library path.
 #' @param must_work Whether the returned path must exist.
@@ -61,7 +60,6 @@ forgeki_external_module_library_path <- function(path = NULL, must_work = FALSE)
   candidate <- path %||% getOption("forgeKI.module_library_path", NULL)
   if (is.null(candidate) || !nzchar(as.character(candidate)[1])) candidate <- Sys.getenv("FORGEKI_MODULE_LIBRARY", unset = "")
   if (!nzchar(as.character(candidate)[1])) candidate <- Sys.getenv("FORGEKI_CASSETTE_LIBRARY", unset = "")
-  if (!nzchar(as.character(candidate)[1])) candidate <- "D:/Bioinformatics/HDR/cassettes"
   candidate <- as.character(candidate)[1]
   if (!nzchar(candidate)) return(NA_character_)
   if (must_work && !dir.exists(path.expand(candidate))) {
@@ -73,7 +71,7 @@ forgeki_external_module_library_path <- function(path = NULL, must_work = FALSE)
 #' Scan an external forgeKI module library
 #'
 #' Parses YAML/FASTA module pairs from an external cassette/module directory and
-#' returns registry-compatible rows. Patch 6d is intentionally read-only: it
+#' returns registry-compatible rows. The external-library scanner is intentionally read-only: it
 #' exposes external modules to selectors and validation, but route-specific HDR
 #' versus MMEJ manufacturability gates are added in the next patch.
 #'
@@ -801,7 +799,7 @@ hdr_resolve_fusion_payload <- forgeki_resolve_fusion_payload
 
 #' Return route-compatibility verdicts for available modules
 #'
-#' Patch 6e exposes route-specific compatibility metadata for reusable modules.
+#' Route-specific compatibility metadata is exposed for reusable modules.
 #' HDR modular compatibility is based on modular Golden Gate overhang/schema
 #' expectations. MMEJ/PITCh single-print compatibility is a synthesis-oriented
 #' first-pass verdict based on sequence availability, length, repeat flags, and

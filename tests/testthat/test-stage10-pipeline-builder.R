@@ -1,4 +1,4 @@
-make_patch28_pipeline_cfg <- function(omics_bundle_path, project_dir = tempdir()) hdr_config(
+make_stage10_pipeline_cfg <- function(omics_bundle_path, project_dir = tempdir()) hdr_config(
   gene = "MOCKP28",
   cassette_id = "toy_hibit",
   project_dir = project_dir,
@@ -18,7 +18,7 @@ make_patch28_pipeline_cfg <- function(omics_bundle_path, project_dir = tempdir()
   runtime = hdr_runtime_options(save_rds = TRUE, write_progress = TRUE)
 )
 
-make_patch28_pipeline_resources <- function() {
+make_stage10_pipeline_resources <- function() {
   cds <- paste0("ATG", paste(rep("GCT", 15), collapse = ""), "AGG", "TAG")
   genome <- c(chrP28 = paste0(strrep("A", 50), cds, strrep("C", 80)))
   list(
@@ -30,8 +30,8 @@ make_patch28_pipeline_resources <- function() {
   )
 }
 
-test_that("patch28 run_hdr_pipeline can build and report Stage 10 from an omics bundle", {
-  td <- tempfile("forgeki_patch28_"); dir.create(td)
+test_that("run_hdr_pipeline can build and report Stage 10 from an omics bundle", {
+  td <- tempfile("forgeki_stage10_pipeline_"); dir.create(td)
   global <- data.frame(
     depmap_id = c("ACH-P28A", "ACH-P28B"),
     cell_line_name = c("P28-A", "P28-B"),
@@ -55,14 +55,14 @@ test_that("patch28 run_hdr_pipeline can build and report Stage 10 from an omics 
     output_rds = bundle_path,
     global_ranking_path = gp,
     expression_path = ep,
-    release_label = "patch28 toy omics bundle",
+    release_label = "toy omics bundle",
     max_rows = Inf
   )
 
-  cfg <- make_patch28_pipeline_cfg(bundle_path, project_dir = td)
+  cfg <- make_stage10_pipeline_cfg(bundle_path, project_dir = td)
   res <- run_hdr_pipeline(
     cfg,
-    resources = make_patch28_pipeline_resources(),
+    resources = make_stage10_pipeline_resources(),
     job_root = file.path(td, "jobs"),
     offtarget_mode = "none",
     stage10_mode = "auto",

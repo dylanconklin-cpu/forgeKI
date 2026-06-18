@@ -54,12 +54,12 @@ report_root <- normalizePath(
   mustWork = FALSE
 )
 reference_bundle <- normalizePath(
-  arg_value("--reference-bundle", "D:/Bioinformatics/HDR/forgeKI_reference_bundle"),
+  arg_value("--reference-bundle", Sys.getenv("FORGEKI_REFERENCE_BUNDLE_DIR", unset = file.path(path.expand("~"), "forgeKI_reference_bundle"))),
   winslash = "/",
   mustWork = TRUE
 )
 module_library <- normalizePath(
-  arg_value("--module-library", "D:/Bioinformatics/HDR/cassettes"),
+  arg_value("--module-library", Sys.getenv("FORGEKI_MODULE_LIBRARY", unset = file.path(path.expand("~"), "forgeKI_module_library"))),
   winslash = "/",
   mustWork = TRUE
 )

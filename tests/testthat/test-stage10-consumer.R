@@ -1,11 +1,11 @@
-test_that("patch19 Stage 10 consumer exposes report-facing tables", {
+test_that("Stage 10 consumer exposes report-facing tables", {
   stage9 <- list(
     locus = list(gene_symbol = "ACTB", transcript_id = "TX1"),
     design_recommendations = tibble::tibble(Design_ID = "DESIGN_001_g001", Guide_ID = "g001", Final_Design_Score = 91, Recommendation_Tier = "PRIMARY"),
     recommendation_summary = tibble::tibble(N_Designs_Scored = 1L, N_Recommended_Primary = 1L, Stage9_QC_Status = "PASS")
   )
   class(stage9) <- c("hdr_stage9_result", "list")
-  cfg <- hdr_config(gene = "ACTB", cassette_id = "toy", project_dir = tempfile("forgeki_patch19_"), stage10 = hdr_stage10_options(top_n = 5L))
+  cfg <- hdr_config(gene = "ACTB", cassette_id = "toy", project_dir = tempfile("forgeki_stage10_consumer_"), stage10 = hdr_stage10_options(top_n = 5L))
   tbl <- tibble::tibble(
     depmap_id = c("ACH-000001", "ACH-000002"),
     cell_line_name = c("A", "B"),

@@ -28,7 +28,7 @@ hdr_module_route_compatibility(
 A tibble of module route-compatibility verdicts.
 }
 \description{
-Patch 6e exposes route-specific compatibility metadata for reusable modules.
+Route-specific compatibility metadata is exposed for reusable modules.
 HDR modular compatibility is based on modular Golden Gate overhang/schema
 expectations. MMEJ/PITCh single-print compatibility is a synthesis-oriented
 first-pass verdict based on sequence availability, length, repeat flags, and

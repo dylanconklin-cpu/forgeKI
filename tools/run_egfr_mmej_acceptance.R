@@ -15,15 +15,18 @@ if (!file.exists(file.path(package_root, "DESCRIPTION"))) {
 
 project_root <- arg_value(
   "--project-root",
-  "D:/Bioinformatics/HDR/forgeKI_EGFR_MMEJ_acceptance"
+  Sys.getenv(
+    "FORGEKI_ACCEPTANCE_PROJECT_ROOT",
+    unset = file.path(package_root, "acceptance_runs", "egfr_mmej_acceptance_project")
+  )
 )
 reference_bundle <- arg_value(
   "--reference-bundle",
-  "D:/Bioinformatics/HDR/forgeKI_reference_bundle"
+  Sys.getenv("FORGEKI_REFERENCE_BUNDLE_DIR", unset = file.path(path.expand("~"), "forgeKI_reference_bundle"))
 )
 module_library <- arg_value(
   "--module-library",
-  "D:/Bioinformatics/HDR/cassettes"
+  Sys.getenv("FORGEKI_MODULE_LIBRARY", unset = file.path(path.expand("~"), "forgeKI_module_library"))
 )
 output_root <- arg_value(
   "--output-root",
@@ -34,6 +37,7 @@ output_root <- arg_value(
 )
 run_root <- arg_value("--run-root")
 
+dir.create(project_root, recursive = TRUE, showWarnings = FALSE)
 project_root <- normalizePath(project_root, winslash = "/", mustWork = TRUE)
 reference_bundle <- normalizePath(reference_bundle, winslash = "/", mustWork = TRUE)
 module_library <- normalizePath(module_library, winslash = "/", mustWork = TRUE)

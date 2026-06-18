@@ -145,7 +145,7 @@ test_that("MMEJ repair strategy routes Stage 8 to PITCh donor construction", {
   expect_s3_class(res, "mmej_stage8_result")
 })
 
-test_that("Patch 4 preserves HDR Stage 8 strategy routing", {
+test_that("HDR Stage 8 strategy routing is preserved", {
   strat <- hdr_repair_strategy("hdr")
   expect_identical(strat$method, "hdr")
   expect_true(is.function(strat$donor_fn))
@@ -154,7 +154,7 @@ test_that("Patch 4 preserves HDR Stage 8 strategy routing", {
   expect_silent(validate_hdr_config(cfg))
 })
 
-test_that("Patch 6g classifies long payload-plus-selection donors as synthesis review", {
+test_that("Long payload-plus-selection donors are classified as synthesis review", {
   cfg <- hdr_config(gene = "TOY", project_dir = tempdir(), method = "mmej", mmej = hdr_mmej_options(mh_length = 20L))
   st7 <- test_mmej_stage8_mock_stage7(cfg)
   long_payload <- paste0(strrep("GCT", 610L), "TAA")

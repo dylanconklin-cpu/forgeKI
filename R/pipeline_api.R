@@ -173,7 +173,7 @@ run_hdr_pipeline <- function(cfg, resources = NULL, cellline_reference = NULL, g
     has_omics_bundle <- !is.null(resolved_omics_bundle)
     has_mmej_cellline_reference <- !is.null(resolved_mmej_cellline_reference)
 
-    # Patch 19b/Patch 28: a v51.2-style gene-context bundle or an omics
+    # Stage 10 accepts a legacy gene-context bundle or an omics
     # bundle-driven Stage 10A-10E builder can satisfy required Stage 10 runs.
     require_gene_context_ref <- isTRUE(cfg$stage10$require_gene_context_reference %||% FALSE) ||
       (identical(stage10_mode, "require") && has_gene_context_reference && !identical(context_mode, "global_reference"))

@@ -17,7 +17,7 @@ hdr_mmej_options(
 
 \item{pitch_grna3_seq}{Generic PITCh donor-linearization gRNA sequence.}
 
-\item{mh_length_grid}{Optional future microhomology-length grid. Patch 1 uses
+\item{mh_length_grid}{Optional future microhomology-length grid. Current defaults use
 \code{mh_length} only and validates but does not execute a grid.}
 
 \item{donor_architecture}{MMEJ/PITCh single-print donor architecture. Use

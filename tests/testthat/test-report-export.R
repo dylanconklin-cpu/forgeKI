@@ -124,13 +124,13 @@ test_that("render_hdr_report exports Stage 10 gene-context tables", {
 
 test_that("render_hdr_report writes production readiness, order-action, and selected-order exports", {
   cfg <- make_report_cfg()
-  res <- run_hdr_pipeline(cfg, resources = make_report_resources(), job_root = file.path(tempdir(), "hdr_report_patch4_jobs"), offtarget_mode = "none", stage10_mode = "skip", top_n = 5L)
+  res <- run_hdr_pipeline(cfg, resources = make_report_resources(), job_root = file.path(tempdir(), "hdr_report_jobs"), offtarget_mode = "none", stage10_mode = "skip", top_n = 5L)
   readiness <- compute_hdr_production_readiness(res)
   expect_s3_class(readiness, "data.frame")
   expect_true(all(c("Report_Review_Readiness", "Order_Review_Readiness", "CSV_Order_Readiness", "Recommended_Order_Action", "Major_Caution") %in% names(readiness)))
   expect_true(nrow(readiness) > 0L)
 
-  rep <- render_hdr_report(res, output_dir = file.path(res$job$output_dir, "report_patch4"))
+  rep <- render_hdr_report(res, output_dir = file.path(res$job$output_dir, "report_rendered"))
   expected_outputs <- c(
     "production_readiness_csv",
     "order_action_enforcement_csv",

@@ -19,6 +19,5 @@ The external module library is a directory containing one subdirectory per
 module, with a YAML metadata file and usually a FASTA sequence file. The
 default search order is an explicit argument, option
 \code{forgeKI.module_library_path}, environment variable \code{FORGEKI_MODULE_LIBRARY},
-environment variable \code{FORGEKI_CASSETTE_LIBRARY}, and finally
-\verb{D:/Bioinformatics/HDR/cassettes} when present.
+and environment variable \code{FORGEKI_CASSETTE_LIBRARY}.
 }

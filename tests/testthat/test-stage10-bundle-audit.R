@@ -1,5 +1,5 @@
-test_that("Patch 18 inspects Stage 10 bundles and selects the richest layer", {
-  root <- file.path(tempdir(), paste0("forgeki_stage10_patch18_", as.integer(stats::runif(1, 1, 1e8))))
+test_that("Stage 10 bundle inspection selects the richest layer", {
+  root <- file.path(tempdir(), paste0("forgeki_stage10_bundle_", as.integer(stats::runif(1, 1, 1e8))))
   dir.create(root, recursive = TRUE, showWarnings = FALSE)
   utils::write.csv(tibble::tibble(
     DepMap_ID = "ACH-10A", Cell_Line = "A10", Gene_Symbol = "ACTB", Rank = 3L, HDR_Context_Score = 60
@@ -19,9 +19,9 @@ test_that("Patch 18 inspects Stage 10 bundles and selects the richest layer", {
   expect_true("stage10e_ranking" %in% insp$schema_audit$Layer)
 })
 
-test_that("Patch 18 migration audit writes compact Stage 10 CSV artifacts", {
-  root <- file.path(tempdir(), paste0("forgeki_stage10_patch18_audit_", as.integer(stats::runif(1, 1, 1e8))))
-  out <- file.path(tempdir(), paste0("forgeki_stage10_patch18_out_", as.integer(stats::runif(1, 1, 1e8))))
+test_that("Stage 10 migration audit writes compact CSV artifacts", {
+  root <- file.path(tempdir(), paste0("forgeki_stage10_bundle_audit_", as.integer(stats::runif(1, 1, 1e8))))
+  out <- file.path(tempdir(), paste0("forgeki_stage10_bundle_out_", as.integer(stats::runif(1, 1, 1e8))))
   dir.create(root, recursive = TRUE, showWarnings = FALSE)
   utils::write.csv(tibble::tibble(
     ModelID = "ACH-S", StrippedCellLineName = "Short", Target_Gene = "TIPARP", Insert_Architecture_ID = "pForge", Final_Rank = 1L, Final_Integrated_Score = 91, Recommendation_Tier = "RECOMMENDED"
@@ -35,8 +35,8 @@ test_that("Patch 18 migration audit writes compact Stage 10 CSV artifacts", {
   expect_equal(qc$Selected_Context_Layer[[1]], "stage10e_shortlist")
 })
 
-test_that("Patch 18 aliases mirror HDR-prefixed inspection helpers", {
-  root <- file.path(tempdir(), paste0("forgeki_stage10_patch18_alias_", as.integer(stats::runif(1, 1, 1e8))))
+test_that("forgeKI aliases mirror HDR-prefixed inspection helpers", {
+  root <- file.path(tempdir(), paste0("forgeki_stage10_bundle_alias_", as.integer(stats::runif(1, 1, 1e8))))
   dir.create(root, recursive = TRUE, showWarnings = FALSE)
   utils::write.csv(tibble::tibble(
     DepMap_ID = "ACH-A", Cell_Line = "A", Gene_Symbol = "EGFR", Rank = 1L, Score = 70

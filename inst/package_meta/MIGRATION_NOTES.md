@@ -13,6 +13,6 @@ Key translation from the local script:
 Next roadmap item: move utility functions and add unit tests, while preserving this no-source-time-execution contract.
 
 
-## Patch 14 - forgeKI aliases
+## forgeKI aliases
 
 Added forgeKI-branded user-facing aliases while preserving the existing hdr_* API. No core biology or pipeline logic changed.

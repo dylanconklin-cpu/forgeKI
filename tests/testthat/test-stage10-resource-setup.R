@@ -1,6 +1,6 @@
-test_that("patch29 writes Stage 10 resource templates, checks, README, and quickstart", {
+test_that("Stage 10 resource setup writes templates, checks, README, and quickstart", {
   tmp <- tempdir()
-  input_dir <- file.path(tmp, "stage10_inputs_patch29")
+  input_dir <- file.path(tmp, "stage10_inputs_quickstart")
   dir.create(input_dir, recursive = TRUE, showWarnings = FALSE)
 
   # Minimal placeholder files; the setup checker only validates presence and provenance,

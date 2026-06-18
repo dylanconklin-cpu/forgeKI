@@ -1,4 +1,4 @@
-test_that("patch21 builds Stage 10A target-gene cell-line context from toy resources", {
+test_that("Stage 10A target-gene cell-line context builds from toy resources", {
   td <- tempfile("forgeki_stage10a_"); dir.create(td)
   global <- data.frame(DepMap_ID = c("ACH-1", "ACH-2", "ACH-3"), CellLine_Name = c("A", "B", "C"), Lineage = c("Lung", "Lung", "Breast"), Global_HDR_Score = c(90, 80, 70), Global_HDR_Rank = 1:3)
   expr <- data.frame(Gene = c("ACTB", "ACTB", "TP53"), DepMap_ID = c("ACH-1", "ACH-2", "ACH-1"), TPM = c(25, 0.2, 5))
@@ -17,7 +17,7 @@ test_that("patch21 builds Stage 10A target-gene cell-line context from toy resou
   expect_true(file.exists(out$output_paths$stage10a_qc))
 })
 
-test_that("patch21c maps v51-style global HDR score and rank aliases", {
+test_that("Stage 10A maps legacy global HDR score and rank aliases", {
   td <- tempfile("forgeki_stage10a_v51_alias_"); dir.create(td)
   global <- data.frame(
     depmap_id = c("ACH-000001", "ACH-000002", "ACH-000003"),

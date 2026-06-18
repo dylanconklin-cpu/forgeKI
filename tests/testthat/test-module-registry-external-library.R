@@ -1,4 +1,4 @@
-make_patch6d_module <- function(root, id, yaml, seq = "ATGGCTTAA") {
+make_external_module <- function(root, id, yaml, seq = "ATGGCTTAA") {
   dir <- file.path(root, id)
   dir.create(dir, recursive = TRUE, showWarnings = FALSE)
   yaml::write_yaml(yaml, file.path(dir, paste0(id, ".yaml")))
@@ -6,10 +6,10 @@ make_patch6d_module <- function(root, id, yaml, seq = "ATGGCTTAA") {
   invisible(dir)
 }
 
-test_that("Patch 6d scans external YAML/FASTA module libraries", {
+test_that("external YAML/FASTA module libraries can be scanned", {
   root <- file.path(tempdir(), paste0("forgeki_modules_", as.integer(runif(1, 1, 1e9))))
   dir.create(root, recursive = TRUE, showWarnings = FALSE)
-  make_patch6d_module(root, "MiniReporter", list(
+  make_external_module(root, "MiniReporter", list(
     id = "MiniReporter",
     name = "Mini reporter module",
     schema_mode = "modular_golden_gate",
@@ -19,7 +19,7 @@ test_that("Patch 6d scans external YAML/FASTA module libraries", {
     qc = list(length_bp_including_stop = 9L, needs_sequence_level_review = FALSE),
     biology_flags = c("compact", "test_flag")
   ))
-  make_patch6d_module(root, "pForge-Cassette-Test", list(
+  make_external_module(root, "pForge-Cassette-Test", list(
     id = "pForge-Cassette-Test",
     module_type = "selection_cassette",
     compatible_modes = c("HDR", "PITCh_MMEJ"),
@@ -43,7 +43,7 @@ test_that("Patch 6d scans external YAML/FASTA module libraries", {
 test_that("forgeki_available_modules includes external modules when configured", {
   root <- file.path(tempdir(), paste0("forgeki_modules_opt_", as.integer(runif(1, 1, 1e9))))
   dir.create(root, recursive = TRUE, showWarnings = FALSE)
-  make_patch6d_module(root, "OptionReporter", list(
+  make_external_module(root, "OptionReporter", list(
     id = "OptionReporter",
     name = "Option reporter module",
     schema_mode = "modular_golden_gate",
@@ -63,14 +63,14 @@ test_that("forgeki_available_modules includes external modules when configured",
 test_that("external modules can validate donor module selections", {
   root <- file.path(tempdir(), paste0("forgeki_modules_validate_", as.integer(runif(1, 1, 1e9))))
   dir.create(root, recursive = TRUE, showWarnings = FALSE)
-  make_patch6d_module(root, "ValidatedReporter", list(
+  make_external_module(root, "ValidatedReporter", list(
     id = "ValidatedReporter",
     name = "Validated reporter module",
     schema_mode = "modular_golden_gate",
     overhang_chain = c("GGAG", "AGGA", "TGCC", "GCAA", "CGCT"),
     qc = list(length_bp_including_stop = 9L)
   ))
-  make_patch6d_module(root, "pForge-Cassette-Validated", list(
+  make_external_module(root, "pForge-Cassette-Validated", list(
     id = "pForge-Cassette-Validated",
     module_type = "selection_cassette",
     compatible_modes = c("HDR", "PITCh_MMEJ"),

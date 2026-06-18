@@ -157,7 +157,7 @@ test_that("MMEJ repair strategy exposes implemented Stage 6 blocking function", 
   expect_s3_class(res, "mmej_stage6_result")
 })
 
-test_that("Patch 2 preserves HDR repair strategy routing", {
+test_that("HDR repair strategy routing is preserved", {
   strat <- hdr_repair_strategy("hdr")
   expect_identical(strat$method, "hdr")
   expect_identical(class(strat)[1], "hdr_repair_strategy")

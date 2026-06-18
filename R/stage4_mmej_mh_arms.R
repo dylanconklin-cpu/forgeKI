@@ -108,7 +108,7 @@ mmej_stage4_extract_stage2_window_sequence <- function(stage2_result, resources 
   }
   abort_hdr_error(
     "hdr_error_missing_resource",
-    "MMEJ Stage 4 could not recover the Stage 2 oriented sequence. Supply resources$genome or rerun Stage 2 after Patch 1 so it retains oriented_seq.",
+    "MMEJ Stage 4 could not recover the Stage 2 oriented sequence. Supply resources$genome or rerun Stage 2 so it retains oriented_seq.",
     "MMEJ microhomology extraction requires the oriented guide-search sequence.",
     "stage4_arms"
   )

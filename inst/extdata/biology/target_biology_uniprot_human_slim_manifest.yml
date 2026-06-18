@@ -8,6 +8,6 @@ max_records: Inf
 n_uniprot_feature_rows: 129657
 n_reference_rows: 13206
 n_genes: 7408
-source_notes: records_file=D:/Bioinformatics/HDR/forgeKI_Rpackage/acceptance_runs/target_biology_proteome_reference/uniprot_reviewed_human_20260610_v2/uniprot_reviewed_human_target_biology_fields.json
+source_notes: records_file=uniprot_reviewed_human_target_biology_fields.json
 sha256_csv_gz: 5ca1a2ba2d23a630750c148140e28dfc6f2d8f6a7e7a51795aa32b02d8fe2849
 sha256_rds: 001754f6e7f4e6b29f67495a4163dabc355a446750b28bb0ea2db6a2ecf6132d

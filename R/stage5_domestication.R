@@ -1,6 +1,6 @@
 # Stage 5 Type IIS domestication proposal generation.
 #
-# Patch 8: biology-first domestication.  Golden Gate/BsaI assembly is assumed to
+# Biology-first domestication: Golden Gate/BsaI assembly is assumed to
 # be mandatory, but homology-arm edits are treated as biological edits that must
 # be minimized, audited, and escalated for manual review when coding/regulatory
 # context is not resolved by the package.

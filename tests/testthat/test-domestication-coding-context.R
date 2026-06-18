@@ -1,4 +1,4 @@
-test_that("Patch 9 resolves coding consequence for domestication edits", {
+test_that("coding consequences are resolved for domestication edits", {
   locus <- list(
     strand = "+",
     cds_ranges = data.frame(start = 1L, end = 9L),
@@ -25,7 +25,7 @@ test_that("Patch 9 resolves coding consequence for domestication edits", {
   expect_equal(nonsyn$edited_aa, "S")
 })
 
-test_that("Patch 9 biology annotation gates LHA coding edits", {
+test_that("biology annotation gates LHA coding edits", {
   locus <- list(
     strand = "+",
     cds_ranges = data.frame(start = 1L, end = 9L),

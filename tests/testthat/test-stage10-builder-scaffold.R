@@ -1,5 +1,5 @@
-test_that("patch20 Stage 10 builder scaffold audits inputs and writes outputs", {
-  tmp <- tempfile("forgeki_patch20_builder_"); dir.create(tmp, recursive = TRUE)
+test_that("Stage 10 builder scaffold audits inputs and writes outputs", {
+  tmp <- tempfile("forgeki_stage10_builder_"); dir.create(tmp, recursive = TRUE)
   depmap_root <- file.path(tmp, "depmap"); dir.create(depmap_root)
   expr <- file.path(depmap_root, "CCLE_expression_TPM.csv")
   rrbs <- file.path(depmap_root, "CCLE_RRBS_TSS_1kb_20180614.txt")
@@ -32,8 +32,8 @@ test_that("patch20 Stage 10 builder scaffold audits inputs and writes outputs", 
   expect_true(any(grepl("^implemented", audit$feature_plan$Implementation_Status)))
 })
 
-test_that("patch20 audit-only mode does not write files", {
-  tmp <- tempfile("forgeki_patch20_audit_"); dir.create(tmp, recursive = TRUE)
+test_that("Stage 10 audit-only mode does not write files", {
+  tmp <- tempfile("forgeki_stage10_audit_"); dir.create(tmp, recursive = TRUE)
   expr <- file.path(tmp, "RNA_expression.csv"); writeLines("depmap_id,TPM\nACH-1,10", expr)
   audit <- forgeki_audit_stage10_builder_inputs(gene = "EGFR", output_dir = file.path(tmp, "out"), expression_path = expr, mode = "audit_only")
   expect_s3_class(audit, "hdr_stage10_reference_builder_audit")
@@ -41,8 +41,8 @@ test_that("patch20 audit-only mode does not write files", {
   expect_true(any(audit$resource_audit$Resource_Key == "expression_path" & audit$resource_audit$Resource_Status == "PASS_resource_available"))
 })
 
-test_that("patch20 strict mode fails when no resources are available", {
-  tmp <- tempfile("forgeki_patch20_strict_")
+test_that("Stage 10 strict mode fails when no resources are available", {
+  tmp <- tempfile("forgeki_stage10_strict_")
   expect_error(
     forgeki_build_stage10_reference(gene = "ACTB", output_dir = tmp, mode = "audit_only", strict = TRUE, write_files = FALSE),
     class = "hdr_error_stage10_builder_inputs_missing"

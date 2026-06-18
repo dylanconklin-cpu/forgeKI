@@ -17,7 +17,7 @@ library(forgeKI)
 cfg <- hdr_config(
   gene = "ACTB",
   cassette_id = "toy_hibit",
-  project_dir = "D:/Bioinformatics/HDR/forgeKI_Rpackage_test",
+  project_dir = file.path(path.expand("~"), "forgeKI_runs", "ACTB_HDR"),
   guide = hdr_guide_options(search_radius_bp = 80L, top_n = 10L),
   arms = hdr_arm_options(lha_target_bp = 2000L, rha_target_bp = 2000L, min_arm_bp = 300L),
   runtime = hdr_runtime_options(save_rds = TRUE, write_progress = TRUE)
@@ -42,7 +42,7 @@ Stage 10 consumes a fixed external cell-line reference. The package tests use to
 
 ```{r, eval=FALSE}
 cell_ref <- load_hdr_cellline_reference(
-  "D:/Bioinformatics/HDR/HDR_Stage2_CellLine_Ranking/20_HDR_CellLine_Ranking_Master.rds"
+  Sys.getenv("FORGEKI_CELLLINE_REFERENCE", unset = "path/to/20_HDR_CellLine_Ranking_Master.rds")
 )
 
 res10 <- run_hdr_pipeline(
@@ -62,9 +62,9 @@ The same reference can also be configured persistently:
 cfg <- hdr_config(
   gene = "ACTB",
   cassette_id = "toy_hibit",
-  project_dir = "D:/Bioinformatics/HDR/forgeKI_Rpackage_test",
+  project_dir = file.path(path.expand("~"), "forgeKI_runs", "ACTB_HDR"),
   stage10 = hdr_stage10_options(
-    cellline_reference_path = "D:/Bioinformatics/HDR/HDR_Stage2_CellLine_Ranking/20_HDR_CellLine_Ranking_Master.rds",
+    cellline_reference_path = Sys.getenv("FORGEKI_CELLLINE_REFERENCE", unset = "path/to/20_HDR_CellLine_Ranking_Master.rds"),
     require_cellline_reference = TRUE
   )
 )

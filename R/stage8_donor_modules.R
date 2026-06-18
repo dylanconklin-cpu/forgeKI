@@ -118,7 +118,7 @@ hdr_stage8_gg_options <- function(cfg) {
   )
   for (nm in names_chr) gg[[nm]] <- toupper(trimws(as.character(gg[[nm]] %||% "")))
 
-  # Patch 16b: use the pForge five-module chain only when a donor registry
+  # Use the pForge five-module chain only when a donor registry
   # selection is supplied. Legacy cassette_id/golden_gate tests and older launch
   # scripts remain a three-module UHDR -> fusion/reporter -> DHDR assembly. The
   # destination vector is treated as an acceptor/backbone with terminal overhangs,
@@ -126,7 +126,7 @@ hdr_stage8_gg_options <- function(cfg) {
   gg$module_architecture <- if (donor_supplied) gg$donor_architecture %||% "pForge_HDR_mUAV_AarI_attB" else "legacy_3_module_bsaI"
   gg$selection_module_available <- isTRUE(donor_supplied) && !is.null(gg$selected_selectable_cassette_id) && !is.na(gg$selected_selectable_cassette_id) && nzchar(gg$selected_selectable_cassette_id)
 
-  # Patch 16c: legacy cassette-mode uses a monolithic middle payload, not the
+  # Legacy cassette-mode uses a monolithic middle payload, not the
   # pForge fusion-only module. Its right overhang must therefore connect
   # directly to DHDR (AGGA -> GCAA) rather than to a selectable cassette
   # (AGGA -> TGCC -> GCAA). Donor-specified pForge mode keeps the registry

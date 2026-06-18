@@ -1,6 +1,6 @@
 # forgeKI 0.1.0 release checklist
 
-This checklist separates work Codex can prepare locally from actions that should be completed by the package owner in RStudio, GitHub, and Zenodo.
+This checklist separates local package-preparation checks from publication actions in GitHub and Zenodo.
 
 ## Local package-prep checks
 

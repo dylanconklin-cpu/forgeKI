@@ -1,4 +1,4 @@
-make_patch8_stage5_fixture <- function(insert_bsai = TRUE) {
+make_biology_first_stage5_fixture <- function(insert_bsai = TRUE) {
   prefix <- strrep("C", 30)
   cds <- "ATGAAACCCGGGTAA"
   rha <- strrep("G", 40)
@@ -18,7 +18,7 @@ make_patch8_stage5_fixture <- function(insert_bsai = TRUE) {
 }
 
 test_that("biology-first domestication enumerates candidate audit and selected edits", {
-  fx <- make_patch8_stage5_fixture(insert_bsai = TRUE)
+  fx <- make_biology_first_stage5_fixture(insert_bsai = TRUE)
   cfg <- fx$cfg
   cfg$golden_gate$domestication_policy <- "biology_first"
   st5 <- run_hdr_stage5(cfg, fx$stage4, typeiis_enzymes = "BsaI")
@@ -31,7 +31,7 @@ test_that("biology-first domestication enumerates candidate audit and selected e
 })
 
 test_that("domestication policy can retain legacy center-out audit mode", {
-  fx <- make_patch8_stage5_fixture(insert_bsai = TRUE)
+  fx <- make_biology_first_stage5_fixture(insert_bsai = TRUE)
   cfg <- fx$cfg
   cfg$golden_gate$domestication_policy <- "legacy_center_out"
   st5 <- run_hdr_stage5(cfg, fx$stage4, typeiis_enzymes = "BsaI")

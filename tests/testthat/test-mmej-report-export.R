@@ -147,7 +147,7 @@ make_mmej_report_mock_result <- function() {
     job = list(output_dir = file.path(tempdir(), "mmej_report_mock_job")),
     stages = list(
       stage4_arms = list(mmej_stage4_qc = tibble::tibble(Stage4_MMEJ_QC_Status = "PASS", MH_Length = 20L, N_MMEJ_Candidates = 1L, N_KIKO_Eligible = 1L)),
-      stage5_domestication = list(mmej_stage5_qc = tibble::tibble(Stage5_MMEJ_Domestication_Status = "PASS_noop_patch1")),
+      stage5_domestication = list(mmej_stage5_qc = tibble::tibble(Stage5_MMEJ_Domestication_Status = "PASS_noop_domestication_not_required")),
       stage6_blocking = list(mmej_stage6_qc = tibble::tibble(Stage6_MMEJ_QC_Status = "PASS", N_Passing_gRNA3_Collision = 1L, N_Failing_gRNA3_Collision = 0L)),
       stage7_virtual_allele = list(virtual_allele_qc = tibble::tibble(Stage7_QC_Status = "PASS_virtual_allele_validated")),
       stage8_donor_modules = st8,

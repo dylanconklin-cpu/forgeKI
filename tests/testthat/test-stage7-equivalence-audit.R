@@ -19,7 +19,7 @@ test_that("Stage 7 exports virtual edited allele DNA sequence table", {
 })
 
 test_that("equivalence audit supports sequence length filtering and intersection mode", {
-  root <- tempfile("eq_patch7_"); ref <- file.path(root, "ref"); cur <- file.path(root, "cur"); out <- file.path(root, "out")
+  root <- tempfile("eq_role_filter_"); ref <- file.path(root, "ref"); cur <- file.path(root, "cur"); out <- file.path(root, "out")
   dir.create(ref, recursive = TRUE); dir.create(cur, recursive = TRUE)
   writeLines(c(">long", paste(rep("A", 10), collapse = ""), ">short", "CCCC"), file.path(ref, "arms.fa"))
   utils::write.csv(tibble::tibble(Arm_ID = "LHA", Arm_Sequence = paste(rep("A", 10), collapse = "")), file.path(cur, "arms.csv"), row.names = FALSE)
