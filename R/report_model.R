@@ -25,7 +25,7 @@ forgeki_assemble_report_model <- function(result, output_profile = NULL, include
   designs <- forgeki_report_design_table(result)
   ordering <- forgeki_report_ordering_block(result)
   model <- list(
-    schema_version = 1L,
+    schema_version = 2L,
     generated_at = format(Sys.time(), "%Y-%m-%dT%H:%M:%OS%z"),
     run = forgeki_report_run_block(result, output_profile),
     target_biology = forgeki_report_target_biology_block(result),
@@ -178,7 +178,7 @@ forgeki_report_run_block <- function(result, output_profile) {
     package_version = forgeki_package_version_string(),
     gene = as.character(cfg$gene %||% NA_character_),
     method = hdr_report_method(result),
-    cassette_id = as.character(cfg$cassette_id %||% NA_character_),
+    payload_module_id = as.character(hdr_report_effective_payload_id(cfg) %||% NA_character_),
     status = as.character(result$status %||% NA_character_),
     created_at = as.character(result$created_at %||% NA_character_),
     output_profile = output_profile,

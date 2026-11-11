@@ -404,7 +404,9 @@ forgeki_exec_payload_label <- function(model) {
   cfg <- forgeki_exec_cfg(model)
   donor <- cfg$donor %||% list()
   gg <- cfg$golden_gate %||% list()
-  id <- donor$fusion_module_id %||% gg$reporter_module_id %||% (model$run %||% list())$cassette_id %||% NA_character_
+  run <- model$run %||% list()
+  id <- donor$fusion_module_id %||% gg$reporter_module_id %||%
+    run$payload_module_id %||% run$cassette_id %||% NA_character_
   forgeki_exec_module_label(id)
 }
 
@@ -416,12 +418,24 @@ forgeki_exec_module_label <- function(module_id) {
     if (nrow(hit)) module_id <- forgeki_exec_text(hit$contains, module_id)
   }
   x <- gsub("_", "-", module_id, fixed = TRUE)
+  # Registry `contains` values are stored in mixed/lower case, so user-facing
+  # labels are normalised to the conventional spelling of each tag and marker.
   x <- gsub("Hibit", "HiBiT", x, ignore.case = TRUE)
   x <- gsub("P2A", "P2A", x, ignore.case = TRUE)
   x <- gsub("EGFP", "EGFP", x, ignore.case = TRUE)
   x <- gsub("mneongreen", "mNeonGreen", x, ignore.case = TRUE)
   x <- gsub("mrfp1", "mRFP1", x, ignore.case = TRUE)
   x <- gsub("irfp670", "iRFP670", x, ignore.case = TRUE)
+  x <- gsub("dddegron", "ddDegron", x, ignore.case = TRUE)
+  x <- gsub("liddegron", "LID degron", x, ignore.case = TRUE)
+  x <- gsub("dtag", "dTAG", x, ignore.case = TRUE)
+  x <- gsub("gfp11", "GFP11", x, ignore.case = TRUE)
+  x <- gsub("halo", "Halo", x, ignore.case = TRUE)
+  x <- gsub("bfp", "BFP", x, ignore.case = TRUE)
+  x <- gsub("ef1a", "EF1a", x, ignore.case = TRUE)
+  x <- gsub("hygror", "HygroR", x, ignore.case = TRUE)
+  x <- gsub("puror", "PuroR", x, ignore.case = TRUE)
+  x <- gsub("hsvtk", "HSV-TK", x, ignore.case = TRUE)
   x
 }
 
