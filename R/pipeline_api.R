@@ -265,40 +265,43 @@ run_hdr_pipeline <- function(cfg, resources = NULL, cellline_reference = NULL, g
 }
 
 
-hdr_pipeline_report_open_types <- function() {
-  # Opened in this order. The detailed report goes first and the plain-language
-  # executive summary last, so that the summary is the tab left in focus: it is
-  # the designed entry point and links onward to the detailed report.
-  c("html_report", "forgeki_report_html", "forgeki_executive_summary_html")
-}
-
-hdr_pipeline_report_html_paths <- function(result, types = hdr_pipeline_report_open_types()) {
+hdr_pipeline_report_html_paths <- function(result) {
+  # Selection is by filename rather than Output_Type: the type vocabulary varies
+  # between the bundle renderer and the standalone renderers, and any NA in the
+  # metadata columns would otherwise propagate through logical subsetting.
   files <- result$user_outputs$report_files
   if (!is.data.frame(files) || !nrow(files)) return(character())
-  if (!all(c("Output_Type", "Path", "Status") %in% names(files))) return(character())
-  written <- files[files$Status == "written", , drop = FALSE]
-  if (!nrow(written)) return(character())
-  paths <- character()
-  for (type in types) {
-    hit <- written[written$Output_Type == type, , drop = FALSE]
-    if (!nrow(hit)) next
-    path <- as.character(hit$Path[[1]])
-    if (length(path) && !is.na(path) && nzchar(path) && file.exists(path)) paths <- c(paths, path)
-  }
+  if (!all(c("Path", "Status") %in% names(files))) return(character())
+  path <- as.character(files$Path)
+  status <- as.character(files$Status)
+  keep <- which(
+    !is.na(path) & nzchar(path) &
+      grepl("\\.html?$", path, ignore.case = TRUE) &
+      (is.na(status) | status == "written")
+  )
+  if (!length(keep)) return(character())
+  paths <- unique(path[keep])
+  paths <- paths[file.exists(paths)]
   if (!length(paths)) return(character())
-  unique(normalizePath(paths, winslash = "/", mustWork = FALSE))
+  # The executive summary is opened last so it is the tab left in focus; it is
+  # the designed entry point and links onward to the detailed report.
+  is_summary <- grepl("executive_summary", basename(paths), ignore.case = TRUE)
+  c(paths[!is_summary], paths[is_summary])
 }
 
 hdr_pipeline_open_report <- function(result) {
   paths <- hdr_pipeline_report_html_paths(result)
   if (!length(paths)) return(invisible(character()))
   opened <- character()
-  for (path in paths) {
+  for (i in seq_along(paths)) {
+    # Some desktop browsers drop a second request issued in the same instant, so
+    # the opens are spaced out slightly.
+    if (i > 1L) Sys.sleep(0.75)
     ok <- tryCatch({
-      utils::browseURL(path)
+      utils::browseURL(paths[[i]])
       TRUE
     }, error = function(e) FALSE, warning = function(w) FALSE)
-    if (isTRUE(ok)) opened <- c(opened, path)
+    if (isTRUE(ok)) opened <- c(opened, paths[[i]])
   }
   invisible(opened)
 }
