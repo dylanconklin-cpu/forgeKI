@@ -44,9 +44,11 @@
 #'   order sheet without a separate render call. Set to `FALSE` for staged or
 #'   scripted runs that only need the per-stage tables.
 #' @param user_output_dir Optional directory for the user-facing report bundle.
-#' @param open_report Whether to open the rendered HTML report in a browser when
-#'   the run finishes. Defaults to `interactive()`, so an interactive session
-#'   opens the report while scripted, batch, and CI runs do not. Ignored when
+#' @param open_report Whether to open the rendered report in a browser when the
+#'   run finishes. Defaults to `interactive()`, so an interactive session opens
+#'   the report while scripted, batch, and CI runs do not. The plain-language
+#'   executive summary (`forgeki_executive_summary.html`) is opened in
+#'   preference to the detailed report, which it links to. Ignored when
 #'   `render_user_outputs` is `FALSE` or when no HTML report was written.
 #' @param ... Reserved for future API-compatible arguments.
 #'
@@ -262,15 +264,25 @@ run_hdr_pipeline <- function(cfg, resources = NULL, cellline_reference = NULL, g
 }
 
 
-hdr_pipeline_report_html_path <- function(result) {
+hdr_pipeline_report_open_preference <- function() {
+  # The executive summary is the designed, plain-language entry point and links
+  # onward to the detailed report, so it is opened first when both are present.
+  c("forgeki_executive_summary_html", "html_report", "forgeki_report_html")
+}
+
+hdr_pipeline_report_html_path <- function(result, prefer = hdr_pipeline_report_open_preference()) {
   files <- result$user_outputs$report_files
   if (!is.data.frame(files) || !nrow(files)) return(NA_character_)
   if (!all(c("Output_Type", "Path", "Status") %in% names(files))) return(NA_character_)
-  hit <- files[files$Output_Type == "html_report" & files$Status == "written", , drop = FALSE]
-  if (!nrow(hit)) return(NA_character_)
-  path <- as.character(hit$Path[[1]])
-  if (!length(path) || is.na(path) || !nzchar(path) || !file.exists(path)) return(NA_character_)
-  path
+  written <- files[files$Status == "written", , drop = FALSE]
+  if (!nrow(written)) return(NA_character_)
+  for (type in prefer) {
+    hit <- written[written$Output_Type == type, , drop = FALSE]
+    if (!nrow(hit)) next
+    path <- as.character(hit$Path[[1]])
+    if (length(path) && !is.na(path) && nzchar(path) && file.exists(path)) return(path)
+  }
+  NA_character_
 }
 
 hdr_pipeline_open_report <- function(result) {

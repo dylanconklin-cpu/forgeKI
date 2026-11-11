@@ -74,9 +74,11 @@ scripted runs that only need the per-stage tables.}
 
 \item{user_output_dir}{Optional directory for the user-facing report bundle.}
 
-\item{open_report}{Whether to open the rendered HTML report in a browser when
-the run finishes. Defaults to \code{interactive()}, so an interactive session
-opens the report while scripted, batch, and CI runs do not. Ignored when
+\item{open_report}{Whether to open the rendered report in a browser when the
+run finishes. Defaults to \code{interactive()}, so an interactive session opens
+the report while scripted, batch, and CI runs do not. The plain-language
+executive summary (\code{forgeki_executive_summary.html}) is opened in
+preference to the detailed report, which it links to. Ignored when
 \code{render_user_outputs} is \code{FALSE} or when no HTML report was written.}
 
 \item{...}{Reserved for future API-compatible arguments.}
