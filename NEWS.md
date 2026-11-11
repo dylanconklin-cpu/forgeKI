@@ -1,4 +1,11 @@
 ﻿
+# forgeKI 0.1.3
+
+- `run_hdr_pipeline()` / `run_forgeki_pipeline()` now render the user-facing report bundle by default (`render_user_outputs = TRUE`). A standard run writes `forgeki_report.html`, `report_model.json`/`.rds`, the executive summary, and the order sheet without a separate render call. Pass `render_user_outputs = FALSE` to restore the previous stage-tables-only behavior.
+- Added `open_report`, which opens the rendered HTML report when a run finishes. It defaults to `interactive()`, so console sessions open the report while scripted, batch, knitr, and CI runs do not. Failures to open are non-fatal and never affect pipeline status.
+- Behavior change to note: because `blocking_top_n` defaults to the first five Stage 2 guides on rendered HDR runs, and rendering is now the default, default HDR runs now scope re-cleavage blocking to the top five guides. Pass `blocking_top_n = top_n` to retain the previous default-run scope.
+- Documented that hg38 Bioconductor resources are required for every run, not only for exact-hg38 off-target screening, since Stage 1 resolves the target locus from hg38.
+
 # forgeKI 0.1.2
 
 - Polished public package metadata and release notes.
