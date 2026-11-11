@@ -44,12 +44,13 @@
 #'   order sheet without a separate render call. Set to `FALSE` for staged or
 #'   scripted runs that only need the per-stage tables.
 #' @param user_output_dir Optional directory for the user-facing report bundle.
-#' @param open_report Whether to open the rendered report in a browser when the
+#' @param open_report Whether to open the rendered reports in a browser when the
 #'   run finishes. Defaults to `interactive()`, so an interactive session opens
-#'   the report while scripted, batch, and CI runs do not. The plain-language
-#'   executive summary (`forgeki_executive_summary.html`) is opened in
-#'   preference to the detailed report, which it links to. Ignored when
-#'   `render_user_outputs` is `FALSE` or when no HTML report was written.
+#'   them while scripted, batch, and CI runs do not. Both HTML reports are
+#'   opened: the detailed report (`forgeki_report.html`) first, then the
+#'   plain-language executive summary (`forgeki_executive_summary.html`), so the
+#'   summary is the tab left in focus. Ignored when `render_user_outputs` is
+#'   `FALSE` or when no HTML report was written.
 #' @param ... Reserved for future API-compatible arguments.
 #'
 #' @return A classed `hdr_result` list containing the job, all completed stage
@@ -264,35 +265,42 @@ run_hdr_pipeline <- function(cfg, resources = NULL, cellline_reference = NULL, g
 }
 
 
-hdr_pipeline_report_open_preference <- function() {
-  # The executive summary is the designed, plain-language entry point and links
-  # onward to the detailed report, so it is opened first when both are present.
-  c("forgeki_executive_summary_html", "html_report", "forgeki_report_html")
+hdr_pipeline_report_open_types <- function() {
+  # Opened in this order. The detailed report goes first and the plain-language
+  # executive summary last, so that the summary is the tab left in focus: it is
+  # the designed entry point and links onward to the detailed report.
+  c("html_report", "forgeki_report_html", "forgeki_executive_summary_html")
 }
 
-hdr_pipeline_report_html_path <- function(result, prefer = hdr_pipeline_report_open_preference()) {
+hdr_pipeline_report_html_paths <- function(result, types = hdr_pipeline_report_open_types()) {
   files <- result$user_outputs$report_files
-  if (!is.data.frame(files) || !nrow(files)) return(NA_character_)
-  if (!all(c("Output_Type", "Path", "Status") %in% names(files))) return(NA_character_)
+  if (!is.data.frame(files) || !nrow(files)) return(character())
+  if (!all(c("Output_Type", "Path", "Status") %in% names(files))) return(character())
   written <- files[files$Status == "written", , drop = FALSE]
-  if (!nrow(written)) return(NA_character_)
-  for (type in prefer) {
+  if (!nrow(written)) return(character())
+  paths <- character()
+  for (type in types) {
     hit <- written[written$Output_Type == type, , drop = FALSE]
     if (!nrow(hit)) next
     path <- as.character(hit$Path[[1]])
-    if (length(path) && !is.na(path) && nzchar(path) && file.exists(path)) return(path)
+    if (length(path) && !is.na(path) && nzchar(path) && file.exists(path)) paths <- c(paths, path)
   }
-  NA_character_
+  if (!length(paths)) return(character())
+  unique(normalizePath(paths, winslash = "/", mustWork = FALSE))
 }
 
 hdr_pipeline_open_report <- function(result) {
-  path <- hdr_pipeline_report_html_path(result)
-  if (is.na(path)) return(invisible(FALSE))
-  opened <- tryCatch({
-    utils::browseURL(path)
-    TRUE
-  }, error = function(e) FALSE, warning = function(w) FALSE)
-  invisible(isTRUE(opened))
+  paths <- hdr_pipeline_report_html_paths(result)
+  if (!length(paths)) return(invisible(character()))
+  opened <- character()
+  for (path in paths) {
+    ok <- tryCatch({
+      utils::browseURL(path)
+      TRUE
+    }, error = function(e) FALSE, warning = function(w) FALSE)
+    if (isTRUE(ok)) opened <- c(opened, path)
+  }
+  invisible(opened)
 }
 
 hdr_pipeline_stage9_design_table_path <- function(stage_paths) {
