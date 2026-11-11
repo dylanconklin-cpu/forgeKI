@@ -4,7 +4,7 @@
 
 `forgeKI` is an R package for biology-first knock-in design. It builds staged HDR and MMEJ/PITCh reporter-tagging workflows around explicit resources, reproducible job folders, auditable guide and donor decisions, and bench-facing outputs.
 
-The package is available as a public release. Real production runs still require local hg38 resources and, for Stage 10 cell-line ranking, an explicitly supplied reference bundle that is not shipped with the public package.
+The package is available as a public release. Every pipeline run requires local hg38 Bioconductor resources, because Stage 1 resolves the target locus from the hg38 genome. Stage 10 cell-line ranking additionally requires an explicitly supplied reference bundle that is not shipped with the public package.
 
 ## What forgeKI does
 
@@ -35,8 +35,11 @@ install.packages(
 )
 ```
 
-The default exact hg38 pipeline also needs Bioconductor genome and annotation
-resources. Install them once after installing forgeKI:
+**forgeKI requires hg38 Bioconductor genome and annotation resources to run at all.**
+Stage 1 resolves the target locus from the hg38 genome, so these packages must be
+installed before any pipeline run, including the smoke run below. Install them once
+after installing forgeKI (this downloads several hundred MB from Bioconductor and
+only needs to be done once):
 
 ```r
 library(forgeKI)
