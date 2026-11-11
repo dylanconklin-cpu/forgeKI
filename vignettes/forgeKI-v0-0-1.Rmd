@@ -1,15 +1,31 @@
 ---
-title: "forgeKI v0.0.1 local pipeline"
+title: "forgeKI local pipeline"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{forgeKI v0.0.1 local pipeline}
+  %\VignetteIndexEntry{forgeKI local pipeline}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-`forgeKI` v0.0.1 provides a controlled local HDR reporter knock-in design pipeline. Each migrated stage can still be run independently, while `run_hdr_pipeline()` executes the gated stages in an isolated job directory and writes per-stage RDS/CSV outputs.
+`forgeKI` provides a controlled local HDR reporter knock-in design pipeline. Each migrated stage can still be run independently, while `run_hdr_pipeline()` executes the gated stages in an isolated job directory and writes per-stage RDS/CSV outputs.
 
 The current orchestrator runs Stage 1, Stage 2, Stage 4, Stage 5, Stage 6, Stage 7, Stage 8, Stage 3, and Stage 9. Stage 10 runs only when a fixed cell-line reference is supplied or explicitly required.
+
+## Prerequisite: install hg38 Bioconductor resources
+
+forgeKI resolves the target locus from the hg38 genome in Stage 1, so the hg38
+Bioconductor genome and annotation packages must be installed before running the
+pipeline, including the example below. Without them the pipeline stops at Stage 1
+with an `hdr_error_missing_resource` condition, regardless of `offtarget_mode`.
+
+This is a one-time setup step and downloads several hundred MB from Bioconductor:
+
+```{r, eval=FALSE}
+library(forgeKI)
+forgeki_install_hg38_resources()
+```
+
+## Example run
 
 ```{r, eval=FALSE}
 library(forgeKI)
