@@ -338,7 +338,7 @@ hdr_report_compact_qc <- function(result) {
   cfg <- result$config
   add("run", "gene", cfg$gene, result$status)
   add("run", "repair_method", hdr_report_method(result), result$status)
-  add("run", "cassette_id", cfg$cassette_id, result$status)
+  add("run", "payload_module_id", hdr_report_effective_payload_id(cfg), result$status)
   add("run", "pipeline_status", result$status, result$status)
   add("run", "stages_completed", paste(result$stages_completed, collapse = ";"), result$status)
 
@@ -459,7 +459,7 @@ hdr_report_build_html <- function(result, compact_qc, vendor_exports, include_ce
     paste0("<title>", hdr_html_escape(cfg$gene), " ", hdr_html_escape(toupper(hdr_report_method(result))), " design report</title>"),
     "<style>body{font-family:Arial,Helvetica,sans-serif;line-height:1.35;margin:32px;max-width:1200px}h1,h2{color:#1f2937}table{border-collapse:collapse;margin:12px 0;width:100%;font-size:13px}th,td{border:1px solid #d1d5db;padding:6px;vertical-align:top}th{background:#f3f4f6}.status{font-weight:bold}.small{font-size:12px;color:#4b5563}.mono{font-family:Consolas,monospace}code.status{background:#eef2ff;border:1px solid #c7d2fe;border-radius:4px;padding:1px 4px;font-family:Consolas,monospace;font-size:12px}details{border:1px solid #e5e7eb;border-radius:8px;margin:10px 0;padding:8px 12px}summary{font-weight:bold;cursor:pointer}</style>",
     "</head><body>",
-    paste0("<h1>", hdr_html_escape(hdr_report_method_label(result)), " design report: ", hdr_html_escape(cfg$gene), " / ", hdr_html_escape(cfg$cassette_id), "</h1>"),
+    paste0("<h1>", hdr_html_escape(hdr_report_method_label(result)), " design report: ", hdr_html_escape(cfg$gene), " / ", hdr_html_escape(hdr_report_effective_payload_id(cfg)), "</h1>"),
     paste0("<p>Pipeline status: ", hdr_report_status_chip(result$status), " | Repair method: ", hdr_html_escape(hdr_report_method(result)), "</p>"),
     paste0("<p class='small'>Created: ", hdr_html_escape(result$created_at %||% format(Sys.time(), "%Y-%m-%dT%H:%M:%OS%z")), " | Output profile: ", hdr_html_escape(output_profile), "</p>"),
     "<h2>Compact QC summary</h2>", hdr_report_table_html(compact_qc, max_rows = 200L),
@@ -1374,6 +1374,19 @@ hdr_report_final_diagnostics <- function(result) {
 # These definitions intentionally override a few HDR-oriented helper functions
 # above while preserving their HDR behavior for method = "hdr".
 # -----------------------------------------------------------------------------
+
+hdr_report_effective_payload_id <- function(cfg) {
+  # Reports the payload actually designed with, using the same precedence the
+  # design stages use. cfg$cassette_id is the deprecated legacy identifier and
+  # keeps its toy-fixture default when a run supplies donor modules instead, so
+  # reporting it directly misrepresents the design.
+  cfg <- cfg %||% list()
+  id <- (cfg$donor %||% list())$fusion_module_id %||%
+    (cfg$golden_gate %||% list())$reporter_module_id %||%
+    cfg$cassette_id %||% NA_character_
+  id <- as.character(id)[1]
+  if (is.na(id) || !nzchar(id)) NA_character_ else id
+}
 
 hdr_report_method <- function(result) {
   method <- result$config$method %||% "hdr"
