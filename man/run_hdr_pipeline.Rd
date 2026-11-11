@@ -18,8 +18,9 @@ run_hdr_pipeline(
   blocking_top_n = NULL,
   write_outputs = TRUE,
   save_rds = cfg$runtime$save_rds \%||\% TRUE,
-  render_user_outputs = FALSE,
+  render_user_outputs = TRUE,
   user_output_dir = NULL,
+  open_report = interactive(),
   ...
 )
 }
@@ -66,9 +67,19 @@ do not introduce unexplained donor-arm edits; non-rendered runs retain
 \item{save_rds}{Whether stage objects should be saved as RDS files.}
 
 \item{render_user_outputs}{Whether to render the user-facing report bundle
-after the pipeline completes.}
+after the pipeline completes. Defaults to \code{TRUE}, so a standard run writes
+\code{forgeki_report.html}, the report model, the executive summary, and the
+order sheet without a separate render call. Set to \code{FALSE} for staged or
+scripted runs that only need the per-stage tables.}
 
 \item{user_output_dir}{Optional directory for the user-facing report bundle.}
+
+\item{open_report}{Whether to open the rendered report in a browser when the
+run finishes. Defaults to \code{interactive()}, so an interactive session opens
+the report while scripted, batch, and CI runs do not. The plain-language
+executive summary (\code{forgeki_executive_summary.html}) is opened in
+preference to the detailed report, which it links to. Ignored when
+\code{render_user_outputs} is \code{FALSE} or when no HTML report was written.}
 
 \item{...}{Reserved for future API-compatible arguments.}
 }

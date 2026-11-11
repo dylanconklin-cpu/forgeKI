@@ -39,14 +39,23 @@
 #' @param write_outputs Whether stage tables should be written to disk.
 #' @param save_rds Whether stage objects should be saved as RDS files.
 #' @param render_user_outputs Whether to render the user-facing report bundle
-#'   after the pipeline completes.
+#'   after the pipeline completes. Defaults to `TRUE`, so a standard run writes
+#'   `forgeki_report.html`, the report model, the executive summary, and the
+#'   order sheet without a separate render call. Set to `FALSE` for staged or
+#'   scripted runs that only need the per-stage tables.
 #' @param user_output_dir Optional directory for the user-facing report bundle.
+#' @param open_report Whether to open the rendered report in a browser when the
+#'   run finishes. Defaults to `interactive()`, so an interactive session opens
+#'   the report while scripted, batch, and CI runs do not. The plain-language
+#'   executive summary (`forgeki_executive_summary.html`) is opened in
+#'   preference to the detailed report, which it links to. Ignored when
+#'   `render_user_outputs` is `FALSE` or when no HTML report was written.
 #' @param ... Reserved for future API-compatible arguments.
 #'
 #' @return A classed `hdr_result` list containing the job, all completed stage
 #'   objects, stage output paths, and a compact status summary.
 #' @export
-run_hdr_pipeline <- function(cfg, resources = NULL, cellline_reference = NULL, gene_context_reference = NULL, job = NULL, job_root = file.path(cfg$output_dir, "jobs"), offtarget_mode = c("none", "auto", "exact_genome", "exact_hg38"), stage10_mode = c("auto", "skip", "require"), guide_scope = c("top_n", "all"), top_n = cfg$guide$top_n %||% 25L, blocking_top_n = NULL, write_outputs = TRUE, save_rds = cfg$runtime$save_rds %||% TRUE, render_user_outputs = FALSE, user_output_dir = NULL, ...) {
+run_hdr_pipeline <- function(cfg, resources = NULL, cellline_reference = NULL, gene_context_reference = NULL, job = NULL, job_root = file.path(cfg$output_dir, "jobs"), offtarget_mode = c("none", "auto", "exact_genome", "exact_hg38"), stage10_mode = c("auto", "skip", "require"), guide_scope = c("top_n", "all"), top_n = cfg$guide$top_n %||% 25L, blocking_top_n = NULL, write_outputs = TRUE, save_rds = cfg$runtime$save_rds %||% TRUE, render_user_outputs = TRUE, user_output_dir = NULL, open_report = interactive(), ...) {
   validate_hdr_config(cfg)
   offtarget_mode <- match.arg(offtarget_mode)
   stage10_mode <- match.arg(stage10_mode)
@@ -250,9 +259,41 @@ run_hdr_pipeline <- function(cfg, resources = NULL, cellline_reference = NULL, g
   saveRDS(res, file.path(job$output_dir, "hdr_result.rds"))
   hdr_pipeline_write_manifest(res, file.path(job$manifest_dir, "pipeline_manifest.json"))
   progress("pipeline", "completed", list(status = res$status, stages_completed = length(res$stages_completed), result_rds = file.path(job$output_dir, "hdr_result.rds")))
+  if (isTRUE(open_report)) hdr_pipeline_open_report(res)
   res
 }
 
+
+hdr_pipeline_report_open_preference <- function() {
+  # The executive summary is the designed, plain-language entry point and links
+  # onward to the detailed report, so it is opened first when both are present.
+  c("forgeki_executive_summary_html", "html_report", "forgeki_report_html")
+}
+
+hdr_pipeline_report_html_path <- function(result, prefer = hdr_pipeline_report_open_preference()) {
+  files <- result$user_outputs$report_files
+  if (!is.data.frame(files) || !nrow(files)) return(NA_character_)
+  if (!all(c("Output_Type", "Path", "Status") %in% names(files))) return(NA_character_)
+  written <- files[files$Status == "written", , drop = FALSE]
+  if (!nrow(written)) return(NA_character_)
+  for (type in prefer) {
+    hit <- written[written$Output_Type == type, , drop = FALSE]
+    if (!nrow(hit)) next
+    path <- as.character(hit$Path[[1]])
+    if (length(path) && !is.na(path) && nzchar(path) && file.exists(path)) return(path)
+  }
+  NA_character_
+}
+
+hdr_pipeline_open_report <- function(result) {
+  path <- hdr_pipeline_report_html_path(result)
+  if (is.na(path)) return(invisible(FALSE))
+  opened <- tryCatch({
+    utils::browseURL(path)
+    TRUE
+  }, error = function(e) FALSE, warning = function(w) FALSE)
+  invisible(isTRUE(opened))
+}
 
 hdr_pipeline_stage9_design_table_path <- function(stage_paths) {
   p <- stage_paths$stage9_design_scoring$tables$design_recommendations %||% NA_character_
